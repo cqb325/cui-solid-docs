@@ -1,0 +1,82 @@
+---
+path: /view/exception
+name: exception
+title: Exception 异常页面
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Exception 异常页面\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[403页面]{id='base' src='/view/exception/1base.demo.tsx'}
+
+403页面
+
+:::
+
+
+
+:::demo[隐藏按钮]{id='hideAction' src='/view/exception/2hideAction.demo.tsx'}
+
+通过 `showAction` 隐藏操作按钮
+
+:::
+
+
+
+:::demo[404]{id='e404' src='/view/exception/3404.demo.tsx'}
+
+404异常页面
+
+:::
+
+
+:::demo[500]{id='e500' src='/view/exception/4500.demo.tsx'}
+
+500异常页面
+
+:::
+
+
+:::demo[empty]{id='empty' src='/view/exception/5empty.demo.tsx'}
+
+empty 异常页面
+
+:::
+
+:::demo[fail]{id='fail' src='/view/exception/6fail.demo.tsx'}
+
+fail 异常页面
+
+:::
+
+
+:::demo[deny]{id='deny' src='/view/exception/7deny.demo.tsx'}
+
+deny 异常页面
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|type|类型|404 &#124; 403 &#124; 500 &#124; empty &#124; fail &#124; deny|-|
+|typeImage|自定义图片|JSXElement|-|
+|desc|描述文案|string|-|
+|showDesc|显示描述文案|boolean|true|
+|link|按钮地址|string||
+|showAction|显示按钮|boolean|true|
+
+
+
+</div>
+

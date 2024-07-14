@@ -1,0 +1,58 @@
+---
+path: /view/countup
+name: countup
+title: CountUp 数字动画
+---
+
+<div class="sys-ctx-main-left">
+
+# CountUp 数字动画\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/other/countup/1base.demo.tsx'}
+
+该组件基于 countup.js 封装，可以自由控制数字动画过程。
+
+:::
+
+
+:::demo[小数]{id='decimal' src='/other/countup/2decimal.demo.tsx'}
+
+设置属性 `decimal` 指定小数位数。
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|value|目标值|number||
+|start|起始值|number|0|
+|duration|持续时间单位秒|number|2|
+|decimal|小数点小数位数|number||
+|useGrouping|使用组|boolean|true|
+|useEasing|ease 动画|boolean|true|
+|separator|分隔符|string|,|
+|formattingFn|自定义格式函数|Function||
+|prefix|前缀|string||
+|suffix|后缀|string||
+|onEnd|结束回调|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onEnd`|结束回调|-|
+
+</div>
+

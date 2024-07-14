@@ -1,0 +1,51 @@
+---
+path: /base/icon
+name: icon
+title: Icon 图标
+---
+
+import IconSearch from './IconList.tsx';
+
+<div class="sys-ctx-main-left">
+
+# Icon 图标\{#title\}
+
+## 代码演示\{#code_preview\}
+
+::demos
+
+:::demo[图标大小]{id='size' src='/base/icon/1size.demo.tsx'}
+
+通过设置 `size` 可以设置图标大小,默认14px
+
+:::
+
+
+:::demo[图标颜色]{id='color' src='/base/icon/2color.demo.tsx'}
+
+通过设置 `color` 可以设置图标颜色
+
+:::
+
+
+:::demo[旋转图标]{id='spin' src='/base/icon/3spin.demo.tsx'}
+
+通过设置 `spin` 可以将图标设置为旋转图标
+
+:::
+
+
+<IconSearch/>
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|size|按钮大小|`small`、`default`、`large`|-|
+|spin|是否为旋转图标|boolean|-|
+|name|图标名称|string|-|
+
+</div>

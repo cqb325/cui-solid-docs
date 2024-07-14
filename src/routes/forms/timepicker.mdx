@@ -1,0 +1,125 @@
+---
+path: /form/timepicker
+name: timepicker
+title: Timepicker 时间选择
+---
+
+import dayjs from 'dayjs';
+
+<div class="sys-ctx-main-left">
+
+# Timepicker 时间选择\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/timepicker/1base.demo.tsx'}
+
+基础用法， `columns` 中 `type` 支持 `index` 和 `checkbox`
+
+:::
+
+
+:::demo[禁用]{id='border' src='/form/timepicker/2disabled.demo.tsx'}
+
+使用 `disabled` 禁用
+
+:::
+
+
+:::demo[尺寸]{id='size' src='/form/timepicker/3size.demo.tsx'}
+
+`size` 支持 `small` 和 `large`
+
+:::
+
+
+:::demo[可清空]{id='clearable' src='/form/timepicker/4clearable.demo.tsx'}
+
+设置 `clearable` 选择后可清空
+
+:::
+
+
+:::demo[格式化]{id='format' src='/form/timepicker/5format.demo.tsx'}
+
+通过 `format` 可自定义时间显示格式，格式同dayjs
+
+:::
+
+
+
+:::demo[步长]{id='step' src='/form/timepicker/6step.demo.tsx'}
+
+`hourStep` 、`minuteStep` 、`secondStep` 可分别设置小时分钟秒的显示步长
+
+:::
+
+
+:::demo[头部底部]{id='head' src='/form/timepicker/7head.demo.tsx'}
+
+header/footer 可分别设置头部显示内容和底部显示内容
+
+:::
+
+
+:::demo[不可用时间]{id='disable_time' src='/form/timepicker/8disable_time.demo.tsx'}
+
+通过 `disabledTime` 自定义不可用时间
+
+:::
+
+
+:::demo[时间范围]{id='range' src='/form/timepicker/9range.demo.tsx'}
+
+`type` 支持`time`和`timeRange`， `timeRange`为时间范围选择
+
+:::
+
+
+:::demo[触发元素]{id='trigger' src='/form/timepicker/10trigger.demo.tsx' scopes='{dayjs}'}
+
+通过 `trigger` 可设置自定义触发元素
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|value|值，可控属性|Signal||
+|disabled|禁用|boolean||
+|size|尺寸大小|small、large||
+|clearable|可清空|boolean||
+|align|下拉位置|bottomLeft &#124; bottomRight|bottomRight|
+|format|时间格式化同dayjs|string||
+|prepend|前缀|JSXElement||
+|disabledTime|禁用时间的回调函数，参数number和type|Function||
+|hourStep|小时步长|number||
+|minuteStep|分钟步长|number||
+|secondStep|秒步长|number||
+|header|头部内容|JSXElement||
+|footer|底部内容|JSXElement||
+|seperator|timeRange的分隔符|string||
+|transfer|下拉内容使用Portal渲染|boolean||
+|placeholder|placeholder|string||
+|theme|主题|light &#124; dark|light|
+|onChange|值改变事件|Function||
+
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value|
+
+</div>
+

@@ -1,0 +1,74 @@
+---
+path: /view/message
+name: message
+title: Message 消息提示
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Message 消息提示\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基本用法]{id='base' src='/view/message/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+
+:::demo[背景色]{id='background' src='/view/message/2background.demo.tsx'}
+
+配置参数 `background` 可以显示背景色
+
+:::
+
+
+
+:::demo[可关闭]{id='close' src='/view/message/3close.demo.tsx'}
+
+配置参数 `closeable` 可关闭消息
+
+:::
+
+
+:::demo[加载中]{id='loading' src='/view/message/4loading.demo.tsx'}
+
+配置参数 `loading` 显示加载中的消息， message可通过 `key` 关闭消息
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|key|消息的标识，调用close可根据key进行关闭|string||
+|duration|显示时间，为0时不销毁|number|4|
+|type|类型|info &#124; success &#124; warning &#124; error|info|
+|class|class类|string||
+|content|内容|JSXElement||
+|closeable|可显示关闭按钮|boolean||
+|background|显示背景色|any||
+|loading|加载中|boolean||
+|onClose|关闭回调函数|Function||
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onClose`|关闭回调函数||
+
+
+
+
+</div>

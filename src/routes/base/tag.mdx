@@ -1,0 +1,100 @@
+---
+path: /base/tag
+name: tag
+title: Tag 标签
+---
+<div class="sys-ctx-main-left">
+
+# Tag 标签\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/base/tag/1base.demo.tsx'}
+
+简单的展示，添加属性 `closable` 可以关闭标签。\
+点击关闭标签时，会触发 `onClose` 事件。\
+`border` 可以设置边框
+
+:::
+
+
+:::demo[标签类型]{id='type' src='/base/tag/2type.demo.tsx'}
+
+`value` 属性可以设置具备显示值的标签\
+设置 `circle` 可以生成圆角标签\
+设置 `avatar` 可以生成带头像的标签
+
+:::
+
+
+
+:::demo[内置样式]{id='theme' src='/base/tag/3theme.demo.tsx'}
+
+通过设置 `theme` 选取内置样式 `primary` `danger` `warning`\
+`success` `info` `magenta` `red` `volcano` `orange`\
+`gold` `yellow` `lime` `green` `cyan` `blue` `geekblue` `purple`
+
+:::
+
+
+
+:::demo[可关闭]{id='theme' src='/base/tag/4closeable.demo.tsx'}
+
+设置 `closable` 属性可以关闭标签
+
+:::
+
+
+
+:::demo[尺寸]{id='size' src='/base/tag/5size.demo.tsx'}
+
+`size` 属性支持 `large`
+
+:::
+
+
+
+:::demo[可控标签]{id='control' src='/base/tag/6control.demo.tsx'}
+
+`closable` 为 `true` 的情况下， `visible` 支持显示状态可控
+
+:::
+
+
+:::demo[标签组]{id='group' src='/base/tag/7group.demo.tsx'}
+
+标签组
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|size|标签尺寸|small &#124; large||
+|theme|内置样式|primary &#124; danger &#124; warning &#124; success &#124; info &#124; magenta &#124; red &#124; volcano &#124; orange &#124; gold &#124; yellow &#124; lime &#124; green &#124; cyan &#124; blue &#124; geekblue &#124; purple|default|
+|value|数值|number||
+|circle|圆角标签|boolean||
+|avatar|头像|Avatar||
+|border|边框|boolean|false|
+|closable|可关闭标签|boolean||
+|visible|可见性绑定属性|Signal||
+|onBeforeClose|关闭标签前置回调|Function||
+|onClose|关闭标签回调|Function||
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onBeforeClose`|关闭标签前置回调|Event|
+|`onClose`|关闭标签回调|Event|
+
+</div>
+

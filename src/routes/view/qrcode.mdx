@@ -1,0 +1,71 @@
+---
+path: /view/qrcode
+name: qrcode
+title: QRCode 二维码
+---
+
+import img from '~/assets/images/logo.svg';
+
+<div class="sys-ctx-main-left">
+
+# QRCode 二维码\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基本用法]{id='base' src='/view/qrcode/1base.demo.tsx'}
+
+基本用法
+
+:::
+
+
+:::demo[带图标]{id='img' src='/view/qrcode/2img.demo.tsx' scopes='{img}'}
+
+使用 `icon` 可以让二维码带图标。
+
+:::
+
+
+:::demo[自定义颜色]{id='color' src='/view/qrcode/3color.demo.tsx'}
+
+使用 `color` 可以自定义二维码颜色， `bgColor` 可以修改背景颜色。
+
+:::
+
+
+:::demo[纠错比例]{id='level' src='/view/qrcode/4level.demo.tsx'}
+
+通过设置 `level` 调整不同的容错等级。
+
+:::
+
+
+:::demo[下载图片]{id='download' src='/view/qrcode/5download.demo.tsx'}
+
+下载图片
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|level|二维码纠错等级|L  &#124;  M  &#124;  Q  &#124;  H||
+|value|扫描后的文本|string||
+|size|二维码大小|number|128|
+|color|二维码颜色|string|#000|
+|bgColor|二维码背景颜色|string|#fff|
+|icon|二维码图标|string||
+|title|二维码标题|string||
+
+
+
+
+</div>

@@ -1,0 +1,42 @@
+---
+path: /view/virtuallist
+name: virtuallist
+title: Virtual List 虚拟列表
+---
+<div class="sys-ctx-main-left">
+
+# Virtual List 虚拟列表\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/other/virtuallist/1base.demo.tsx'}
+
+虚拟列表的基础用法。
+
+:::
+
+
+:::demo[动态高度]{id='auto' src='/other/virtuallist/2auto.demo.tsx'}
+
+内容动态高度
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|height|固定高度|number||
+|maxHeight|最大高度|number|-|
+|itemEstimatedSize|项目预估高度|number||
+|overscan|前后预留数量|number|3|
+|items|数据项|any[]||
+
+
+</div>
+

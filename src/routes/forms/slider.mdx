@@ -1,0 +1,103 @@
+---
+path: /form/slider
+name: slider
+title: Slider 滑块
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Slider 滑块\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/slider/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/slider/2disabled.demo.tsx'}
+
+`disabled` 可禁用
+
+:::
+
+
+:::demo[步长]{id='step' src='/form/slider/3step.demo.tsx'}
+
+`step` 属性可修改滑动的步长
+
+:::
+
+
+:::demo[初始化值]{id='init' src='/form/slider/4init.demo.tsx'}
+
+`value` 可初始化值
+
+:::
+
+
+:::demo[最大小值]{id='minMax' src='/form/slider/5minMax.demo.tsx'}
+
+可通过`min` `max` 修改最小最大值
+
+:::
+
+
+
+:::demo[范围]{id='range' src='/form/slider/6range.demo.tsx'}
+
+设置 `range` 为范围滑块
+
+:::
+
+
+:::demo[格式化]{id='tip' src='/form/slider/7tip.demo.tsx'}
+
+使用 `tipFormatter` 可自定义提示信息
+
+:::
+
+
+
+:::demo[标记]{id='marks' src='/form/slider/8marks.demo.tsx'}
+
+设置属性 `marks` 可以显示标记
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|value|值，可控属性|Signal||
+|disabled|禁用|boolean||
+|range|使用范围滑块|boolean||
+|min|最小值|number|0|
+|max|最大值|number|100|
+|step|步长|number|1.0|
+|prepend|前缀|JSXElement||
+|tipFormatter|提示格式化|Function||
+|marks|显示的标记|Object||
+|onChange|值改变事件|Function||
+
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value: number | number[]|
+
+</div>
+

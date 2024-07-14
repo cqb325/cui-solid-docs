@@ -1,0 +1,196 @@
+---
+path: /form/table
+name: table
+title: Table 表格
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Table 表格\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/form/table/1base.demo.tsx'}
+
+基础用法， `columns` 中 `type` 支持 `index` 和 `checkbox`
+
+:::
+
+
+:::demo[边框]{id='border' src='/form/table/2border.demo.tsx'}
+
+添加 `border` 支持边框
+
+:::
+
+
+:::demo[斑马纹]{id='stripe' src='/form/table/3stripe.demo.tsx'}
+
+添加 `stripe` 支持斑马纹
+
+:::
+
+
+:::demo[固定表头]{id='fixedHeader' src='/form/table/4fixedHeader.demo.tsx'}
+
+通过设置属性 `height` 给表格指定高度后，会自动固定表头。
+
+:::
+
+
+:::demo[固定列]{id='fixedCol' src='/form/table/5fixedCol.demo.tsx'}
+
+通过给数据 `columns` 的项设置 `fixed` 为 `left` 或 `right` ，可以左右固定需要的列。
+
+:::
+
+
+
+:::demo[行高亮]{id='highlight' src='/form/table/6highlight.demo.tsx'}
+
+添加 `highlight` 选择一行的时候可以高亮显示, 可通过引用的 `clearSelect` 方法进行清除
+
+:::
+
+
+:::demo[小尺寸]{id='size' src='/form/table/7size.demo.tsx'}
+
+`size` 支持 `small`
+
+:::
+
+
+:::demo[加载中]{id='loading' src='/form/table/8loading.demo.tsx'}
+
+`loading` 属性可以在table上面覆盖一层加载的遮罩
+
+:::
+
+
+:::demo[行列合并]{id='span' src='/form/table/9span.demo.tsx'}
+
+设置属性 `spanMethod` 可以指定合并行或列的算法。
+
+:::
+
+
+:::demo[选择框]{id='checkbox' src='/form/table/10checkbox.demo.tsx'}
+
+`column` 中设置 `type` 为 `checkbox` 可以添加选择列, 通过 `render` 函数可自定义渲染内容
+
+:::
+
+
+:::demo[排序]{id='sort' src='/form/table/11sort.demo.tsx'}
+
+通过给 `columns` 数据的项，设置 `sort: true`，即可对该列数据进行排序。\
+通过给某一列设置 `sortType` 可以在初始化时使用排序。\
+如果使用远程排序，可以设置 `sortable: 'custom'`，然后在触发排序事件 `onSort` 后，进行远程排序，并手动设置新的 data
+
+:::
+
+
+
+:::demo[拖拽列宽]{id='resize' src='/form/table/12resize.demo.tsx'}
+
+给某一列设置属性 `resize` 为 true，可以拖拽调整该列的宽度，需开启 `border` 属性，且该列设置了 `width` 属性。
+
+:::
+
+
+:::demo[动态数据]{id='data' src='/form/table/13data.demo.tsx'}
+
+动态设置data属性
+
+:::
+
+
+:::demo[树状]{id='tree' src='/form/table/14tree.demo.tsx'}
+
+当数据中含有 `children` 字段，会以树形数据显示。\
+在 column 开启属性 `tree`，则该列会显示展开/收起图标。\
+设置 data 属性 `_showChildren`，默认会展开子数据。
+
+:::
+
+
+:::demo[展开]{id='expand' src='/form/table/15expand.demo.tsx'}
+
+当表格内容较多不能一次性完全展示时使用。\
+通过给 columns 数据设置一项，指定 `type: 'expand'`，即可开启扩展功能。\
+渲染展开区域与自定义列模板方法类似，使用 render 函数。
+
+:::
+
+
+:::demo[大列表]{id='largedata' src='/form/table/16largedata.demo.tsx'}
+
+当表格数据量较大时为了提升渲染性能，可以使用虚拟列表  通过指定 `virtual` 属性并设置 `height`，即可高性能渲染表格
+
+:::
+
+
+:::demo[勾选可控]{id='selectRowKeys' src='/form/table/17selectRowKeys.demo.tsx'}
+
+表格 `selectRowKeys` 为可控属性，通过设置 `selectRowKeys` 属性，可以实现勾选功能。
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|rowKey|指定数据的key|string|id|
+|selectedRowKeys|勾选数据双向绑定|Signal||
+|columns|表头字段信息|Array||
+|data|数据体|Array||
+|height|表格最大高度，超出表头固定|number||
+|border|边框|boolean||
+|stripe|斑马条纹|boolean||
+|highlight|点击高亮选中的行|boolean||
+|size|大小|small||
+|loading|加载状态|boolean||
+|spanMethod|行列合并的钩子|Function||
+|onRowSelect|行选中事件 返回item|Function||
+|onRowChecked|行选中事件 返回item|Function||
+|onCheckedAll|全选事件, 所有选中的数据data|Function||
+|onSort|排序事件, column, sotyType|Function||
+|ref|表格组件的引用|any||
+
+
+## Column 属性 \{#column_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|name|字段名称|string|-|
+|title|显示文案|JSXElement||
+|render|自定义渲染函数， v, column, row|Function||
+|type|字段类型 index, checkbox、 expend|string||
+|width|字段宽度|string||
+|resize|可缩放宽度|boolean||
+|sort|支持排序的列 custom|boolean  &#124;  string||
+|sortMethod|自定义排序方法 参数， a, b|Function||
+|sortType|排序方式 asc &#124; desc &#124; '' |string||
+|fixed|固定列的位置 left  &#124;  right |string||
+|tree|改列为树状字段， 展示展开收缩按钮|boolean||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onRowSelect`|行选中事件|item|
+|`onRowChecked`|行选中事件|item|
+|`onCheckedAll`|全选事件|data|
+|`onSort`|排序事件|column, sotyType|
+
+</div>
+

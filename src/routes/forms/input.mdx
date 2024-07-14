@@ -1,0 +1,143 @@
+---
+path: /form/input
+name: input
+title: Input 输入框
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Input 输入框\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/input/1base.demo.tsx'}
+
+Input的基础用法
+
+:::
+
+
+:::demo[文本域]{id='textarea' src='/form/input/2textarea.demo.tsx'}
+
+文本域的基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/input/3disabled.demo.tsx'}
+
+使用 `disabled` 可以禁用 `Input`
+
+:::
+
+
+:::demo[placeholder]{id='placeholder' src='/form/input/4placeholder.demo.tsx'}
+
+使用 `placeholder` 的样例
+
+:::
+
+
+:::demo[可清空]{id='clearable' src='/form/input/5clearable.demo.tsx'}
+
+使用 `clearable` 属性， 有值时可以进行清空
+
+:::
+
+
+:::demo[可控]{id='control' src='/form/input/6control.demo.tsx'}
+
+`value` 属性是可控属性
+
+:::
+
+
+:::demo[前缀后缀]{id='prefix' src='/form/input/7prefix.demo.tsx'}
+
+使用 `prefix` 可以给Input添加前缀， 使用 `suffix` 属性可添加后缀
+
+:::
+
+
+
+:::demo[追加]{id='append' src='/form/input/8append.demo.tsx'}
+
+使用`prepend` 可添加前追加， 使用`append`属性可添加后追加
+
+:::
+
+
+:::demo[尺寸]{id='size' src='/form/input/9size.demo.tsx'}
+
+`size` 属性支持 `small` `large` 默认尺寸中
+
+:::
+
+
+
+:::demo[字符计数]{id='word_count' src='/form/input/10word_count.demo.tsx'}
+
+同时设置 `wordCount` 和 `maxLength` 属性，当输入内容时，会自动显示计数
+
+:::
+
+
+:::demo[适应高度]{id='auto_height' src='/form/input/11auto_height.demo.tsx'}
+
+`Textarea` 的高度随内容输入自动适应高度
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|input的name属性|string||
+|disabled|禁用|boolean||
+|size|尺寸大小|small &#124; default &#124; large|default|
+|type|输入框的类型|text,password,textarea|text|
+|append|后追加|JSXElement||
+|prepend|前追加|JSXElement||
+|prefix|前缀|JSXElement||
+|suffix|后缀|JSXElement||
+|suffixStyle|前缀样式|Object||
+|prefixStyle|后缀样式|Object||
+|clearable|是否可清空|boolean||
+|trigger|值改变的触发事件|string|blur|
+|notCreateFiled|非可控组件|boolean|false|
+|value|值，可控属性|Signal||
+|autocomplete|自动填充选项|string||
+|placeholder|placeholder|string||
+|maxLength|原生maxLength|number||
+|wordCount|显示字数限制|boolean||
+|autoHeight|自动尺寸，对于type=textarea|boolean||
+|onChange|值改变事件根据triggrt触发=textarea|Function||
+|onEnter|回车按下事件|Function||
+|onKeyDown|键盘按下事件|Function||
+|onKeyUp|键盘弹起事件|Function||
+|onInput|输入事件|Function||
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件根据triggrt触发|value, Event|
+|`onEnter`|回车按下事件|value|
+|`onKeyDown`|键盘按下事件|Event|
+|`onKeyUp`|键盘弹起事件|Event|
+|`onInput`|输入事件|value, Event|
+
+
+
+
+</div>
+

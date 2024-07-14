@@ -1,0 +1,63 @@
+---
+path: /layout/space
+name: space
+title: Space 间隔
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Space 间隔\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/layout/space/1base.demo.tsx'}
+
+默认横向布局，并添加间隔， 默认垂直居中
+
+:::
+
+
+
+:::demo[垂直间距]{id='vertical' src='/layout/space/2vertical.demo.tsx'}
+
+设置属性 `dir` 为 `v` 可以使相邻组件垂直排列。
+
+:::
+
+
+:::demo[间距大小]{id='size' src='/layout/space/3size.demo.tsx'}
+
+间距可以通过属性 `size` 设置，默认值为8。
+
+:::
+
+
+:::demo[对齐方式]{id='align' src='/layout/space/4align.demo.tsx'}
+
+设置对齐模式。
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|justify|垂直轴对齐方式|start &#124; center &#124; end||
+|align|当前轴居中方式|center &#124; start &#124; end &#124; baseline||
+|dir|内容方向|v &#124; h|h|
+|wrap|内容超出的换行方式|boolean|false|
+|inline|行内元素|boolean|false|
+|size|间距大小|number|8|
+
+
+
+</div>
+

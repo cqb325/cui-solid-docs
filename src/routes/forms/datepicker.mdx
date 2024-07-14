@@ -1,0 +1,156 @@
+---
+path: /form/datepicker
+name: datepicker
+title: Datepicker 日期选择
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Datepicker 日期选择\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/datepicker/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+:::demo[禁用]{id='disabled' src='/form/datepicker/2disabled.demo.tsx'}
+
+使用 `disabled` 禁用
+
+:::
+
+
+:::demo[尺寸]{id='size' src='/form/datepicker/3size.demo.tsx'}
+
+`size` 支持 `small` 和 `large`
+
+:::
+
+
+:::demo[可清空]{id='clearable' src='/form/datepicker/4clearable.demo.tsx'}
+
+设置 `clearable` 选择后可清空
+
+:::
+
+
+:::demo[自定义禁用]{id='custom_disable' src='/form/datepicker/5custom_disable.demo.tsx'}
+
+设置 `disabledDate` 可自定义禁用的日期
+
+:::
+
+
+
+:::demo[月份]{id='month' src='/form/datepicker/6month.demo.tsx'}
+
+`type = month` 为月份选择
+
+:::
+
+
+
+:::demo[月份范围]{id='monthRange' src='/form/datepicker/7monthRange.demo.tsx'}
+
+`type = monthRange` 为月份范围选择
+
+:::
+
+
+:::demo[位置]{id='align' src='/form/datepicker/8align.demo.tsx'}
+
+`align` 支持 `bottomLeft` 和 `bottomRight` 默认为 `bottomLeft`
+
+:::
+
+
+:::demo[日期范围]{id='dateRange' src='/form/datepicker/9dateRange.demo.tsx'}
+
+`type = dateRange` 为日期范围选择
+
+:::
+
+
+:::demo[月份联动]{id='stick' src='/form/datepicker/10stick.demo.tsx'}
+
+`stick` 属性月份为联动 默认不联动
+
+:::
+
+
+:::demo[快捷选择]{id='shortcut' src='/form/datepicker/11shortcut.demo.tsx'}
+
+`shortCuts` 可以自定义快捷选择面板
+
+:::
+
+
+:::demo[日期时间]{id='dateTime' src='/form/datepicker/12dateTime.demo.tsx'}
+
+`type = dateTime` 为日期时间选择
+
+:::
+
+
+:::demo[日期时间范围]{id='dateTimeRange' src='/form/datepicker/13dateTimeRange.demo.tsx'}
+
+`type = dateTimeRange` 为日期时间范围选择
+
+:::
+
+
+:::demo[最大区间]{id='maxRange' src='/form/datepicker/14maxRange.demo.tsx'}
+
+使用 `maxRange` 可以限定最大区间范围
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|value|值，可控属性|Signal||
+|disabled|禁用|boolean||
+|size|尺寸|small  &#124;  large||
+|clearable|可清空|boolean||
+|align|下拉位置|bottomLeft &#124; bottomRight|bottomRight|
+|format|格式化同dayjs|string||
+|theme|主题|light &#124; dark|light|
+|prepend|前缀|JSXElement||
+|header|头部内容|JSXElement||
+|footer|底部内容|JSXElement||
+|seperator|timeRange的分隔符|string|~|
+|transfer|下拉内容使用Portal渲染|boolean||
+|disabledDate|禁用日期的回调函数，参数Date|Function||
+|type|日期类型|dateRange &#124; monthRange &#124; month &#124; dateTime &#124; dateTimeRange|date|
+|trigger|触发内容|JSXElement||
+|maxRange|日期范围可选最大跨度|number||
+|shortCuts|快捷选择区域|Function &#124; JSXElement||
+|revers|超出后下拉是否翻转|boolean|true|
+|stick|daterange的月份是否粘连|boolean||
+|placeholder|placeholder|string||
+|onChange|值改变事件|Function||
+
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|checked,value|
+
+</div>
+

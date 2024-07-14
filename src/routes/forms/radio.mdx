@@ -1,0 +1,101 @@
+---
+path: /form/radio
+name: radio
+title: Radio 单选框
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Radio 单选框\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/radio/1base.demo.tsx'}
+
+Radio的基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/radio/2disabled.demo.tsx'}
+
+使用 `disabled` 禁用 选择框
+
+:::
+
+
+:::demo[组合]{id='group' src='/form/radio/3group.demo.tsx'}
+
+使用 `RadioGroup` 组件进行组合
+
+:::
+
+
+:::demo[组合禁用]{id='group_disabled' src='/form/radio/4group_disabled.demo.tsx'}
+
+使用 `RadioGroup` 的 `disabled` 属性可禁用整个组合， 数据项中的 `disabled` 属性可禁用组合项
+
+:::
+
+
+:::demo[按钮样式]{id='stick' src='/form/radio/5stick.demo.tsx'}
+
+使用 `stick` 属性显示按钮组的样式
+
+:::
+
+
+:::demo[自定义字段]{id='field' src='/form/radio/6field.demo.tsx'}
+
+使用 `data` 传入数据时， 可通过 `textField` `valueField` 选择显示的字段和值字段
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|disabled|禁用|boolean||
+|checked|选中状态可控|Signal||
+|type|类型|radio &#124; checkbox|checkbox|
+|value|值，可控属性|Signal||
+|label|显示文案信息|string &#124; JSXElement||
+|onChange|值改变事件|Function||
+
+
+## RadioGroup 属性 \{#group_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|disabled|禁用|boolean||
+|data|数据|Array||
+|value|值，可控属性|Signal||
+|textField|文案字段|string|label|
+|valueField|值字段|string|value|
+|block|垂直排列|boolean||
+|stick|按钮样式|boolean||
+|onChange|值改变事件|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|checked,value|
+
+</div>
+

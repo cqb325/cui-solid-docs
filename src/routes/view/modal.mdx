@@ -1,0 +1,129 @@
+---
+path: /view/modal
+name: modal
+title: Modal 模态对话框
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Modal 模态对话框\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基本用法]{id='base' src='/view/modal/1base.demo.tsx'}
+
+`visible` 为可控绑定参数
+
+:::
+
+
+:::demo[禁用拖拽]{id='disabled' src='/view/modal/2disabled.demo.tsx'}
+
+使用`disabled`参数可禁用拖拽
+
+:::
+
+
+:::demo[自定义位置]{id='style' src='/view/modal/3style.demo.tsx'}
+
+使用`defaultPosition` 参数可初始化位置
+
+:::
+
+
+:::demo[影藏底部]{id='footer' src='/view/modal/4footer.demo.tsx'}
+
+设置 `footer` 参数为false可隐藏底部元素
+
+:::
+
+
+:::demo[加载中]{id='loading' src='/view/modal/5loading.demo.tsx'}
+
+设置`loading` 参数，点击确定按钮变成加载中
+
+:::
+
+
+
+:::demo[全屏]{id='fullscreen' src='/view/modal/6fullscreen.demo.tsx'}
+
+`fullscreen` 属性为可控全屏属性
+
+:::
+
+
+:::demo[重新打开重置位置]{id='reset' src='/view/modal/7reset.demo.tsx'}
+
+设置 `resetPostion` 属性，拖拽后 重新打开会定位到初始化位置
+
+:::
+
+
+:::demo[不显示遮罩]{id='mask' src='/view/modal/8mask.demo.tsx'}
+
+设置`mask` 属性为false，将不会显示遮罩
+
+:::
+
+
+:::demo[禁用遮罩关闭]{id='maskclose' src='/view/modal/9maskclose.demo.tsx'}
+
+设置 `maskClosable` 属性为false，禁用遮罩点击关闭对话框功能
+
+:::
+
+
+:::demo[单实例使用]{id='instance' src='/view/modal/10instance.demo.tsx'}
+
+使用modal的 方法弹出对话框，`onOk`回调可以返回一个`true`/`false`,来控制modal的关闭\
+返回true立即关闭， 返回false不关闭会将`loading`重置，不返回或undefined，则按照默认方式处理
+
+:::
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|bounds|拖拽边界|string|body|
+|disabled|禁用拖拽|boolean||
+|title|对话框的标题|string &#124; JSXElement||
+|bodyStyle|内容区域的样式|Object||
+|footer|是否显示底部|boolean|true|
+|loading|加载中,可控|boolean &#124; Signal||,
+|okText|确认按钮文案|string|确 定|
+|cancleText|取消按钮文案|string|取 消|
+|visible|控制对话框的显示隐藏|boolean &#124; Signal||
+|defaultPosition|默认位置|Position\{left: string, top: string\}||
+|mask|显示mask|boolean|true|
+|maskClosable|点击mask关闭|boolean|true|
+|hasCloseIcon|是否显示关闭按钮|boolean|true|
+|resetPostion|重新打开对话框进行位置重置|boolean||
+|fullScreen|全屏控制|boolean &#124; Signal||
+|onOk|点击确认按钮回调|Function||
+|onCancel|点击取消按钮回调|Function||
+|onClosed|关闭事件|Function||
+|onClickClose|点击关闭按钮事件|Function||
+
+
+## 事件 \{#events\}
+
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onOk`|点击确认按钮回调||
+|`onCancel`|点击取消按钮回调||
+|`onClosed`|关闭事件||
+|`onClickClose`|点击关闭按钮事件||
+
+
+
+
+</div>

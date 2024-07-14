@@ -1,0 +1,71 @@
+---
+path: /form/colorpicker
+name: colorpicker
+title: ColorPicker 颜色选择器
+---
+
+
+<div class="sys-ctx-main-left">
+
+# ColorPicker 颜色选择器\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/colorpicker/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[透明度]{id='alpha' src='/form/colorpicker/2alpha.demo.tsx'}
+
+开启属性 `alpha` ，可以选择带 Alpha 通道的颜色
+
+:::
+
+
+:::demo[颜色预设]{id='recommand' src='/form/colorpicker/3recommand.demo.tsx'}
+
+开启属性 `recommend` 可以显示推荐的颜色预设，或设置属性 `colors` 来自定义预设颜色。
+
+:::
+
+
+:::demo[尺寸]{id='size' src='/form/colorpicker/4size.demo.tsx'}
+
+选择器有三种尺寸：大、默认（中）、小。
+
+:::
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|value|值，可控属性|Signal||
+|disabled|禁用|boolean||
+|transfer|下拉内容使用Portal渲染|boolean||
+|align|下拉内容位置|bottomLeft &#124; bottomRight|bottomLeft|
+|alpha|开启透明度|boolean||
+|size|尺寸|small  &#124;  large||
+|recommend|使用预设颜色|boolean||
+|colors|自定义预设颜色|string[]||
+|onChange|值改变事件|Function||
+
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|color|
+
+</div>
+

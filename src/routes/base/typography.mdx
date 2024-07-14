@@ -1,0 +1,97 @@
+---
+path: /base/typography
+name: typography
+title: Typography 排版
+---
+
+<div class="sys-ctx-main-left">
+
+# Typography 排版\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+
+:::demo[标题]{id='base' src='/base/typography/1base.demo.tsx'}
+
+各个级别的标题
+
+:::
+
+
+:::demo[文本]{id='text' src='/base/typography/2text.demo.tsx'}
+
+内置不同样式的文本以及超链接文本
+
+:::
+
+
+
+:::demo[行间距]{id='spacing' src='/base/typography/4spacing.demo.tsx'}
+
+可通过设置 `spacing` 设置段落行距,不设置为默认行距 `extended` 为宽松行距
+
+:::
+
+
+:::demo[可拷贝]{id='copy' src='/base/typography/3copy.demo.tsx'}
+
+提供复制文本的能力
+
+:::
+
+
+
+## Text属性 \{#text_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|type|文本类型|default &#124; secondary &#124; warning &#124; error &#124; success &#124; primary| default|
+|disabled|禁用状态|boolean||
+|link|链接地址|string||
+|icon|图标|Icon||
+|mark|标记类型|boolean||
+|code|代码样式|boolean||
+|underline|下划线文本|boolean||
+|deleted|删除样式文本|boolean||
+|strong|加粗文本|boolean||
+|size|文本大小|small &#124; default &#124; large|default|
+
+
+## Title属性 \{#title_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|type|文本类型|default &#124; secondary &#124; warning &#124; error &#124; success &#124; primary| default|
+|heading|标题等级|1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6|1|
+
+
+## Paragraph属性 \{#paragraph_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|size|文本大小|small &#124; default &#124; large|default|
+|spacing|间距 可选extended|string||
+|copyable|可拷贝|boolean||
+|copyText|自定义拷贝内容|string||
+|onCopy|拷贝回调函数|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onCopy`|拷贝事件|-|
+
+</div>
+

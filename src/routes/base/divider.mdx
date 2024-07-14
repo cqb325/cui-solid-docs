@@ -1,0 +1,49 @@
+---
+path: /base/divider
+name: divider
+title: Divider 分割线
+---
+
+<div class="sys-ctx-main-left">
+
+# Divider 分割线\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base2' src='/base/divider/1base.demo.tsx'}
+
+默认为水平分割线，可在中间加入文字, 设置 `dashed` 可以设置虚线分割线
+
+:::
+
+
+:::demo[垂直分割线]{id='vertical' src='/base/divider/2vertical.demo.tsx'}
+
+使用 `dir="v"` 设置为行内的垂直分割线
+
+:::
+
+
+:::demo[文字位置]{id='align' src='/base/divider/3align.demo.tsx'}
+
+使用 `align` 设置为文字的位置，支持left和right 默认居中
+
+:::
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|dir|分割线方向|h &#124; v|h|
+|align|文字位置,默认居中|left &#124; right||
+|dashed|分割线的样式|boolean||
+|height|高度|string||
+
+
+</div>
+

@@ -1,0 +1,109 @@
+---
+path: /layout/grid
+name: grid
+title: Row/Col 栅格
+---
+
+import './style.less';
+
+<div class="sys-ctx-main-left">
+
+# Row/Col 栅格\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/layout/grid/1base.demo.tsx'}
+
+- 使用 `Row` 在水平方向创建一行
+- 将一组 `Col` 插入在 `Row` 中
+- 在每个 `Col` 中，键入自己的内容
+- 通过设置 `Col` 的 `grid` 参数，指定跨越的范围, `grid` 范围为0~1
+
+:::
+
+
+:::demo[响应式布局]{id='responsive' src='/layout/grid/7responsive.demo.tsx'}
+
+预设六个响应尺寸： `xs` `sm` `md` `lg` `xl` `xxl` ，调整浏览器尺寸来查看效果。\
+`gutter` 也支持响应式，可以通过内嵌到 xs sm md lg xl xxl 属性中来使用
+
+:::
+
+
+:::demo[区块间隔]{id='gutter' src='/layout/grid/2gutter.demo.tsx'}
+
+通过给 `Row` 添加 `gutter` 属性，可以给下属的 `Col` 添加间距，推荐使用 (16+8n)px 作为栅格间隔。
+`gutter` 属性支持数字或数组，数组格式为 [水平间距, 垂直间距]。
+
+:::
+
+
+
+:::demo[左右偏移]{id='offset' src='/layout/grid/3offset.demo.tsx'}
+
+通过设置 `offset` 属性，将列进行左右偏移，偏移栅格数为 `offset` 的值。
+
+:::
+
+
+:::demo[栅格排序]{id='push' src='/layout/grid/4push.demo.tsx'}
+
+通过设置 `push` 和 `pull` 来改变栅格的顺序。
+
+:::
+
+
+
+:::demo[flex水平布局]{id='justify' src='/layout/grid/5justify.demo.tsx'}
+
+通过给 `Row` 设置参数 `justify` 为不同的值，来定义子元素的排布方式。
+
+:::
+
+
+
+:::demo[flex垂直对齐]{id='align' src='/layout/grid/6align.demo.tsx'}
+
+通过给 `Row` 设置参数 `align` 为不同的值，来定义子元素在垂直方向上的排布方式。
+
+:::
+
+
+
+
+
+## Row属性 \{#row_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|justify|水平居中方式|start &#124; center &#124; end &#124; space-between &#124; space-around||
+|align|垂直居中方式|top &#124; middle &#124; bottom ||
+|gutter|间隔|number &#124; number[]|Object |0|
+
+
+## Col属性 \{#col_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|grid|Col暂用范围0~1|number|1|
+|push|栅格向右移动范围|number||
+|pull|栅格向左移动范围|number||
+|offset|栅格左侧的间隔范围，间隔内不可以有栅格|number||
+|flex|flex 布局属性|string||
+|xs|&lt; 576px 响应式栅格，可为栅格数或一个包含其他属性的对象|number|Object||
+|sm|屏幕 ≥ 576px 响应式栅格，可为栅格数或一个包含其他属性的对象|number|Object||
+|md|屏幕 ≥ 768px 响应式栅格，可为栅格数或一个包含其他属性的对象|number|Object||
+|lg|屏幕 ≥ 992px 响应式栅格，可为栅格数或一个包含其他属性的对象|number|Object||
+|xl|屏幕 ≥ 1200px 响应式栅格，可为栅格数或一个包含其他属性的对象|number|Object||
+|xxl|屏幕 ≥ 1600px 响应式栅格，可为栅格数或一个包含其他属性的对象|number|Object||
+
+</div>
+

@@ -1,0 +1,70 @@
+---
+path: /base/tooltip
+name: tooltip
+title: Tooltip 文字提示
+---
+
+<div class="sys-ctx-main-left">
+
+# Tooltip 文字提示\{#title\}
+
+## 代码演示\{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/base/tooltip/1base.demo.tsx'}
+
+简单的展示，添加属性 `closable` 可以关闭标签。\
+点击关闭标签时，会触发 `onClose` 事件。
+
+:::
+
+
+
+:::demo[位置]{id='align' src='/base/tooltip/2align.demo.tsx'}
+
+支持12个不同的方向显示，具体配置可查看API。
+
+:::
+
+
+
+:::demo[多行内容]{id='multi' src='/base/tooltip/3multi.demo.tsx'}
+
+`content` 内容为自定义JSX标签，可以编辑复杂内容。
+
+:::
+
+
+
+:::demo[禁用]{id='disabled' src='/base/tooltip/4disabled.demo.tsx'}
+
+设置 `disabled` 可以禁用提示。
+
+:::
+
+
+
+:::demo[样式]{id='theme' src='/base/tooltip/5theme.demo.tsx'}
+
+通过设置 `theme` 切换显示样式, 支持 `light` 和 `dark` 默认 `dark`
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|align|位置|top &#124; bottom &#124; left &#124; right &#124; topLeft &#124; topRight &#124; bottomLeft &#124; bottomRight &#124; leftTop &#124; leftBottom &#124; rightTop &#124; rightBottom | right|
+|theme|样式|light &#124; dark|dark|
+|content|提示内容|any||
+|disabled|禁用状态|boolean||
+
+
+</div>
+

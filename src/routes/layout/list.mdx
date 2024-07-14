@@ -1,0 +1,71 @@
+---
+path: /layout/list
+name: list
+title: List 列表
+---
+
+import img from '~/assets/images/avatar.png';
+
+<div class="sys-ctx-main-left">
+
+# List 列表\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/layout/list/1base.demo.tsx'}
+
+默认列表
+
+:::
+
+
+:::demo[列表尺寸]{id='size' src='/layout/list/2size.demo.tsx'}
+
+size可设置为small
+
+:::
+
+
+
+:::demo[基础列表]{id='complex' src='/layout/list/3complex.demo.tsx' scopes='{img}'}
+
+带有图标、标题、描述的基础列表。也可以带有列表操作组。
+
+:::
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|border|边框|boolean||
+|size|大小|small &#124; large ||
+|head|头部|string &#124; JSXElement ||
+|foot|底部|string &#124; JSXElement ||
+|render|内容自定义函数|Function ||
+|onSelect|列表项选中事件|Function ||
+
+
+## Item属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|id|id标识|string &#124; number||
+|data|数据项|Object||
+|render|内容自定义函数|Function||
+|actions|操作内容|JSXElement||
+|avatar|头像|Avatar||
+|content|内容|string &#124; JSXElement||
+|title|标题|string &#124; JSXElement||
+|desc|描述|string &#124; JSXElement||
+
+</div>
+

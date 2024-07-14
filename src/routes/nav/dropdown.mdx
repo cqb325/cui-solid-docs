@@ -1,0 +1,98 @@
+---
+path: /nav/dropdown
+name: dropdown
+title: Dropdown 下拉菜单
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Dropdown 下拉菜单\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/nav/dropdown/1base.demo.tsx'}
+
+需要配合 `DropdownMenu` 和 `DropdownItem` 两个组件来使用。\
+选中菜单项触发 `onSelect` 事件
+
+:::
+
+
+
+:::demo[触发条件]{id='trigger' src='/nav/dropdown/2trigger.demo.tsx'}
+
+通过设置属性 `trigger` 可以更改触发方式，可选项为 `click` 、 `hover`(默认)、 `contextMenu` 或 `custom`(自定义)。\
+触发方式设置为 `custom` 自定义时，需手动设置 `visible` 属性来控制下拉框的显示。
+
+:::
+
+
+:::demo[主题]{id='theme' src='/nav/dropdown/3theme.demo.tsx'}
+
+通过 `theme` 属性可以设置暗色下拉菜单 `dark`。
+
+:::
+
+
+:::demo[Transfer]{id='transfer' src='/nav/dropdown/4transfer.demo.tsx'}
+
+设置 `transfer` 属性可以让下拉菜单渲染到Body节点下
+
+:::
+
+
+:::demo[位置]{id='align' src='/nav/dropdown/5align.demo.tsx'}
+
+`align` 属性支持12个方位， 最常用的是 `bottom`/`bottomLeft`/`bottomRight`, 默认为 `bottom`
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/nav/dropdown/6disabled.demo.tsx'}
+
+设置 `disabled` 属性可以禁用菜单
+
+:::
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|trigger|触发方式|hover &#124; click &#124; contextMenu &#124; custom|hover|
+|handler|触发事件的元素|string||
+|align|触发方式|bottom &#124; bottomLeft &#124; bottomRight &#124; right &#124; left &#124; rightTop &#124; leftTop|bottom|
+|menu|下拉菜单内容|any||
+|visible|菜单显隐绑定属性|Signal||
+|transfer|是否将弹层放置于 body 内，在overflow 为 hidden的容器内效果更友好|boolean||
+|fixWidth|是否在使用transfer时打开弹框后弹框固定宽度至出发元素宽度，在select中使用|boolean||
+|theme|主题色|dark &#124; light|light|
+|disabled|禁用状态|boolean||
+|revers|超出范围反向显示|boolean||
+|onSelect|选择菜单项选中事件|Function||
+
+
+## Item属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|disabled|禁用状态|boolean||
+|name|菜单项名称|string||
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`OnSelect`|选择菜单项选中事件|name:菜单项名称|
+
+</div>
+

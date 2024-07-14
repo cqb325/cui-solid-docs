@@ -1,0 +1,89 @@
+---
+path: /form/spinner
+name: spinner
+title: Spinner 数字输入框
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Spinner 数字输入框\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/spinner/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/spinner/2disabled.demo.tsx'}
+
+使用 `disabled` 进行禁用
+
+:::
+
+
+:::demo[尺寸]{id='size' src='/form/spinner/3size.demo.tsx'}
+
+`size` 支持`large` `small`
+
+:::
+
+
+:::demo[最小最大值]{id='minmax' src='/form/spinner/4minmax.demo.tsx'}
+
+可通过设置 `min` `max` 限定 允许的最小值和最大值
+
+:::
+
+
+:::demo[步长]{id='step' src='/form/spinner/5step.demo.tsx'}
+
+通过 `step` 属性可设定每次修改的步长
+
+:::
+
+
+
+:::demo[循环]{id='loop' src='/form/spinner/6loop.demo.tsx'}
+
+在设置`min`, `max` 后 再设置`loop` 超出时循环
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|value|值，可控属性|Signal||
+|disabled|禁用|boolean||
+|max|最大值|number||
+|min|最小值|number||
+|step|步长|number||
+|loop|循环|boolean||
+|placeholder|placeholder|string||
+|onChange|值改变事件value: number &#124; Function||
+|onPlus|数据增加回调||
+|onSub|数据减少回调||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value: number|
+|`onPlus`|数据增加回调|value: number, step: number|
+|`onSub`|数据减少回调|value: number, step: number|
+
+</div>
+

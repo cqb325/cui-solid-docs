@@ -1,0 +1,38 @@
+---
+path: /view/sidebyside
+name: sidebyside
+title: SideBySide 对比
+---
+
+import img1 from '~/assets/images/sidebyside/clarity2.webp';
+import img2 from '~/assets/images/sidebyside/clarity2_after_ai.webp';
+
+<div class="sys-ctx-main-left">
+
+# SideBySide 对比\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/view/sidebyside/1base.demo.tsx' scopes='{img1, img2}'}
+
+基础用法
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|left|上层元素，可拖拽的元素|Element||
+|right|下层元素|Element||
+
+
+
+</div>

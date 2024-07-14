@@ -1,0 +1,69 @@
+---
+path: /nav/accordion
+name: accordion
+title: Accordion 手风琴面板
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Accordion 手风琴面板\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/nav/accordion/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[多选]{id='multi' src='/nav/accordion/2multi.demo.tsx'}
+
+设置 `multi` 属性可以展开多个面板\
+`activeKey` 属性为可控展开面板属性
+
+:::
+
+
+
+:::demo[占满容器]{id='flex' src='/nav/accordion/3flex.demo.tsx'}
+
+设置 `flex` 属性可以将手风琴占满容器
+
+:::
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|multi|可以选择多个面板展开|boolean||
+|activeKey|选中面板，绑定属性|Signal||
+|flex|flex布局并且占满容器|boolean||
+|onSelect|面板选中事件|Function||
+
+
+## Item属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|name|面板名称|string|-|
+|style|自定义样式|Object|-|
+|title|面板标题|any|-|
+|icon|面板标题图标|JSXElement|-|
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`OnSelect`|面板选中事件|name|
+
+</div>
+

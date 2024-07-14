@@ -1,0 +1,36 @@
+{
+    "name": "solid-live",
+    "version": "0.1.0",
+    "description": "",
+    "type": "module",
+    "author": "cqb325",
+    "homepage": "https://cqb325.gitee.io",
+    "main": "src/components/index.tsx",
+    "keywords": [
+        "cui-solid",
+        "solid-js",
+        "solid",
+        "web",
+        "library",
+        "component"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://gitee.com/cqb325/cui-solid"
+    },
+    "files": [
+        "dist",
+        "src",
+        "types"
+    ],
+    "scripts": {
+        "start": "vite",
+        "dev": "vite",
+        "build": "npm run build:lib",
+        "build:lib": "vite build",
+        "build:types": "tsc",
+        "build:style": "gulp --gulpfile build/build.style.ts",
+        "build:doc": "vite build --config build/vite.doc.config.ts"
+    },
+    "license": "MIT"
+}

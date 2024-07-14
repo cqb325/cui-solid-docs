@@ -1,0 +1,96 @@
+---
+path: /nav/badge
+name: badge
+title: Badge 徽标
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Badge 徽标\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/nav/badge/1base.demo.tsx'}
+
+最简单的使用方法。
+
+:::
+
+
+:::demo[小红点]{id='dot' src='/nav/badge/2dot.demo.tsx'}
+
+小红点徽标
+
+:::
+
+
+
+:::demo[封顶数字]{id='overcount' src='/nav/badge/3overcount.demo.tsx'}
+
+通过设置 overflowCount 属性设置一个封顶值，当超过时，会显示{'${overflowCount}'}+
+
+:::
+
+
+
+:::demo[独立使用及自定义样式]{id='alone' src='/nav/badge/4alone.demo.tsx'}
+
+独立使用及自定义样式
+
+:::
+
+
+
+:::demo[自定义内容]{id='text' src='/nav/badge/5text.demo.tsx'}
+
+设置 text 属性，可以自定义显示内容。
+
+:::
+
+
+:::demo[状态点]{id='status' src='/nav/badge/6status.demo.tsx'}
+
+用于表示状态的小圆点。
+
+:::
+
+
+
+:::demo[多彩徽标]{id='color' src='/nav/badge/7color.demo.tsx'}
+
+属性 `color` 可以设置更多预设的状态点颜色，或者自定义颜色。
+
+:::
+
+
+:::demo[预设颜色]{id='type' src='/nav/badge/8type.demo.tsx'}
+
+使用 `type` 属性，可以设置不同的颜色。
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|count|徽标内显示的数量|number||
+|dot|小圆点徽标|boolean||
+|overflowCount|上限数量,超出显示overflowCount+|number||
+|text|自定义内容|string||
+|status|状态徽标|success &#124; error &#124; processing &#124; warning &#124; default||
+|color|圆点徽标的颜色|blue &#124; green &#124; red &#124; yellow &#124; pink &#124; magenta &#124; volcano &#124; orange &#124; gold &#124; lime &#124; cyan &#124; geekblue &#124; purple||
+|type|不同类型显示不同颜色|primary &#124; success &#124; normal &#124; info &#124; error &#124; warning||
+
+
+
+</div>
+

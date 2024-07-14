@@ -1,0 +1,81 @@
+---
+title: Button 按钮
+---
+<div class="sys-ctx-main-left">
+
+# Button 按钮\{#title\}
+
+## 代码演示\{#code_preview\}
+
+::demos{columns=2}
+
+:::demo[按钮类型]{id="button_base" src="/base/button/1type.demo.tsx"}
+通过设置 `type` 为 `primary`、`success`、`warning`、`error`、`default`、`dashed`、`text`、`link` 创建不同样式的按钮，不设置为默认样式。
+:::
+
+:::demo[幽灵按钮]{id='button_ghost' src='/base/button/2ghost.demo.tsx'}
+
+幽灵按钮将其他按钮的内容反色，背景变为透明，常用在有色背景上。
+
+:::
+
+
+:::demo[禁用按钮]{id='button_disabled' src='/base/button/3disabled.demo.tsx'}
+
+通过添加disabled属性可将按钮设置为不可用状态。
+
+:::
+
+
+:::demo[按钮尺寸]{id='button_size' src='/base/button/4size.demo.tsx'}
+
+按钮有三种尺寸：大、默认（中）、小\
+通过设置size为large和small将按钮设置为大和小尺寸，不设置为默认（中）尺寸。
+
+:::
+
+
+:::demo[图标按钮]{id='button_icon' src='/base/button/5icon.demo.tsx'}
+
+通过设置`icon`属性在Button内嵌入一个Icon\
+使用`Button`的`icon`属性，图标位置将在最左边，通过设置 `iconAlign` 将按钮放置在后面。\
+通过设置`circle`属性，可将按钮置为圆的形状
+
+:::
+
+
+:::demo[按钮组]{id='button_group' src='/base/button/6group.demo.tsx'}
+
+将多个`Button`放入`ButtonGroup`内，可实现按钮组合的效果。\
+通过设置`ButtonGroup`的属性`size`为`large`和`small`，可将按钮组尺寸设置为大和小，不设置`size`，则为默认（中）尺寸。\
+通过设置 `disabled`属性可以禁用按钮组
+
+:::
+
+
+:::demo[加载中状态]{id='button_loading' src='/base/button/7loading.demo.tsx'}
+
+通过添加`loading`属性可以让按钮处于加载中状态,可点击动态设置
+
+:::
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|link|按钮链接|string|-|
+|type|按钮类型支持|`primary`、`success`、`error`、`warning`、`default`、`dashed`、`link`、`text`|default|
+|block|块状按钮|boolean|false|
+|size|按钮大小|`small`、`default`、`large`|-|
+|active|选中按钮状态在ButtonGroup中使用|boolean|false|
+|circle|圆形按钮|boolean|false|
+|disabled|禁用状态|boolean|false|
+|loading|加载状态，true情况下不会响应点击事件|boolean|false|
+|ghost|幽灵按钮|boolean|false|
+|icon|按钮图标|Icon|-|
+|iconAlign|按钮图标位置|`left`、`right`|left|
+|onClick|点击回调函数|Function|-|
+
+</div>

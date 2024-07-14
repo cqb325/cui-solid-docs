@@ -1,0 +1,139 @@
+---
+path: /view/tree
+name: tree
+title: Tree 树状控件
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Tree 树状控件\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/view/tree/1base.demo.tsx'}
+
+Tree 传入 `data` 数据展示树状组件
+
+:::
+
+
+:::demo[默认展开]{id='opened' src='/view/tree/2opened.demo.tsx'}
+
+`opened` 参数控制默认打开的节点
+
+:::
+
+
+:::demo[默认选中]{id='selected' src='/view/tree/3selected.demo.tsx'}
+
+`selected` 参数控制选中的节点
+
+:::
+
+
+:::demo[级联多选]{id='multi' src='/view/tree/4multi.demo.tsx'}
+
+设置 `multi` 参数可以进行多选，默认级联
+
+:::
+
+
+
+:::demo[非级联多选]{id='multi_unrelate' src='/view/tree/5multi_unrelate.demo.tsx'}
+
+`checkRelation` 参数可以设置多选场景下的级联情况，`unRelated` 非级联 `related` 级联
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/view/tree/6disabled.demo.tsx'}
+
+数据项添加 `disabled` 参数可以禁用节点
+
+:::
+
+
+:::demo[目录图标]{id='directory' src='/view/tree/7directory.demo.tsx'}
+
+添加`directory` 参数可以显示目录图标
+
+:::
+
+
+:::demo[动态加载]{id='loadData' src='/view/tree/8loadData.demo.tsx'}
+
+数据项存在 `loading` 参数， 可通过 `loadData` 方法动态加载子节点
+
+:::
+
+
+:::demo[右键菜单]{id='contextmenu' src='/view/tree/9contextmenu.demo.tsx'}
+
+可通过 `contextMenu` 属性添加右键菜单， `onContextMenu` 属性添加菜单点击事件
+
+:::
+
+
+:::demo[接口]{id='methods' src='/view/tree/10methods.demo.tsx'}
+
+`getAllChecked` `getHalfChecked` `getChildChecked` `getShallowChecked` 获取所有选中的节点  
+
+:::
+
+
+:::demo[可控数据]{id='data' src='/view/tree/11data.demo.tsx'}
+
+通过更改 `data` 属性更改tree的数据
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|data|源数据|Array||
+|opened|可控打开节点id|Function[]||
+|selected|可控选中节点id|Function[]||
+|ref|组件引用对象|Object||
+|gutter|错位距离|number|24|
+|value|可控值|Function[]||
+|multi|多选，显示复选框|boolean||
+|directory|显示目录图标|boolean||
+|loadData|配合数据项的loading|Function||
+|contextMenu|右键菜单配合DropdownMenu使用|JSXElement||
+|checkRelation|选择框的级联关系|related &#124; unRelated|related|
+|onSelect|节点选中事件|Function||
+|onChange|复选框选中事件|Function||
+|onContextMenu|右键菜单事件|Function||
+|onSelectMenu|右键菜单项选中事件|Function||
+
+
+## 数据项属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|id|数据项标识字段|string &#124; number||
+|title|节点名称|string||
+|loading|动态加载节点|boolean||
+|icon|自定义图标|any||
+|disabled|节点禁用|boolean||
+|patch|追加数据|JSXElement||
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onSelect`|节点选中事件|node|
+|`onChange`|复选框选中事件|value|
+|`onContextMenu`|右键菜单事件|node|
+|`onSelectMenu`|右键菜单项选中事件|name|
+
+</div>

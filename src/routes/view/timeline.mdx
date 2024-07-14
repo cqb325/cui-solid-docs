@@ -1,0 +1,91 @@
+---
+path: /view/timeline
+name: timeline
+title: Timeline 时间轴
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Timeline 时间轴\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/view/timeline/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[颜色]{id='color' src='/view/timeline/2color.demo.tsx'}
+
+用各种颜色来标识不同状态，可以使用 `green`、`red`、`blue`、`yellow`或自定义的颜色，默认是 `blue`。
+
+:::
+
+
+
+:::demo[填充]{id='fill' src='/view/timeline/3fill.demo.tsx'}
+
+设置 `fill` 可以将 `color` 填充节点
+
+:::
+
+
+
+:::demo[交替]{id='alternate' src='/view/timeline/4alternate.demo.tsx'}
+
+设置 `mode='alternate'` 可以交替显示时间轴内容
+
+:::
+
+
+:::demo[靠右]{id='right' src='/view/timeline/5right.demo.tsx'}
+
+设置 `mode='right'` 可以渲染靠右的时间轴
+
+:::
+
+
+
+:::demo[时间节点靠左]{id='center' src='/view/timeline/6center.demo.tsx'}
+
+设置 `mode='center'` 可以将时间靠左显示
+
+:::
+
+
+:::demo[自定义轴点]{id='icon' src='/view/timeline/7icon.demo.tsx'}
+
+自定义轴点的内容，一个图标。
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|mode|模式|left &#124; right &#124; alternate &#124; center &#124;||
+
+
+## Item属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|color|轴点颜色|green &#124; blue &#124; red|blue|
+|icon|轴点自定义图标|JSXElement||
+|fill|轴点填充color颜色|boolean||
+|time|时间轴每项的时间|string||
+
+
+</div>

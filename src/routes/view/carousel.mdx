@@ -1,0 +1,83 @@
+---
+path: /view/carousel
+name: carousel
+title: Carousel 轮播
+---
+
+import img1 from '~/assets/images/carousel/1.jpg';
+import img2 from '~/assets/images/carousel/2.jpg';
+import img3 from '~/assets/images/carousel/3.jpg';
+import img4 from '~/assets/images/carousel/4.jpg';
+
+<div class="sys-ctx-main-left">
+
+# Carousel 轮播\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/view/carousel/1base.demo.tsx' scopes='{img1, img2, img3, img4}'}
+
+基本用法
+
+:::
+
+
+
+:::demo[自动播放]{id='autoplay' src='/view/carousel/2autoplay.demo.tsx' scopes='{img1, img2, img3, img4}'}
+
+添加`autoPlay` 可以自动播放
+
+:::
+
+
+
+:::demo[dot位置]{id='dotAlign' src='/view/carousel/3dotAlign.demo.tsx' scopes='{img1, img2, img3, img4}'}
+
+`dotAlign` 支持 `left` 和 `right`  默认 `center`
+
+:::
+
+
+:::demo[dot样式]{id='dotstyle' src='/view/carousel/4dotstyle.demo.tsx' scopes='{img1, img2, img3, img4}'}
+
+`dotType` 支持 `line` 和 `columnar`  默认圆形
+
+:::
+
+
+:::demo[可控]{id='control' src='/view/carousel/5control.demo.tsx' scopes='{img1, img2, img3, img4}'}
+
+`activeIndex` 属性进行控制显示的索引
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|arrow|切换按钮的显示方式|hover &#124; always &#124; never|hover|
+|autoPlay|自动播放|boolean||
+|duration|自动播放时间ms|number|4000|
+|effect|动效|fade &#124; slide||
+|dotType|缩略点位的样式|dot &#124; line &#124; columnar|dot|
+|dotAlign|点位的位置|left &#124; center &#124; right|center|
+|activeIndex|控制活跃的索引|Signal||
+|onChange|切换事件|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|切换事件|-|
+
+</div>
+

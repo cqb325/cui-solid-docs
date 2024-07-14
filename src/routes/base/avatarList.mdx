@@ -1,0 +1,43 @@
+---
+path: /base/avatarList
+name: avatarList
+title: AvatarList 头像列表
+---
+import img1 from '~/assets/images/1.png';
+import img2 from '~/assets/images/2.png';
+import img3 from '~/assets/images/3.png';
+import img4 from '~/assets/images/4.png';
+
+<div class="sys-ctx-main-left">
+
+# AvatarList 头像列表\{#title\}
+
+## 代码演示\{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/base/avatarList/1base.demo.tsx' scopes='{img1, img2, img3, img4}' }
+
+基础用法
+
+:::
+
+
+:::demo[最大显示数]{id='max' src='/base/avatarList/2max.demo.tsx' scopes='{img1, img2, img3, img4}' }
+
+设置属性 `max` 可以指定最多显示几个头像，超出后会显示额外数目。
+
+:::
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|size|头像大小|`small`、`default`、`large`|-|
+|max|最大显示数|number|-|
+|excessStyle|超过数目显示样式|Object|-|
+
+</div>

@@ -1,0 +1,117 @@
+---
+path: /form/cascader
+name: cascader
+title: Cascader 级联选择
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Cascader 级联选择\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/cascader/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/cascader/2disabled.demo.tsx'}
+
+使用 `disabled` 禁用
+
+:::
+
+
+:::demo[尺寸]{id='size' src='/form/cascader/3size.demo.tsx'}
+
+`size` 支持 `small` 和 `large`
+
+:::
+
+
+:::demo[自定义分隔符]{id='sep' src='/form/cascader/4sep.demo.tsx'}
+
+使用 `seperator` 可以自定义分隔符
+
+:::
+
+
+:::demo[触发事件]{id='trigger' src='/form/cascader/5trigger.demo.tsx'}
+
+使用 `trigger` 修改展开的触发条件， 支持 `hover` 和 `click`
+
+:::
+
+
+:::demo[选择及改变]{id='change' src='/form/cascader/6change.demo.tsx'}
+
+设置 `changeOnSelect` 选择选项及改变值
+
+:::
+
+
+:::demo[可控]{id='control' src='/form/cascader/7control.demo.tsx'}
+
+`value` 可控属性
+
+:::
+
+
+:::demo[动态加载]{id='loading' src='/form/cascader/8loading.demo.tsx'}
+
+数据属性存在 `loading` 可配合 `loadData` 方法进行动态加载子元素
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|disabled|禁用|boolean||
+|size|尺寸|small &#124; large||
+|clearable|可清空|boolean||
+|align|下拉位置|bottomLeft &#124; bottomRight|bottomRight|
+|prepend|前缀|JSXElement||
+|value|值，可控属性|Signal||
+|placeholder|placeholder|string||
+|seperator|分隔符|string|/|
+|transfer|下拉内容使用Portal渲染|boolean||
+|revers|是否需要翻转|boolean|true|
+|data|传入的数据体|Array||
+|trigger|展开触发条件|click &#124; hover|click|
+|changeOnSelect|点击选项及改变值|boolean||
+|loadData|动态加载方法|Function||
+|onChange|值改变事件|Function||
+|onSelect|选项选择事件|Function||
+
+
+## 数据属性 \{#data_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|value|选项值|string &#124; number|-|
+|title|选项显示信息|string|-|
+|children|子元素|Array|-|
+|disabled|选项禁用|boolean|-|
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value: string[]|
+|`onSelect`|选项选择事件|item: Object|
+
+</div>
+

@@ -1,0 +1,70 @@
+---
+path: /form/rate
+name: rate
+title: Rate 评分
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Rate 评分\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/rate/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/rate/2disabled.demo.tsx'}
+
+使用 `disabled` 进行禁用
+
+:::
+
+
+:::demo[数量]{id='count' src='/form/rate/3count.demo.tsx'}
+
+使用 `count` 指定图标的数量，默认为5
+
+:::
+
+
+:::demo[半星]{id='half' src='/form/rate/4half.demo.tsx'}
+
+使用 `allowHalf` 可选中半星
+
+:::
+
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|disabled|禁用|boolean||
+|value|值，可控属性|Signal||
+|icon|进行显示的图标|JSXElement||
+|count|图标的数量|number|5|
+|allowHalf|允许选中半星|boolean||
+|onChange|值改变事件|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value|
+
+</div>
+

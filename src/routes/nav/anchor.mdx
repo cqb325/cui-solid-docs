@@ -1,0 +1,64 @@
+---
+path: /nav/anchor
+name: anchor
+title: Anchor 锚点
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Anchor 锚点\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/nav/anchor/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+
+:::demo[分列]{id='column' src='/nav/anchor/2column.demo.tsx'}
+
+分列
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|container|容器|string  &#124;  HTMLElement||
+|scrollContainer|滚动容器|string  &#124;  HTMLElement||
+|scrollOffset|滚动偏移量|number||
+|offsetTop|偏移量|number||
+|bounds|触发的容量|number|5|
+|showInk|显示高亮条|boolean|false|
+|mode|使用的模式|hash &#124; history|hash|
+|onChange|锚点点击触发事件|Function||
+
+
+## Link属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|href|锚点链接|string|-|
+|title|锚点标题|string &#124; JSXElement|-|
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|锚点点击触发事件|key|
+
+</div>
+

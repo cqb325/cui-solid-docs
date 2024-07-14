@@ -1,0 +1,40 @@
+---
+path: /base/spin
+name: spin
+title: Spin 加载中
+---
+<div class="sys-ctx-main-left">
+
+# Spin 加载中\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/base/spin/1base.demo.tsx'}
+
+`Spin` 的父组件需要设置 `position` 为 `relative`/`absolute`/`fixed`\
+`Spin` 的 `type` 支持 `pulse`/`gear`/`oval` 默认为 `pulse`
+
+:::
+
+
+:::demo[可控]{id='control' src='/base/spin/2control.demo.tsx'}
+
+可以设置 `title` 属性修改文案，默认为loading...
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|type|类型|pulse &#124; gear|pulse|
+|size|大小尺寸|string||
+|title|标题|string|Loading...|
+
+
+</div>
+

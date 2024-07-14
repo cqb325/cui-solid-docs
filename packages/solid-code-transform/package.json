@@ -1,0 +1,43 @@
+{
+    "name": "solid-code-transform",
+    "version": "0.1.0",
+    "description": "",
+    "type": "module",
+    "author": "cqb325",
+    "homepage": "https://cqb325.gitee.io",
+    "main": "src/components/index.ts",
+    "keywords": [
+        "cui-solid",
+        "solid-js",
+        "solid",
+        "web",
+        "library",
+        "component"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://gitee.com/cqb325/cui-solid"
+    },
+    "files": [
+        "dist",
+        "src",
+        "types"
+    ],
+    "scripts": {
+        "start": "vite",
+        "dev": "vite",
+        "build": "npm run build:lib",
+        "build:lib": "vite build",
+        "build:types": "tsc",
+        "build:style": "gulp --gulpfile build/build.style.ts",
+        "build:doc": "vite build --config build/vite.doc.config.ts"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@babel/standalone": "^7.24.4",
+        "assert": "^2.1.0",
+        "babel-preset-solid": "^1.8.16",
+        "cui-solid": "^0.1.39",
+        "dedent": "^1.5.1"
+    }
+}

@@ -1,0 +1,98 @@
+---
+path: /base/draggable
+name: draggable
+title: Draggable 拖拽
+---
+
+<div class="sys-ctx-main-left">
+
+# Draggable 拖拽\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/base/draggable/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/base/draggable/2disabled.demo.tsx'}
+
+禁用拖拽
+
+:::
+
+
+:::demo[方向]{id='axis' src='/base/draggable/3axis.demo.tsx'}
+
+`axis` 默认为 `Both` 、可以限制在某X、Y轴上。\
+设置 `defaultPosition` 可初始化位置
+
+:::
+
+
+:::demo[限制范围]{id='bounds' src='/base/draggable/4bounds.demo.tsx'}
+
+`bounds` 默认为 `parent`, 可指定 `css` 选择器选择指定的容器
+
+:::
+
+
+:::demo[触发元素]{id='handle' src='/base/draggable/5handle.demo.tsx'}
+
+通过设置 `handle` 的元素指定触发拖拽的元素
+
+:::
+
+
+:::demo[最小距离]{id='grid' src='/base/draggable/6grid.demo.tsx'}
+
+通过设置 `grid` 拖拽移动的最小距离
+
+:::
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|defaultPosition|初始化位置|Object|\{x: 0, y: 0\}|
+|position|控制位置|Object|\{x: 0, y: 0\}|
+|bounds|拖拽范围的容器元素|string &#124; HTMLElement|parent|
+|axis|拖拽方向|both &#124; x &#124; y|both|
+|positionOffset|初始化偏移量|object|\{x: 0, y: 0\}|
+|grid|每次拖拽的最小距离|Number[]||
+|disabled|禁用拖拽|boolean||
+|handle|禁用触发的元素|string &#124; HTMLElement||
+|onStart|拖拽开始触发事件, return false 可以阻断后续事件|Function||
+|onDrag|拖拽触发事件, return false 可以阻断后续事件|Function||
+|onStop|拖拽结束事件, return false 可以阻断后续事件|Function||
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onStart`|拖拽开始触发事件|Event, uiData|
+|`onDrag`|拖拽触发事件|Event, uiData|
+|`onStop`|拖拽结束事件|Event, uiData|
+
+
+## 事件回调uiDaua 属性 \{#ui-data-props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|x|x方向位置|number||
+|y|y方向位置|number||
+|deltaX|x方向距离上次位置距离|number||
+|deltaY|y方向距离上次位置距离|number||
+|lastX|x上次位置|number||
+|lastY|y上次位置|number||
+
+</div>
+

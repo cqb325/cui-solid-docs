@@ -1,0 +1,79 @@
+---
+title: "Home"
+---
+import {Timeline} from '~/cui-solid/components/Timeline';
+import {Button} from '~/cui-solid/components/Button';
+import {Image} from '~/cui-solid/components/Image';
+import img1 from '~/assets/images/sidebyside/clarity2.webp';
+import img2 from '~/assets/images/sidebyside/clarity2_after_ai.webp';
+
+<div class="sys-ctx-main-left">
+
+<Timeline>
+        <Timeline.Item>
+            <label class="time">1976年</label>
+            <span class="content">Apple I 问世</span>
+        </Timeline.Item>
+        <Timeline.Item>
+            <label class="time">1984年</label>
+            <span class="content">发布 Macintosh</span>
+        </Timeline.Item>
+        <Timeline.Item>
+            <label class="time">2007年</label>
+            <span class="content">发布 iPhone</span>
+        </Timeline.Item>
+        <Timeline.Item>
+            <label class="time">2010年</label>
+            <span class="content">发布 iPad</span>
+        </Timeline.Item>
+    </Timeline>
+
+# Hello World!
+
+#{frontmatter.title}
+
+
+
+:::info[信息]
+info block
+:::
+
+:::tip
+This is a tip.
+:::
+
+:::warning
+This is a warning.
+:::
+
+:::danger
+This is a dangerous warning.
+:::
+
+:::details
+This is a details block.
+:::
+
+
+:::details[点击查看代码]
+```js
+console.log('Hello, VitePress!')
+```
+:::
+
+
+
+```jsx tabs=demo name=index.jsx
+export default function App() {
+  return <div>hello world</div>;
+}
+```
+
+```css tabs=demo name=style.css
+div {
+  border: 1px solid red;
+}
+```
+
+</div>
+

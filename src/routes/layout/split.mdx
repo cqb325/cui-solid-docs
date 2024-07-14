@@ -1,0 +1,61 @@
+---
+path: /layout/split
+name: split
+title: Split 面板分割
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Split 面板分割\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/layout/split/1base.demo.tsx'}
+
+左右分割用法。
+
+:::
+
+
+
+:::demo[上下分割]{id='h' src='/layout/split/2h.demo.tsx'}
+
+上下分割用法。
+
+:::
+
+
+
+:::demo[嵌套]{id='insert' src='/layout/split/3insert.demo.tsx'}
+
+嵌套使用。
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|dir|分割方向|v &#124; h|v|
+|split|前置面板的大小|number &#124; string||
+|min|前置面板的最小大小|number|40|
+|max|前置面板的最大大小|number|40|
+
+
+## 插槽 \{#slots\}
+
+| 名称 | 说明 |
+| :--- | :---- |
+|`prev`|前置面板|
+|`next`|后置面板|
+
+</div>
+

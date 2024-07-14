@@ -1,0 +1,65 @@
+---
+path: /view/banner
+name: banner
+title: Banner 通知横幅
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Banner 通知横幅\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/view/banner/1base.demo.tsx'}
+
+基本用法,支持4种类型：`info`、`warning`、`error`、`success`。默认为 `info`。
+
+:::
+
+
+
+:::demo[非全屏模式]{id='fullmode' src='/view/banner/2fullmode.demo.tsx'}
+
+可以设置 `fullMode={false}` 使用非全屏模式的 `banner` 样式。 通过 `bordered` 属性可以设置边框。
+
+:::
+
+
+
+:::demo[自定义内容]{id='custom' src='/view/banner/3custom.demo.tsx'}
+
+通过指定`Slot name="extra" `指定额外内容
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|type|样式类型|warning &#124; info &#124; success &#124; error|info|
+|bordered|显示border|boolean||
+|title|标题|string &#124; JSXElement||
+|icon|可自定义图标|JSXElement||
+|closeIcon|关闭的icon|JSXElement||
+|fullMode|全屏模式|boolean||
+|visible|控制显示|Signal||
+|onClose|关闭时回调|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onClose`|关闭时回调|-|
+
+</div>
+

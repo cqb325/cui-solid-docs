@@ -1,0 +1,108 @@
+---
+path: /nav/tabs
+name: tabs
+title: Tabs 标签页
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Tabs 标签页\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/nav/tabs/1base.demo.tsx'}
+
+Tabs 的 `activeName` 与Tab的 `name` 对应，用于标识当前激活的是哪一项
+
+:::
+
+
+
+:::demo[禁用]{id='disabled' src='/nav/tabs/2disabled.demo.tsx'}
+
+使用 `disabled` 可以禁用某一项
+
+:::
+
+
+
+:::demo[动画时间]{id='duration' src='/nav/tabs/3duration.demo.tsx'}
+
+使用 `duration` 可以修改动画时间
+
+:::
+
+
+
+:::demo[图标]{id='icon' src='/nav/tabs/4icon.demo.tsx'}
+
+使用 `icon` 可以给Tab添加图标
+
+:::
+
+
+
+:::demo[卡片]{id='card' src='/nav/tabs/5card.demo.tsx'}
+
+设置属性 `type` 为 `card` 可以显示卡片样式，常用于容器顶部。
+
+:::
+
+
+
+:::demo[附加内容]{id='extra' src='/nav/tabs/6extra.demo.tsx'}
+
+使用 `extra` 可以在页签右边添加附加操作
+
+:::
+
+
+
+:::demo[动态]{id='danymic' src='/nav/tabs/7danymic.demo.tsx'}
+
+Tab添加 `closeable` 属性可以支持关闭Tab页。
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|card|卡片标签|boolean||
+|activeName|当前活跃的标签,和Tab的name对应|string||
+|extra|额外内容|JSXElement||
+|onTabClick|标签页点击事件|Function||
+|onRemove|标签删除事件|Function||
+
+
+## Item属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|title|标签标题|any||
+|name|标签页名称，标签页的标识|string||
+|disabled|禁用|boolean||
+|closeable|可关闭标签页|boolean||
+|icon|标签图标|Icon||
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onTabClick`|标签页点击事件|ItemConfig|
+|`onRemove`|标签删除事件|name|
+
+</div>
+

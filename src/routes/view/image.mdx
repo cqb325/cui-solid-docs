@@ -1,0 +1,134 @@
+---
+path: /view/image
+name: image
+title: Image 图片
+---
+
+import img1 from '~/assets/images/image/1.jpg';
+import img2 from '~/assets/images/image/2.jpg';
+import img3 from '~/assets/images/image/3.jpg';
+import img4 from '~/assets/images/image/4.jpg';
+import img5 from '~/assets/images/image/5.jpg';
+import img6 from '~/assets/images/image/6.jpg';
+import img7 from '~/assets/images/image/7.jpg';
+import img8 from '~/assets/images/image/8.jpg';
+import img9 from '~/assets/images/image/9.jpg';
+import img10 from '~/assets/images/image/10.jpg';
+
+<div class="sys-ctx-main-left">
+
+# Image 图片\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基本用法]{id='base' src='/view/image/1base.demo.tsx' scopes='{img1}'}
+
+可通过 `fit` 来设置图片在容器的样式，同原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)。
+
+:::
+
+
+
+:::demo[占位]{id='placeholder' src='/view/image/2placeholder.demo.tsx' scopes='{img10}'}
+
+通过`placeholder`属性可以自定义占位样式，可通过console的Network修改网络速率进行测试
+
+:::
+
+
+:::demo[占位]{id='error' src='/view/image/3error.demo.tsx' scopes='{img1}'}
+
+通过`placeholder`属性可以自定义占位样式，可通过console的Network修改网络速率进行测试
+
+:::
+
+
+:::demo[懒加载]{id='lazy' src='/view/image/4lazy.demo.tsx' scopes='{img1, img2, img3, img4, img5, img6, img7, img8, img9, img10}'}
+
+设置属性 `lazy` 可以开启图片懒加载功能，当图片滚动到可视范围内才会加载。
+
+:::
+
+
+:::demo[预览]{id='preview' src='/view/image/5preview.demo.tsx' scopes='{img1, img2, img3, img4, img5, img6, img7, img8, img9, img10}'}
+
+设置属性 `preview` 可以开启图片预览模式，通过属性 `previewList` 来设置图片列表，\
+`previewIndex` 属性设置打开预览时显示图片的索引。\
+预览时，可以使用 <kbd>←</kbd>、<kbd>→</kbd> 切换图片，<kbd>↑</kbd>、<kbd>↓</kbd> 缩放图片，<kbd>Space</kbd> 显示 1:1 图片，<kbd>ESC</kbd> 退出预览。
+
+:::
+
+
+:::demo[单独使用图片预览]{id='image_preview' src='/view/image/6image_preview.demo.tsx' scopes='{img1, img2, img3, img4, img5, img6, img7, img8, img9, img10}'}
+
+图片预览组件 `ImagePreview` 也可以单独使用。
+
+:::
+
+
+
+## Image 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|failInfo|失败显示信息|JSXElement||
+|preview|打开预览功能|boolean||
+|previewTip|预览的提示文案|string|预览|
+|previewList|预览图片列表|String[]||
+|fit|图片fit|fill &#124; contain &#124; cover &#124; none &#124; scale-down||
+|alt|图片alt|string||
+|src|图片地址|string||
+|lazy|懒加载|boolean||
+|referrerPolicy|图片引用策略|string||
+|scrollContainer|懒加载滚动的容器|string &#124; HTMLElement||
+|placeholder|占位|string &#124; HTMLElement||
+|width|宽度|number &#124; string||
+|height|高度|number &#124; string||
+|infinite|预览的是否连续|boolean|true|
+|maskClosable|点击遮罩进行关闭|boolean||
+|previewIndex|预览默认索引|number|0|
+|onLoad|图片加载完成事件|Function||
+|onError|图片加载失败事件|Function||
+|onClose|预览关闭事件|Function||
+|onSwitch|预览图片切换事件|Function||
+
+## Image 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onLoad`|图片加载完成事件|node|
+|`onError`|图片加载失败事件|value|
+|`onClose`|预览关闭事件|node|
+|`onSwitch`|预览图片切换事件|name|
+
+
+## PreviewImage 属性 \{#preview_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|failInfo|失败显示信息|JSXElement||
+|previewList|预览图片列表|String[]||
+|infinite|预览的是否连续|boolean|true|
+|visible|预览控制显示|Signal||
+|initIndex|预览默认索引|number|0|
+|maskClosable|点击遮罩进行关闭|boolean||
+|onClose|预览关闭事件|Function||
+|onSwitch|预览图片切换事件|Function||
+
+
+## ImagePreview 事件 \{#preview_events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onClose`|预览关闭事件|node|
+|`onSwitch`|预览图片切换事件|name|
+
+</div>

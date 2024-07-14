@@ -1,0 +1,57 @@
+---
+path: /view/wordcount
+name: wordcount
+title: WordCount 字数统计
+---
+
+<div class="sys-ctx-main-left">
+
+# WordCount 字数统计\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/other/wordcount/1base.demo.tsx'}
+
+基础用法。
+
+:::
+
+
+:::demo[自定义文案]{id='custom' src='/other/wordcount/2custom.demo.tsx'}
+
+通过 `prefix` 、 `prefixOverflow`、 `suffix`、 `suffixOverflow` 自定义文案
+
+:::
+
+
+:::demo[圆形]{id='circle' src='/other/wordcount/3circle.demo.tsx'}
+
+设置属性 `circle` 会渲染为一个圆环
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|value|监控数量的值|string||
+|total|上限字数|number||
+|prefix|前缀文案|string||
+|prefixOverflow|前缀超过文案|string||
+|suffix|后缀文案|string||
+|suffixOverflow|后缀超过文案|string||
+|circle|圆形|boolean||
+|overflow|显示超出的字数|boolean||
+|radius|圆形的半径|number|10|
+
+
+</div>
+

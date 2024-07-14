@@ -1,0 +1,14 @@
+{
+    "name": "solid-doc-layout",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "index.tsx",
+    "scripts": {},
+    "dependencies": {},
+    "engines": {
+        "node": ">=18"
+    },
+    "devDependencies": {
+        "mdast-typeguards": "^0.0.1"
+    }
+}

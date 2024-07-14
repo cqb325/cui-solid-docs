@@ -1,0 +1,76 @@
+---
+path: /nav/steps
+name: steps
+title: Steps 步骤
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Steps 步骤\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/nav/steps/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+
+:::demo[迷你型]{id='mini' src='/nav/steps/2mini.demo.tsx'}
+
+迷你型
+
+:::
+
+
+
+:::demo[垂直步骤]{id='v' src='/nav/steps/3v.demo.tsx'}
+
+`dir='v'` 垂直步骤
+
+:::
+
+
+
+:::demo[状态和图标]{id='icon' src='/nav/steps/4icon.demo.tsx'}
+
+`status` 支持 `finished` `process` `error` `warning` `wait` 其中`finished`状态、`warning`和`error`状态有默认图标
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|size|分页尺寸|small|normal|
+|current|当前步骤|number|0|
+|dir|方向|v &#124; h|h|
+
+
+## Item属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|title|标题|JSXElement &#124; string||
+|description|步骤描述|JSXElement &#124; string||
+|icon|自定义图标|JSXElement||
+|status|状态|finished &#124; process &#124; error &#124; warning &#124; wait||
+
+
+
+</div>
+

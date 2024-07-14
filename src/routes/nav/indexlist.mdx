@@ -1,0 +1,77 @@
+---
+path: /nav/indexlist
+name: indexlist
+title: IndexList 索引列表
+---
+
+
+<div class="sys-ctx-main-left">
+
+# IndexList 索引列表\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/nav/indexlist/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+
+:::demo[可选择]{id='selectable' src='/nav/indexlist/2selectable.demo.tsx'}
+
+添加 `selectable` 属性可以对选项进行选择
+
+:::
+
+
+:::demo[边框]{id='border' src='/nav/indexlist/3border.demo.tsx'}
+
+添加 `border` 属性渲染边框
+
+:::
+
+
+:::demo[自定义渲染]{id='custom' src='/nav/indexlist/4custom.demo.tsx'}
+
+通过 `renderItem` 方法可以自定义选项的渲染方式
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|data|传入的数据源|array||
+|selectable|可选择的|boolean||
+|promote|显示提示信息|boolean||
+|border|显示带边框的列表|boolean||
+|renderItem|自定义渲染方法|Function||
+|onChange|选择选项改变事件|Function||
+
+
+## Item属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|id|选项标识|string &#124; number|-|
+|name|显示名称|string|-|
+|children|子元素|any[]|-|
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|选择选项改变事件|value[]|
+
+</div>
+

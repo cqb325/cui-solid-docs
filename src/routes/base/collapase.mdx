@@ -1,0 +1,38 @@
+---
+path: /base/collapase
+name: collapase
+title: Collapase 折叠
+---
+<div class="sys-ctx-main-left">
+
+# Collapase 折叠\{#title\}
+
+## 代码演示\{#code-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/base/collapase/1base.demo.tsx'}
+
+控制折叠
+
+:::
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|open|控制打开状态|Signal||
+|onOpen|打开回调|Function||
+|onEnd|动画结束回调|Function||
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onOpen`|打开收缩事件|height|
+|`onEnd`|动画结束事件|status|
+
+
+</div>

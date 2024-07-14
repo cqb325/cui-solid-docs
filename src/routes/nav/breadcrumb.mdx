@@ -1,0 +1,56 @@
+---
+path: /nav/breadcrumb
+name: breadcrumb
+title: Breadcrumb 面包屑
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Breadcrumb 面包屑\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/nav/breadcrumb/1base.demo.tsx'}
+
+最基础的用法，通过设置link属性添加链接。
+
+:::
+
+
+
+:::demo[带图标]{id='icon' src='/nav/breadcrumb/2icon.demo.tsx'}
+
+可自定义每项的内容，比如带有一个图标
+
+:::
+
+
+:::demo[分隔符]{id='sep' src='/nav/breadcrumb/3sep.demo.tsx'}
+
+通过设置 separator 属性来自定义分隔符，比如 `>`
+
+:::
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|separator|分隔符|string|/|
+
+## Item属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|link|链接|string|-|
+|icon|图标|Icon|-|
+
+
+</div>
+

@@ -1,0 +1,72 @@
+---
+path: /base/avatar
+name: avatar
+title: Avatar 头像
+---
+import img from '~/assets/images/avatar.png';
+
+<div class="sys-ctx-main-left">
+
+# Avatar 头像\{#title\}
+
+## 代码演示\{#code-demos\}
+
+::demos{columns=2}
+
+:::demo[头像尺寸]{id='size' src='/base/avatar/1base.demo.tsx'}
+
+通过设置 `size` 可以设置图标大小,small或large
+
+:::
+
+
+:::demo[形状]{id='shape' src='/base/avatar/2shape.demo.tsx'}
+
+通过设置 `shape` square为矩形头像
+
+:::
+
+:::demo[类型]{id='type' src='/base/avatar/3type.demo.tsx' scopes='{img}'}
+
+头像支持文字、图片和图标，可以自定义背景色和文字颜色
+
+:::
+
+
+:::demo[遮罩]{id='type' src='/base/avatar/4hover.demo.tsx'}
+
+通过设置 `hoverMask` 可以自定义悬浮遮罩
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object|-|
+|type|按钮类型支持|`primary`、`success`、`error`、`warning`、`default`、`dashed`、`link`、`text`|default|
+|size|头像大小|small &verbar; large &verbar; number|-|
+|icon|图标|Icon|-|
+|src|图片地址|string|false|
+|shape|头像形状|`circle` &verbar; `square`|`circle`|
+|hoverMask|鼠标进入后的遮罩|JSXElement|-|
+|onClick|点击回调函数|Function|-|
+|onMouseEnter|鼠标进入回调函数|Function|-|
+|onMouseLeave|鼠标离开回调函数|Function|-|
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onClick`|点击事件|Event|
+|`onMouseEnter`|鼠标进入回调函数|Event|
+|`onMouseLeave`|鼠标离开回调函数|Event|
+
+
+</div>
+

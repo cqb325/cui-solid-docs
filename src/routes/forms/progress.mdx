@@ -1,0 +1,103 @@
+---
+path: /form/progress
+name: progress
+title: Progress 进度条
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Progress 进度条\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/progress/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[内部文案]{id='inside' src='/form/progress/2inside.demo.tsx'}
+
+设置 `textInside` 可以让文案显示在内部
+
+:::
+
+
+:::demo[宽度]{id='strokewidth' src='/form/progress/3strokewidth.demo.tsx'}
+
+通过 `strokeWidth` 可以自定义进度条的粗细
+
+:::
+
+
+:::demo[隐藏文案]{id='hide' src='/form/progress/4hide.demo.tsx'}
+
+通过 `hidePercent` 可以隐藏文案
+
+:::
+
+
+:::demo[控制]{id='control' src='/form/progress/5control.demo.tsx'}
+
+`value` 可控参数
+
+:::
+
+
+:::demo[渐变色]{id='color' src='/form/progress/6color.demo.tsx'}
+
+`strokeColor` 传入数组的时候可显示渐变色
+
+:::
+
+
+:::demo[圆形]{id='circle' src='/form/progress/7circle.demo.tsx'}
+
+设置`type='circle'` 可以渲染圆形进度条
+
+:::
+
+
+:::demo[色阶]{id='colors' src='/form/progress/8colors.demo.tsx'}
+
+设置 `strokeColor` 数组可以在不同进度阶段 显示不同颜色
+
+:::
+
+
+
+:::demo[自定义文案]{id='render' src='/form/progress/9render.demo.tsx'}
+
+设置 `infoRender` 函数可以自定义渲染提示文案
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|hidePercent|隐藏百分比|boolean||
+|status|状态|normal &#124; error &#124; active &#124; success|normal|
+|value|可控值|number||
+|strokeWidth|宽度|number||
+|textInside|内显文案|boolean||
+|infoRender|自定义文案|Function||
+|strokeColor|颜色|string  &#124;  string[]  &#124;  StrokeProps[]||
+|type|类型|line &#124; circle|line|
+|radius|半径|number|60|
+|max|最大值|number|100|
+
+
+
+
+</div>
+

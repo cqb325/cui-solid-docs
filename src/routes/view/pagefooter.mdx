@@ -1,0 +1,59 @@
+---
+path: /view/pagefooter
+name: pagefooter
+title: PageFooter 页脚
+---
+
+import img from '~/assets/images/logo.svg';
+
+<div class="sys-ctx-main-left">
+
+# PageFooter 页脚\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基本用法]{id='base' src='/view/pagefooter/1base.demo.tsx' scopes='{img}'}
+
+基本用法
+
+:::
+
+
+
+
+## Floor 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|center|内容水平居中|boolean||
+|padding|padding样式|string||
+|color|字体颜色|string||
+|dividerTop|上边的分隔线|boolean||
+|dividerBottom|下边的分隔线|boolean||
+
+
+## Navigation 属性 \{#navigation_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|head|标题|string|-|
+
+
+
+## FooterNavigation.Link 属性 \{#link_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|style|自定义样式|Object|-|
+|link|链接地址|string|-|
+|icon|图标|JSXElement|-|
+
+
+
+
+</div>

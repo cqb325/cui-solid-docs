@@ -1,0 +1,65 @@
+---
+path: /view/notice
+name: notice
+title: Notice 通知
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Notice 通知\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基本用法]{id='base' src='/view/notice/1base.demo.tsx'}
+
+基础用法， `notice` 为全局对象
+
+:::
+
+
+:::demo[不同类型的通知]{id='type' src='/view/notice/2type.demo.tsx'}
+
+`notice` 不同的通知 可以使用不通的方法触发，包含 `info` `success`\
+`warning` `error` `help`
+
+:::
+
+
+:::demo[位置]{id='dock' src='/view/notice/3dock.demo.tsx'}
+
+`dock` 属性定义通知出现的位置， 支持 `topRight(默认)` `bottomRight` `topLeft` `bottomLeft`
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|style|自定义样式|Object||
+|key|消息的标识，调用close可根据key进行关闭|string||
+|duration|显示时间，为0时不销毁|number|4|
+|dock|通知弹出的位置|topRight &#124; topLeft &#124; bottomLeft &#124; bottomRight|topRight|
+|content|内容|JSXElement||
+|title|标题|string &#124; JSXElement||
+|icon|图标|JSXElement||
+|theme|主题|success &#124; warning &#124; error &#124; info||
+|btn|按钮|JSXElement||
+|onClose|关闭回调函数|Function||
+
+
+## 事件 \{#events\}
+
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onClose`|关闭回调函数||
+
+
+
+
+</div>

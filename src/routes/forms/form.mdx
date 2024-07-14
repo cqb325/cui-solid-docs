@@ -1,0 +1,122 @@
+---
+path: /form/form
+name: form
+title: Form 表单
+---
+
+import { Icon } from '~/cui-solid/components/Icon';
+import dayjs from 'dayjs';
+
+<div class="sys-ctx-main-left">
+
+# Form 表单\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/form/form/1base.demo.tsx'}
+
+设置属性 `inline` ，表单元素可以水平排列。
+
+:::
+
+
+:::demo[动态校验]{id='dynamic_rule' src='/form/form/2dynamic_rule.demo.tsx'}
+
+`FormItem` 组件支持动态设置 `rules` ,可根据不同条件对数据进行校验, 默认使用内置校验方式，支持自定义校验规则。
+
+:::
+
+
+:::demo[错误提示位置]{id='error_transfer' src='/form/form/3error_transfer.demo.tsx'}
+
+`Form` 和 `FormItem` 组件支持指定位置显示错误信息, 设置 `errorTransfer` ，将使用 `popover` 显示错误信息
+`errorAlign`可以设置错误提示的位置，默认是`right`
+
+:::
+
+
+:::demo[async-validator]{id='async_validate' src='/form/form/4async_validate.demo.tsx'}
+
+`Form` 组件支持  [<Icon name="github"/> async-validator](https://github.com/yiminghe/async-validator) 方式实现的数据验证，给在 `useForm` 中设置的 `validation` 各属性校验规则为数组格式。
+
+:::
+
+
+:::demo[支持的表单项]{id='fields' src='/form/form/5fields.demo.tsx' scopes='{dayjs}'}
+
+form 支持 `Input` `Checkbox` `Radio` `Select`
+    `Search` `Textarea` `AutoComplete` `Cascader`
+    `Datepicker` `Timepicker` `Progress` `Rate`
+    `Slider` `Spinner` `Switch` `Transfer` `TreeSelect`
+    `Upload`\
+form绑定数据使用useForm创建对象并传递给From， useForm 包含 `data` `validation` 和 `messages` 参数，data 中的数据字段和FormItem的name对应
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|labelWidth|label宽度|number||
+|form|表单绑定|Object||
+|inline|内联模式|boolean||
+|autocomplete|自动填充选项|string||
+|errorTransfer|使用popover显示错误提示|boolean|false|
+|errorAlign|设置popover的显示位置|string|right|
+|onChange|表单项改变事件|Function||
+
+
+## Form 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|name, value|
+
+
+## FormItem属性 \{#item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|inline|内联模式|boolean||
+|labelWidth|label宽度|number||
+|labelStyle|label样式|Object||
+|label|表单项文本|string||
+|name|表单项名称|string||
+|errorTransfer|使用popover显示错误提示|boolean|false|
+|errorAlign|设置popover的显示位置|string|right|
+
+## useForm属性 \{#useForm_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|data|表单数据， key对应FormItem的name字段|Object|-|
+|validation|字段校验配置 key 与 data中的key对应， 如果使用async-validator验证方式，则value为数组形式|Object|-|
+|messages|校验失败的提示信息 key 与 data中的key对应，如果使用async-validator验证方式，则可以为空|Object||
+
+
+## useForm方法 \{#use_form_methods\}
+
+| 事件名称 | 说明 | 参数 | 返回值|
+| :--- | :---- | :--- | :--- |
+|`resetFields`|重置表单以及校验|-|-|
+|`validate`|是否验证通过|-|true: 通过, false: 不通过|
+|`isValid`|同validate|-|true: 通过, false: 不通过|
+|`getFormData`|获取当前表单数据|-|Object|
+|`setFormData`|设置表单项数据，多个较为方便|mData: any表单数据，check：是否立即验证|-|
+|`setCheckValid`|设置表单项的验证方法， 逻辑较为复杂不建议自定义|name: 表单项名称， checkFn： 验证方法|-|
+|`clearValidates`|清空校验|name?: 需要清空校验的表单项名称，不传则清空整个表单|-|
+|`resetFieldsValidate`|同clearValidates|name?: 需要清空校验的表单项名称，不传则清空整个表单|-|
+
+</div>
+

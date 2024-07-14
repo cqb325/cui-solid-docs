@@ -1,0 +1,120 @@
+---
+path: /form/login
+name: login
+title: Login 登录
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Login 登录\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/login/1base.demo.tsx'}
+
+Login的基础用法
+
+:::
+
+
+:::demo[获取验证码]{id='get_captcha' src='/form/login/2get_captcha.demo.tsx'}
+
+`Captcha` 组件内置了验证码获取的逻辑。
+
+:::
+
+
+:::demo[图形验证码]{id='img_captcha' src='/form/login/3img_captcha.demo.tsx'}
+
+`Captcha` 默认为获取验证码按钮，指定`action`属性后为图形验证码，点击可刷新验证码。
+
+:::
+
+
+:::demo[初始化]{id='init' src='/form/login/4init.demo.tsx'}
+
+Login的`data`属性可初始化登录表单
+
+:::
+
+
+:::demo[自定义校验及组合]{id='custom_rule' src='/form/login/5custom_rule.demo.tsx'}
+
+各组件都有默认的校验规则 rules，不过也可以根据场景自定义，比如实现一个密码二次确认的校验。
+还可以结合其它组件，实现更复杂的业务功能，比如示例的密码强度。
+
+:::
+
+
+
+## Login 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|data|初始化数据|Object||
+|onSubmit|表单提交事件|Function||
+
+
+## UserName 属性 \{#username_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|label|表单项文案|string|-|
+|size|尺寸|small &#124; large|large|
+|placeholder|placeholder|string|请输入用户名|
+|name|表单项name|string|username|
+|icon|图标|JSXElement|\<Icon name="user"/\>|
+|rules|验证规则|Object||
+|messages|验证错误提示信息|Object||
+|onInput|输入事件 value, event|Function||
+
+
+## Password 属性 \{#password_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|label|表单项文案|string|-|
+|size|尺寸|small &#124; large|large|
+|placeholder|placeholder|string|请输入密码|
+|name|表单项name|string|password|
+|icon|图标|JSXElement|\<Icon name="lock"/\>|
+|rules|验证规则|Object||
+|messages|验证错误提示信息|Object||
+|onInput|输入事件 value, event|Function||
+
+
+## Captcha 属性 \{#captcha_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|label|表单项文案|string|-|
+|size|尺寸|small &#124; large|large|
+|placeholder|placeholder|string|请输入验证码|
+|name|表单项name|string|captcha|
+|icon|图标|JSXElement|\<Icon name="key"/\>|
+|rules|验证规则|Object||
+|messages|验证错误提示信息|Object||
+|action|图形验证码获取地址|string||
+|field|前提校验的字段名称|string||
+|countDownNumber|倒计时初始数字|number|60|
+|onInput|输入事件 value, event|Function||
+|onGetCaptcha|点击获取验证码事件|Function||
+
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onSubmit`|表单提交事件|valid, data|
+
+
+
+</div>
+

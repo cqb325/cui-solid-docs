@@ -1,0 +1,52 @@
+---
+path: /base/popover
+name: popover
+title: Popover 气泡提示
+---
+
+<div class="sys-ctx-main-left">
+
+# Popover 气泡提示\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/base/popover/1base.demo.tsx'}
+
+支持两种种触发方式：鼠标悬停、点击。默认是鼠标悬停。
+
+:::
+
+
+:::demo[位置]{id='align' src='/base/popover/2align.demo.tsx'}
+
+支持12个不同的方向显示，具体配置可查看API。
+
+:::
+
+:::demo[可控]{id='controller' src='/base/popover/3controller.demo.tsx'}
+
+`visible` 属性为可控属性
+
+:::
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|align|位置|top &#124; bottom &#124; left &#124; right &#124; topLeft &#124; topRight &#124; bottomLeft &#124; bottomRight &#124; leftTop &#124; leftBottom &#124; rightTop &#124; rightBottom | right|
+|trigger|触发条件|hover &#124; click|hover|
+|disabled|禁用状态|boolean||
+|arrow|显示箭头|boolean||
+|theme|主题|string||
+|hideDelay|隐藏延迟|number|200|
+|content|提示内容|string &#124; JSXElement||
+|visible|显示隐藏控制|Signal||
+|onOpen|打开回调函数|Function||
+
+
+</div>
+

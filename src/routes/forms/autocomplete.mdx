@@ -1,0 +1,58 @@
+---
+path: /form/autocomplete
+name: autocomplete
+title: AutoComplete 自动完成
+---
+
+<div class="sys-ctx-main-left">
+
+# AutoComplete 自动完成\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/form/autocomplete/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|value|值，可控属性|Signal||
+|disabled|禁用|boolean||
+|size|尺寸|small  &#124;  large||
+|clearable|可清空|boolean||
+|multi|多选|boolean||
+|prefix|前缀|string &#124; JSXElement||
+|data|传入的数据|Array||
+|textField|文案字段|string|label|
+|valueField|值字段|string|value|
+|filter|支持过滤|boolean||
+|renderOption|自定义选项渲染|Function||
+|emptyOption|空选项|string||
+|transfer|下拉内容使用Portal渲染|boolean||
+|align|下拉内容位置|bottomLeft &#124; bottomRight|bottomLeft|
+|onChange|值改变事件|Function||
+|onSearch|输入数据查询事件 参数：输入的内容|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value|
+|`onSearch`|输入数据查询事件|keyword|
+
+</div>
+

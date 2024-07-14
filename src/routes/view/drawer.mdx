@@ -1,0 +1,66 @@
+---
+path: /view/drawer
+name: drawer
+title: Drawer 抽屉
+---
+
+<div class="sys-ctx-main-left">
+
+# Drawer 抽屉\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/view/drawer/1base.demo.tsx'}
+
+基本用法
+
+:::
+
+
+
+:::demo[位置]{id='align' src='/view/drawer/2align.demo.tsx'}
+
+`align` 属性支持 `left` `right` `top` `bottom` 默认是 `right`
+
+:::
+
+
+
+:::demo[尺寸]{id='size' src='/view/drawer/3size.demo.tsx'}
+
+设置`size` 可以修改Drawer的尺寸
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|align|位置|left &#124; right &#124; top &#124; bottom|right|
+|size|尺寸大小|number|256|
+|title|标题|string &#124; JSXElement||
+|maskCloseable|点击遮罩进行关闭|boolean|true|
+|hasClose|显示关闭按钮|boolean|true|
+|escClose|使用ESC关闭|boolean||
+|visible|控制显示|Signal||
+|onClose|关闭时回调|Function||
+|onShow|显示时回调|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onClose`|关闭时回调|-|
+|`onShow`|显示时回调|-|
+
+</div>
+

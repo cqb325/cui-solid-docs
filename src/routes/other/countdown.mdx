@@ -1,0 +1,45 @@
+---
+path: /view/countdown
+name: countdown
+title: CountDown 倒计时
+---
+
+<div class="sys-ctx-main-left">
+
+# CountDown 倒计时\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/other/countdown/1base.demo.tsx'}
+
+简单的倒计时组件使用, `format` 可以格式化时间格式。
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|value|目标值|number||
+|prefix|前缀|string||
+|suffix|后缀|string||
+|format|格式化|string||
+|onEnd|结束回调|Function||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onEnd`|结束回调|-|
+
+</div>
+

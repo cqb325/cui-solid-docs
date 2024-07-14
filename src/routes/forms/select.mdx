@@ -1,0 +1,189 @@
+---
+path: /form/select
+name: select
+title: Select 选择框
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Select 选择框\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/select/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/select/2disabled.demo.tsx'}
+
+使用 `disabled` 进行禁用
+
+:::
+
+
+:::demo[尺寸]{id='size' src='/form/select/3size.demo.tsx'}
+
+`size` 支持`small`和`large`
+
+:::
+
+
+:::demo[可清空]{id='clearable' src='/form/select/4clearable.demo.tsx'}
+
+设置 `clearable` 后选择框选择后可清空
+
+:::
+
+
+:::demo[多选]{id='multi' src='/form/select/5multi.demo.tsx'}
+
+设置 `multi` 选择框可进行多选
+
+:::
+
+
+
+:::demo[显示个数]{id='showmax' src='/form/select/6showmax.demo.tsx'}
+
+多选场景下可限制最多显示个数， 超出的显示n+
+
+:::
+
+
+:::demo[值可关闭]{id='valueClosable' src='/form/select/7valueClosable.demo.tsx'}
+
+设置 `valueClosable` 选中的值可消除
+
+:::
+
+
+
+:::demo[分组显示]{id='group' src='/form/select/8group.demo.tsx'}
+
+设置 data 中使用children进行分组
+
+:::
+
+
+:::demo[过滤]{id='filter' src='/form/select/9filter.demo.tsx'}
+
+设置 `filter` 支持过滤选择
+
+:::
+
+
+:::demo[远程过滤]{id='remote' src='/form/select/10remote.demo.tsx'}
+
+远程过滤，通过`remoteMethod`进行查询，重置选项，`loading`属性，切换加载状态
+
+:::
+
+
+:::demo[默认文案]{id='default_labels' src='/form/select/11default_labels.demo.tsx'}
+
+远程过滤支持默认值和默认label，通过属性`defaultLabel`设置
+
+:::
+
+
+:::demo[自定义渲染]{id='renderOption' src='/form/select/12renderOption.demo.tsx'}
+
+`renderOption` 属性可以自定义选项的渲染方式
+
+:::
+
+
+:::demo[前缀]{id='prefix' src='/form/select/13prefix.demo.tsx'}
+
+`prefix` 属性可以添加前缀
+
+:::
+
+
+:::demo[空选项]{id='emptyOption' src='/form/select/14emptyOption.demo.tsx'}
+
+`emptyOption` 支持空选项,并指定文案
+
+:::
+
+
+:::demo[Transfer]{id='transfer' src='/form/select/15transfer.demo.tsx'}
+
+使用 `Portal` 将弹层放置于 `body` 内
+
+:::
+
+
+:::demo[可控]{id='control' src='/form/select/16control.demo.tsx'}
+
+`value` 为可控属性
+
+:::
+
+
+
+:::demo[超大列表]{id='largelist' src='/form/select/17largelist.demo.tsx'}
+
+支持超大列表
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|value|值，可控属性|Signal||
+|disabled|禁用|boolean||
+|size|尺寸|small  &#124;  large||
+|clearable|可清空|boolean||
+|placeholder|placeholder|string||
+|multi|多选|boolean||
+|prefix|前缀|string &#124; JSXElement||
+|data|传入的数据|Array||
+|textField|文案字段|string|label|
+|valueField|值字段|string|value|
+|filter|支持过滤|boolean||
+|renderOption|自定义选项渲染|Function||
+|emptyOption|空选项|string||
+|showMax|多选场景下最多显示个数|number||
+|valueClosable|值可关闭|boolean||
+|transfer|下拉内容使用Portal渲染|boolean||
+|align|下拉内容位置|bottomLeft &#124; bottomRight|bottomLeft|
+|showMore|多选设置showMax后是否在数字上显示更多|boolean||
+|ref|组件引用|any||
+|remoteMethod|远程过滤|Function||
+|debounceTime|防抖时间|number|300|
+|loading|远程过滤的状态|Boolean|false|
+|defaultLabel|远程过滤的默认label,配合默认value使用|string|string[]||
+|onChange|值改变事件|Function||
+
+## Option 属性 \{#option_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|disabled|禁用|boolean|-|
+|label|显示内容|string|-|
+|value|值|string||
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value: any, option?: any|
+
+</div>
+

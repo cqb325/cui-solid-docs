@@ -1,0 +1,64 @@
+---
+path: /form/transfer
+name: transfer
+title: Transfer 穿梭框
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Transfer 穿梭框\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/form/transfer/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[过滤]{id='filter' src='/form/transfer/2filter.demo.tsx'}
+
+添加 `filter` 参数可增加过滤功能
+
+:::
+
+
+:::demo[自定义渲染]{id='render' src='/form/transfer/3render.demo.tsx'}
+
+通过 `render` 函数可自定义选项的渲染
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|name属性|string||
+|value|值，可控属性|Signal||
+|width|单个list的宽度|number||
+|height|单个list的高度|number||
+|data|列表的数据项|Array||
+|filter|可过滤|boolean||
+|render|自定义渲染|Function||
+|onChange|值改变事件|Function||
+
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value|
+
+</div>
+

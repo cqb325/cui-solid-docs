@@ -1,0 +1,67 @@
+---
+path: /layout/view
+name: view
+title: View 视图
+---
+import { View, VView, HView, Space } from "~/cui-solid/components/Layout";
+import { Paragraph } from "~/cui-solid/components/Typography/Paragraph";
+import { Text } from "~/cui-solid/components/Typography/Text";
+import { Title } from "~/cui-solid/components/Typography/Title";
+
+export const centerStyle = {
+    'justify-content': 'center'
+}
+
+<div class="sys-ctx-main-left">
+
+# View 视图\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+<View>
+    <div class="sys-ctx-main-left">
+        <Space dir="v" size={32}>
+            <Title heading={2}>
+                View 视图
+            </Title>
+            <Paragraph type="secondary" spacing="extended">
+                包含 <Text code>View</Text> <Text code>VView</Text> <Text code>HView</Text>三种视图
+            </Paragraph>
+        </Space>
+    </div>
+    <VView class="components-layout-demo" size="450px">
+        <View class="layout-demo-header" size="64px" style={centerStyle}>Header</View>
+        <View style={centerStyle}>Main</View>
+        <View class="layout-demo-header" size="64px" style={centerStyle}>Footer</View>
+    </VView>
+    <VView class="components-layout-demo" size="450px">
+        <View class="layout-demo-header" size="64px" style={centerStyle}>Header</View>
+        <HView style={centerStyle}>
+            <View size="200px" style={centerStyle} class="layout-demo-sider">Sider</View>
+            <View style={centerStyle}>MAIN</View>
+        </HView>
+        <View class="layout-demo-header" size="64px" style={centerStyle}>Footer</View>
+    </VView>
+    <HView class="components-layout-demo" size="450px">
+        <View size="150px" style={centerStyle} class="layout-demo-sider">Sider</View>
+        <VView style={centerStyle}>
+            <View class="layout-demo-header" size="64px" style={centerStyle}>Header</View>
+            <View style={centerStyle}>MAIN</View>
+            <View class="layout-demo-header" size="64px" style={centerStyle}>Footer</View>
+        </VView>
+    </HView>
+</View>
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|size|占位大小|string||
+
+
+</div>
+

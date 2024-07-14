@@ -1,0 +1,122 @@
+---
+path: /form/treeselect
+name: treeselect
+title: TreeSelect 树选择
+---
+
+
+<div class="sys-ctx-main-left">
+
+# TreeSelect 树选择\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos{columns=2}
+
+:::demo[基础用法]{id='base' src='/form/treeselect/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/treeselect/2disabled.demo.tsx'}
+
+使用 `disabled` 进行禁用
+
+:::
+
+
+:::demo[尺寸]{id='size' src='/form/treeselect/3size.demo.tsx'}
+
+`size` 支持 `small` `large`
+
+:::
+
+
+:::demo[可清空]{id='clearable' src='/form/treeselect/4clearable.demo.tsx'}
+
+`clearable` 可清空选择数据
+
+:::
+
+
+:::demo[前缀]{id='prepend' src='/form/treeselect/5prepend.demo.tsx'}
+
+使用 `prepend` 可添加前缀
+
+:::
+
+
+:::demo[多选]{id='multi' src='/form/treeselect/6multi.demo.tsx'}
+
+使用 `multi` 为多选模式, 多选默认级联选择
+
+:::
+
+
+:::demo[多选非级联]{id='relation' src='/form/treeselect/7relation.demo.tsx'}
+
+`checkRelation` 支持 `unRelated` (非级联) 和 `related` (级联) 默认 `related`
+
+:::
+
+
+:::demo[显示个数]{id='showMax' src='/form/treeselect/8showMax.demo.tsx'}
+
+`showMax` 可以设置最多显示的个数
+
+:::
+
+
+:::demo[值可关闭]{id='valueClosable' src='/form/treeselect/9valueClosable.demo.tsx'}
+
+`valueClosable` 支持 选择的值可以进行关闭
+
+:::
+
+
+:::demo[选择模式]{id='mode' src='/form/treeselect/10mode.demo.tsx'}
+
+`mode` 支持 `All` 、 `Half、` `Leaf、` `Shallow` 默认为 `Half`
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|data|源数据|Array||
+|disabled|禁用|boolean||
+|clearable|可清空|boolean||
+|prepend|前缀|JSXElement||
+|mode|值的选择模式|All &#124; Half &#124; Leaf &#124; Shallow|Half|
+|size|尺寸|small &#124; large||
+|transfer|下拉使用Portal渲染|boolean||
+|showMax|最多显示个数|number||
+|value|可控值|Signal||
+|multi|多选，显示复选框|boolean||
+|directory|显示目录图标|boolean||
+|checkRelation|选择框的级联关系|related &#124; unRelated|related|
+|align|下拉的位置|bottomLeft &#124; bottomRight|bottomLeft|
+|valueClosable|值可关闭|boolean||
+|placeholder|placeholder|string||
+|showMore|是否鼠标滑过显示隐藏的值|boolean||
+|onChange|复选框选中事件|Function||
+
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onChange`|值改变事件|value|
+
+</div>
+

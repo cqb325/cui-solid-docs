@@ -1,0 +1,107 @@
+---
+path: /nav/menu
+name: menu
+title: Menu 导航菜单
+---
+
+
+<div class="sys-ctx-main-left">
+
+# Menu 导航菜单\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[横向菜单]{id='base' src='/nav/menu/1base.demo.tsx'}
+
+菜单项包含 `MenuItem`、`SubMenu`、`MenuGroup`\
+横向菜单需指定 `dir` 为 `h`\
+横向菜单的子菜单触发条件为 `hover`
+
+:::
+
+
+:::demo[侧边菜单]{id='vertical' src='/nav/menu/2vertical.demo.tsx'}
+
+侧边菜单需指定 `dir` 为 `v`\
+默认选中的菜单可指定 `activeName`，如果选中的菜单项为子菜单，默认展开父菜单项,\
+`activeName`属性为绑定可控属性
+
+:::
+
+
+:::demo[手风琴方式]{id='accordion' src='/nav/menu/3accordion.demo.tsx'}
+
+侧边菜单指定 `accordion` 属性，可以让菜单的打开方式支持手风琴方式
+
+:::
+
+
+:::demo[菜单主题]{id='theme' src='/nav/menu/4theme.demo.tsx'}
+
+菜单主题通过 `theme` 属性设置 支持 `light`、`dark`
+
+:::
+
+
+:::demo[最小化菜单]{id='min' src='/nav/menu/5min.demo.tsx'}
+
+菜单最小化的顶级菜单需添加图标，最小化后只显示图标，最小化的 min 参数为可控绑定属性
+
+:::
+
+
+
+
+## Menu属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|accordion|展开方式使用手风琴方式|boolean|false|
+|theme|主题色|dark &#124; light|light|
+|dir|横向菜单或侧边菜单|v &#124; h|v|
+|min|最小化菜单|boolean|false|
+|activeName|默认选中菜单项，绑定属性|Signal||
+|onSelect|选择菜单项选中事件|Function||
+
+## MenuItem属性 \{#menu_item_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|name|菜单项名称|string|-|
+|disabled|禁用状态|boolean|-|
+|icon|图标|Icon|-|
+|data|自定义的数据,在选中的时候携带|any|-|
+
+
+## SubMenu属性 \{#submenu_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|name|菜单项名称|string|-|
+|align|子菜单显示位置|bottom  &#124;  right  &#124;  bottomLeft  &#124;  bottomRight  &#124;  rightTop  &#124;  left  &#124;  leftTop|横向菜单bottom，侧边菜单rightTop|
+|icon|图标|Icon|-|
+|title|菜单文案|any|-|
+
+
+## MenuGroup属性 \{#menu_group_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|name|菜单项名称|string|-|
+|icon|图标|Icon|-|
+|title|菜单文案|any|-|
+
+
+## 事件 \{#events\}
+
+| 事件名称 | 说明 | 返回值|
+| :--- | :---- | :--- |
+|`onSelect`|选择菜单项选中事件|name, data|
+
+</div>
+
