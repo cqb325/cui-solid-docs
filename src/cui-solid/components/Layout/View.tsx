@@ -13,7 +13,7 @@ type ViewProps = {
 export function View (props: ViewProps): JSX.Element {
     const [local, others] = splitProps(props, ['classList', 'class', 'style', 'size', 'children']);
     const classList = () => useClassList(props, 'cm-view');
-    const newStyle = ()=> useStyle(props, {flex: `0 1 ${local.size}`});
+    const newStyle = ()=> useStyle(props, local.size ? {flex: `0 1 ${local.size}`} : {});
     return <div classList={classList()} style={newStyle()} {...others}>
         {local.children}
     </div>

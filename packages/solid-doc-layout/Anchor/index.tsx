@@ -1,7 +1,7 @@
 import { createContext, createEffect, createSignal, onCleanup, onMount, useContext } from 'solid-js';
 import './style.less'
 import { isServer } from 'solid-js/web';
-import { scrollTop } from '../components/utils/utils';
+import { scrollTop } from '~/cui-solid/components/utils/utils';
 
 const AnchorContext = createContext();
 

@@ -2,7 +2,6 @@ import { Tree } from "cui-solid";
 import { createSignal } from "solid-js";
 
 export default () => {
-    const [opened, setOpened]: any = createSignal(['zhejiang']);
     const [selected, setSelected]: any = createSignal('xihu');
 
     const data = [
@@ -16,7 +15,7 @@ export default () => {
         ]}
     ]
 
-    return <Tree data={data} opened={[opened, setOpened]} selected={[selected, setSelected]} onSelect={(node: any) => {
+    return <Tree data={data} selected={[selected, setSelected]} onNodeSelect={(node: any) => {
         console.log(node);
     }}/>
 }

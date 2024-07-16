@@ -1,6 +1,6 @@
 import { onCleanup, onMount } from "solid-js";
 import { useAnchorContext } from "."
-import { useClassList } from "../components/utils/useProps"
+import { useClassList } from "~/cui-solid/components/utils/useProps"
 
 export const AnchorLink = (props: any) => {
     const ctx: any = useAnchorContext();

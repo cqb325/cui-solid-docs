@@ -12,5 +12,5 @@ export default () => {
         ]}
     ]
 
-    return <Tree data={data} multi checkRelation="unRelated"/>
+    return <Tree data={data} checkable checkRelation="unRelated"/>
 }

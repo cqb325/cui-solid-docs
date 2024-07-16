@@ -1,7 +1,12 @@
-import { VirtualList } from "cui-virtual-list";
+import { VirtualList } from "cui-solid";
 
 const createArray = (count: number) => {
-    return new Array(count).fill(true).map(() => 1 + Math.round(Math.random() * 20))
+    return new Array(count).fill(true).map((_, index: number) => {
+        return {
+            value: 1 + Math.round(Math.random() * 20),
+            text: `Row ${index}`
+        }
+    })
 };
 
 const ListItem = (props: any) : any => {
@@ -15,15 +20,17 @@ const ListItem = (props: any) : any => {
         }}
         ref={props.ref}
     >
-        <div>Row {props.index}</div>
+        <div>{props.item.text}</div>
     </div>
 }
 
 export default () => {
     const data = createArray(1000);
     return <div style={{width: '300px', border: '1px solid #ccc'}}>
-        <VirtualList height={300} items={createArray(1000)} itemEstimatedSize={20}>
-            {ListItem}
+        <VirtualList height={300} items={data} itemEstimatedSize={20} itemComponent={{
+            component: ListItem,
+            props: {}
+        }}>
         </VirtualList>
     </div>
 }

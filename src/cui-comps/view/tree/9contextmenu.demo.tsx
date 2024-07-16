@@ -12,7 +12,7 @@ export default () => {
         ]}
     ];
 
-    return <Tree data={data} multi directory onContextMenu={(data: any) => {
+    return <Tree data={data} checkable directory onContextMenu={(data: any) => {
         console.log(data);
     }} contextMenu={<DropdownMenu>
         <DropdownItem name="add">添加</DropdownItem>

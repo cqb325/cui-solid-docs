@@ -1,4 +1,4 @@
-import { Space, TreeSelect } from "cui-solid"
+import { Space, TreeSelect, TreeCheckMod } from "cui-solid"
 
 export default () => {
     const data = [
@@ -12,12 +12,20 @@ export default () => {
         ]},
     ]
 
+    const data2 = JSON.parse(JSON.stringify(data));
+    const data3 = JSON.parse(JSON.stringify(data));
+    const data4 = JSON.parse(JSON.stringify(data));
+
     return <Space dir="v">
-        <div>Leaf:</div>
-        <TreeSelect multi data={data} clearable mode="Leaf" />
-        <div>Shallow:</div>
-        <TreeSelect multi data={data} clearable mode="Shallow" />
-        <div>All:</div>
-        <TreeSelect multi data={data} clearable mode="All" />
+        <Space dir="v">
+            <div>CHILD:</div>
+            <TreeSelect multi data={data} clearable mode={TreeCheckMod.CHILD} />
+            <div>HALF:</div>
+            <TreeSelect multi data={data2} clearable mode={TreeCheckMod.HALF} />
+            <div>SHALLOW:</div>
+            <TreeSelect multi data={data3} clearable mode={TreeCheckMod.SHALLOW} />
+            <div>FULL:</div>
+            <TreeSelect multi data={data4} clearable mode={TreeCheckMod.FULL} />
+        </Space>
     </Space>
 }

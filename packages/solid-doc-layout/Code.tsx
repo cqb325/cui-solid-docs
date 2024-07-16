@@ -1,4 +1,4 @@
-import { Button, Icon, message, Space, Tooltip, useCopy } from "cui-solid";
+import { Button, Icon, message, Space, Tooltip, useCopy } from "~/cui-solid/components";
 import { createSignal } from "solid-js";
 import SolidLiveEditor from "solid-live/src/components/SolidLiveEditor";
 import { openSandbox } from "./OpenSandbox";

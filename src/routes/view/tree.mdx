@@ -3,7 +3,8 @@ path: /view/tree
 name: tree
 title: Tree 树状控件
 ---
-
+import arrow from '~/assets/images/arrow.png';
+import genData from '~/routes/view/utils';
 
 <div class="sys-ctx-main-left">
 
@@ -90,6 +91,68 @@ Tree 传入 `data` 数据展示树状组件
 
 :::
 
+:::demo[搜索]{id='search' src='/view/tree/12search.demo.tsx'}
+
+使用 `filter` 对树进行过滤查询
+
+:::
+
+
+:::demo[自定义图标]{id='customIcon' src='/view/tree/13customIcon.demo.tsx'}
+
+自定义图标
+
+:::
+
+
+:::demo[自定义箭头]{id='customArrow' src='/view/tree/14customArrow.demo.tsx' scopes='{arrow}'}
+
+自定义箭头
+
+:::
+
+:::demo[模式]{id='mod' src='/view/tree/15mod.demo.tsx'}
+
+`mode` 支持四种`TreeCheckMod.FULL`, `TreeCheckMod.HALF`, `TreeCheckMod.CHILD`, `TreeCheckMod.SHALLOW`,
+不同模式产生的值不同，默认是`HALF`
+
+:::
+
+
+:::demo[新增]{id='append' src='/view/tree/16append.demo.tsx'}
+
+`append`追加子节点，`prepend` 添加前缀子节点, `insertBefore`: 在某节点前插入兄弟节点, `insertAfter`: 在某节点后插入兄弟节点
+
+:::
+
+
+:::demo[展开收起]{id='expand' src='/view/tree/17expand.demo.tsx'}
+
+`Expand` 展开节点  `Collapse` 收起节点
+
+:::
+
+
+:::demo[重命名]{id='rename' src='/view/tree/18rename.demo.tsx'}
+
+通过`rename`方法可以重命名节点，参数为节点id和重命名后的节点名称
+
+:::
+
+
+:::demo[拖拽]{id='dragable' src='/view/tree/19draggable.demo.tsx'}
+
+`draggable`支持节点拖拽， 可通过 `beforeDropMethod` 来判断是否可进行拖放节点，支持异步判断
+
+:::
+
+
+:::demo[滚动]{id='scroll' src='/view/tree/20scroll.demo.tsx' scopes='{genData}'}
+
+`Scroll `支持滚动到某个节点，支持指定滚动到容器的 `Top` 、`Center`、`Bottom`，需要传入节点的 key。
+
+:::
+
 
 
 ## 属性 \{#props\}
@@ -100,20 +163,38 @@ Tree 传入 `data` 数据展示树状组件
 |class|自定义class|string|-|
 |style|自定义样式|Object||
 |data|源数据|Array||
-|opened|可控打开节点id|Function[]||
-|selected|可控选中节点id|Function[]||
-|ref|组件引用对象|Object||
-|gutter|错位距离|number|24|
-|value|可控值|Function[]||
-|multi|多选，显示复选框|boolean||
+|checkable|是否开启选择框模式|boolean||
+|checkRelation|选择框的级联关系 `related` &#124; `unRelated`|string|related|
 |directory|显示目录图标|boolean||
+|contextMenu|右键菜单配合`DropdownMenu`使用|JSXElement||
+|ref|组件引用对象|Object||
+|draggable|是否开始拖拽|boolean||
 |loadData|配合数据项的loading|Function||
-|contextMenu|右键菜单配合DropdownMenu使用|JSXElement||
-|checkRelation|选择框的级联关系|related &#124; unRelated|related|
-|onSelect|节点选中事件|Function||
+|beforeDropMethod|拖拽释放前的逻辑判断返回true才允许释放|Function||
+|beforeExpand|展开节点前的方法，返回true才能展开|Function||
+|selected|可控选中节点id|`NodeKeyType` &#124; `Signal<NodeKeyType>`||
+|value|可控值|`NodeKeyType` &#124; `Signal<NodeKeyType>`||
+|keyField|节点key的字段|string|id|
+|titleField|节点标题的字段|string|title|
+|selectedClass|节点选中时的class|string||
+|dragHoverClass|节点拖拽经过时的class|string||
+|draggingClass|被拖拽节点的class|string||
+|customIcon|自定义图标函数,返回自定义图标|Function||
+|arrowIcon|自定义箭头图标函数,返回自定义图标|Function||
+|mode|树数据选择模式，`FULL`、`HALF`、`CHILD`、`SHALLOW`|String||
+|emptyText|数据为空时的提示字符|string|暂无数据|
 |onChange|复选框选中事件|Function||
-|onContextMenu|右键菜单事件|Function||
 |onSelectMenu|右键菜单项选中事件|Function||
+|onNodeSelect|节点选中事件|Function||
+|onContextMenu|右键菜单事件|Function||
+|onNodeCheck|节点勾选事件|Function||
+|onNodeDrop|节点拖拽释放事件|Function||
+|onNodeDragStart|节点拖拽开始事件|Function||
+|onNodeDragEnter|节点拖入事件|Function||
+|onNodeDragOver|节点拖拽Over事件|Function||
+|onNodeDragLeave|节点拖拽离开事件|Function||
+|onNodeExpand|节点展开事件|Function||
+|onNodeCollapse|节点收起事件|Function||
 
 
 ## 数据项属性 \{#item_props\}
@@ -126,14 +207,25 @@ Tree 传入 `data` 数据展示树状组件
 |icon|自定义图标|any||
 |disabled|节点禁用|boolean||
 |patch|追加数据|JSXElement||
+|expand|展开节点|boolean||
+|checked|节点是否勾选|boolean||
+|selected|节点是否选中|boolean||
 
 ## 事件 \{#events\}
 
 | 事件名称 | 说明 | 返回值|
 | :--- | :---- | :--- |
-|`onSelect`|节点选中事件|node|
-|`onChange`|复选框选中事件|value|
-|`onContextMenu`|右键菜单事件|node|
-|`onSelectMenu`|右键菜单项选中事件|name|
+|`onChange`|复选框选中事件|value:NodeKeyType[]|
+|`onSelectMenu`|右键菜单项选中事件|name:string|
+|`onNodeSelect`|节点选中事件|node:TreeNode|
+|`onContextMenu`|右键菜单事件|node:TreeNode|
+|`onNodeCheck`|节点勾选事件|node:TreeNode, checked: boolean|
+|`onNodeDrop`|节点拖拽释放事件|e: any, node: TreeNode, dragNode: TreeNode, hoverPart: dragHoverPartEnum|
+|`onNodeDragStart`|节点拖拽开始事件|e: any, node: TreeNode|
+|`onNodeDragEnter`|节点拖入事件|e: any, node: TreeNode, hoverPart: dragHoverPartEnum|
+|`onNodeDragOver`|节点拖拽Over事件|e: any, node: TreeNode, hoverPart: dragHoverPartEnum|
+|`onNodeDragLeave`|节点拖拽离开事件|e: any, node: TreeNode, hoverPart: dragHoverPartEnum|
+|`onNodeExpand`|节点展开事件|node: TreeNode|
+|`onNodeCollapse`|节点收起事件|node: TreeNode|
 
 </div>

@@ -1,9 +1,7 @@
 import { Accessor, createEffect, createSignal, For, onCleanup, onMount } from "solid-js";
 import { store, clearDemos } from "./store";
-import { Row } from "./components/Row";
+import { Row, Col, Space } from "~/cui-solid/components";
 import { DemoBox } from "./DemoBox";
-import { Col } from "./components/Col";
-import { Space } from "./components/Layout";
 
 export function Demos (props: any) {
     let wrap: any;
@@ -29,16 +27,16 @@ export function Demos (props: any) {
     }
 
     onMount(() => {
-        // if (ResizeObserver) {
-        //     const ro = initColumns !== 1 ? new ResizeObserver((entries: ResizeObserverEntry[]) => {
-        //         entries.forEach((entry: ResizeObserverEntry) => onWrapEntry(entry));
-        //     }) : null;
-        //     ro?.observe(wrap);
+        if (ResizeObserver) {
+            const ro = initColumns !== 1 ? new ResizeObserver((entries: ResizeObserverEntry[]) => {
+                entries.forEach((entry: ResizeObserverEntry) => onWrapEntry(entry));
+            }) : null;
+            ro?.observe(wrap);
 
-        //     onCleanup(() => {
-        //         ro?.unobserve(wrap);
-        //     })
-        // }
+            onCleanup(() => {
+                ro?.unobserve(wrap);
+            })
+        }
     })
 
     createEffect(() => {

@@ -12,5 +12,5 @@ export default () => {
         ]}
     ]
 
-    return <Tree data={data} multi/>
+    return <Tree data={data} checkable/>
 }

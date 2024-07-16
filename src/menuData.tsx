@@ -38,6 +38,7 @@ export const menuData = [
             {name: 'list', title: 'List 列表', path: 'list'},
             {name: 'split', title: 'Split 面板分割', path: 'split'},
             {name: 'skeleton', title: 'Skeleton 骨架屏', path: 'skeleton'},
+            {name: 'tablestylelayout', title: 'TableStyleLayout 类表格布局', path: 'tablestylelayout'},
         ]
     },
     {
@@ -91,6 +92,7 @@ export const menuData = [
             {name: 'checkbox', title: 'Checkbox 多选框', path: 'checkbox'},
             {name: 'radio', title: 'Radio 单选框', path: 'radio'},
             {name: 'input', title: 'Input 输入框', path: 'input'},
+            {name: 'inputgroup', title: 'InputGroup 输入框组', path: 'inputgroup'},
             {name: 'select', title: 'Select 选择框', path: 'select'},
             {name: 'table', title: 'Table 表格', path: 'table'},
             {name: 'timepicker', title: 'Timepicker 时间选择', path: 'timepicker'},

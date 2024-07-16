@@ -12,5 +12,5 @@ export default () => {
         ]}
     ]
 
-    return <Tree data={data} multi directory />
+    return <Tree data={data} checkable directory />
 }

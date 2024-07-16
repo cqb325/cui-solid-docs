@@ -171,10 +171,18 @@ title: Table 表格
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :---- | :--- | :--- |
 |name|字段名称|string|-|
-|title|显示文案|JSXElement||
+|title|字段表头文案|JSXElement||
 |render|自定义渲染函数， v, column, row|Function||
 |type|字段类型 index, checkbox、 expend|string||
 |width|字段宽度|string||
+|minWidth|字段最小宽度|number||
+|maxWidth|字段最大宽度|number||
+|ellipsis|字段超过宽度使用省略号显示，内容不换行|boolean||
+|tooltip|字段超过宽度使用省略号显示，内容不换行，鼠标滑过气泡显示完整内容|boolean||
+|tooltipAlign|popover的align属性|string||
+|tooltipTheme|popover的theme属性|string||
+|tooltipMaxWidth|popover的内容的最大宽度|number||
+|tooltipStyle|popover的内容的自定义样式|any||
 |resize|可缩放宽度|boolean||
 |sort|支持排序的列 custom|boolean  &#124;  string||
 |sortMethod|自定义排序方法 参数， a, b|Function||

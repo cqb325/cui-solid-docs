@@ -3,7 +3,7 @@ import { Table } from "cui-solid"
 export default () => {
     const columns = [
         {type: 'index', title: '序号', width: '80px'},
-        {name: 'name', title: '名称', width: '150px'},
+        {name: 'name', title: '名称', minWidth: 100, maxWidth: 150, tooltip: true, tooltipStyle: {width: '200px'}, tooltipAlign: 'bottom', tooltipTheme: 'light'},
         {name: 'x', title: 'X'},
         {name: 'y', title: 'Y'},
         {name: 'date', title: '日期', width: '200px'},
@@ -13,7 +13,7 @@ export default () => {
     for (let i = 0; i < 5; i++) {
         data.push({
             id: i,
-            name: 'name_' + i,
+            name: 'name_name_name_name_name_' + i,
             x: Math.random() + 100,
             y: Math.random() + 30,
             _disabled: i % 3 === 0,

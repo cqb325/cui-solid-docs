@@ -1,8 +1,5 @@
 import { clientOnly } from "@solidjs/start";
-import { Card } from "./components/Card";
-import { Divider } from "./components/Divider";
-import { Text } from "./components/Typography/Text";
-import { Paragraph } from "./components/Typography/Paragraph";
+import { Card, Divider, Text, Paragraph } from "~/cui-solid/components";
 const SolidLive = clientOnly(() => import("solid-live"));
 const SolidLivePreview = clientOnly(() => import("solid-live/src/components/SolidLivePreview"));
 const Code = clientOnly(() => import("./Code"));

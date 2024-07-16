@@ -8,5 +8,6 @@ export default function Demo () {
         <Button type="warning" ghost>WARNING</Button>
         <Button type="default" ghost>DEFAULT</Button>
         <Button type="dashed" ghost>DASHED</Button>
+        <Button type="primary" danger ghost>DASHED</Button>
     </Space>
 }

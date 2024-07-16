@@ -5,7 +5,7 @@ export default () => {
     const [data, setData]: any = createSignal([{id: '1', title: '动态数据'}]);
 
     return <>
-        <Tree data={data()} multi directory/>
+        <Tree data={data()} checkable directory/>
         <Button type="primary" onClick={() => {
             const da = [];
             for (let i = 0; i < 1 + Math.random() * 5; i++) {

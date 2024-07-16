@@ -329,7 +329,7 @@ export default () => {
                 </FormItem>
             </Col>
             <Col grid={0.33}>
-                <FormItem label="地点：" name="tree">
+                <FormItem label="地点：" name="tree" labelAlign="start" labelStyle={{'margin-top': '8px'}}>
                     <Space dir="h" align="center">
                         <Input type="treeSelect" data={treeData} multi/>
                         <Button onClick={() => {

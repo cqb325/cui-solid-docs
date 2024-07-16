@@ -6,7 +6,7 @@ import * as solidCore from 'solid-js';
 import * as solidWeb from 'solid-js/web';
 import * as solidStore from 'solid-js/store';
 import * as cuiSolid from 'cui-solid';
-import * as cuiVirtualList from "cui-virtual-list";
+// import * as cuiVirtualList from "cui-virtual-list";
 
 import dd from 'dedent';
 
@@ -14,24 +14,24 @@ const files: Record<string, string> = {};
 const cache: Record<string, string> = {};
 const dataToReturn: Record<string, string> = {};
 
-function uid (str: string) {
+function uid(str: string) {
     return Array.from(str)
         .reduce((s, c) => (Math.imul(31, s) + c.charCodeAt(0)) | 0, 0)
         .toString();
 }
 
-function babelTransform (code: string, parsedScopes: any) {
+function babelTransform(code: string, parsedScopes: any) {
     const { code: transformedCode } = transform(code, {
         plugins: [
             // Babel plugin to get file import names
-            function importGetter () {
+            function importGetter() {
                 return {
                     visitor: {
-                        Import (path: any) {
+                        Import(path: any) {
                             const importee: string = path.parent.arguments[0].value;
                             cache[importee] = path.parent.arguments[0].value = transformImportee(importee);
                         },
-                        ImportDeclaration (path: any) {
+                        ImportDeclaration(path: any) {
                             const source = path.node.source.value;
                             path.node.specifiers.forEach((specifier: any) => {
                                 const localKey: string = specifier.local.name;
@@ -46,11 +46,11 @@ function babelTransform (code: string, parsedScopes: any) {
                             // const importee: string = path.node.source.value;
                             // cache[importee] = path.node.source.value = transformImportee(importee);
                         },
-                        ExportAllDeclaration (path: any) {
+                        ExportAllDeclaration(path: any) {
                             const importee: string = path.node.source.value;
                             cache[importee] = path.node.source.value = transformImportee(importee);
                         },
-                        ExportNamedDeclaration (path: any) {
+                        ExportNamedDeclaration(path: any) {
                             const importee: string = path.node.source?.value;
                             if (importee) {
                                 cache[importee] = path.node.source.value = transformImportee(importee);
@@ -71,7 +71,7 @@ function babelTransform (code: string, parsedScopes: any) {
 }
 
 // Returns new import URL
-function transformImportee (fileName: string) {
+function transformImportee(fileName: string) {
     // There's no point re-visiting a node again, as it's already been processed
     if (fileName in cache) {
         return cache[fileName];
@@ -133,7 +133,7 @@ function transformImportee (fileName: string) {
     return url;
 }
 
-export function babel (sourceCode: string, scopes?: any) {
+export function babel(sourceCode: string, scopes?: any) {
     const parsedScopes: any = [];
     const code = babelTransform(sourceCode, parsedScopes)
         ?.replace(/export\s+default\s+/g, 'return ');
@@ -152,9 +152,9 @@ export function babel (sourceCode: string, scopes?: any) {
         if (scope.source === 'cui-solid' && scope.realKey in cuiSolid) {
             return cuiSolid[scope.realKey as keyof typeof cuiSolid];
         }
-        if (scope.source === 'cui-virtual-list' && scope.realKey in cuiVirtualList) {
-            return cuiVirtualList[scope.realKey as keyof typeof cuiVirtualList];
-        }
+        // if (scope.source === 'cui-virtual-list' && scope.realKey in cuiVirtualList) {
+        //     return cuiVirtualList[scope.realKey as keyof typeof cuiVirtualList];
+        // }
         if (scope.realKey in scopes) {
             return scopes[scope.realKey as keyof typeof scopes];
         }

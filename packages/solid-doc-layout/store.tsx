@@ -1,4 +1,3 @@
-import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
 
 const [state, setState] = createStore({
@@ -6,7 +5,6 @@ const [state, setState] = createStore({
 });
 
 export const clearDemos = () => {
-    console.log('clearDemos');
     setState('list', []);
 }
 

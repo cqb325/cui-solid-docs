@@ -1,6 +1,7 @@
 import { Image, SideBySide } from "cui-solid";
-import img1 from './clarity2.webp';
-import img2 from './clarity2_after_ai.webp';
+
+import img1 from './before.jpeg';
+import img2 from './after.jpeg';
 
 export default () => {
     return <div style={{width: '640px', height: '426px'}}>
