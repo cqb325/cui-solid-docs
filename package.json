@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.3.0",
