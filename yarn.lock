@@ -1117,6 +1117,32 @@
   resolved "https://registry.npmmirror.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.18.1.tgz#0cb240c147c0dfd0e3eaff4cc060a772d39e155c"
   integrity sha512-yjk2MAkQmoaPYCSu35RLJ62+dz358nE83VfTePJRp8CG7aMg25mEJYpXFiD+NcevhX8LxD5OP5tktPXnXN7GDw==
 
+"@shikijs/core@1.10.3":
+  version "1.10.3"
+  resolved "https://registry.npmmirror.com/@shikijs/core/-/core-1.10.3.tgz#f01763b36f08ad3d2ef46cea7e61858d9d9947d6"
+  integrity sha512-D45PMaBaeDHxww+EkcDQtDAtzv00Gcsp72ukBtaLSmqRvh0WgGMq3Al0rl1QQBZfuneO75NXMIzEZGFitThWbg==
+  dependencies:
+    "@types/hast" "^3.0.4"
+
+"@shikijs/rehype@^1.10.3":
+  version "1.10.3"
+  resolved "https://registry.npmmirror.com/@shikijs/rehype/-/rehype-1.10.3.tgz#1db3dd6d66202ac5bd43d991a63b9885925aff6f"
+  integrity sha512-ghLPkqtx+AEL3LNTR8YpVJroAuiGvZZv+2u2CUB5rw5l4gsJ/2SycrC7s3Hpe+5qMuVXDAq/xImFQyhB0nQpuw==
+  dependencies:
+    "@shikijs/transformers" "1.10.3"
+    "@types/hast" "^3.0.4"
+    hast-util-to-string "^3.0.0"
+    shiki "1.10.3"
+    unified "^11.0.5"
+    unist-util-visit "^5.0.0"
+
+"@shikijs/transformers@1.10.3":
+  version "1.10.3"
+  resolved "https://registry.npmmirror.com/@shikijs/transformers/-/transformers-1.10.3.tgz#7bda4d272f5347eacfb107e26db8d68ffa2267c7"
+  integrity sha512-MNjsyye2WHVdxfZUSr5frS97sLGe6G1T+1P41QjyBFJehZphMcr4aBlRLmq6OSPBslYe9byQPVvt/LJCOfxw8Q==
+  dependencies:
+    shiki "1.10.3"
+
 "@sindresorhus/merge-streams@^2.1.0":
   version "2.3.0"
   resolved "https://registry.npmmirror.com/@sindresorhus/merge-streams/-/merge-streams-2.3.0.tgz#719df7fb41766bc143369eaa0dd56d8dc87c9958"
@@ -1167,6 +1193,11 @@
   version "6.2.3"
   resolved "https://registry.npmmirror.com/@solid-primitives/utils/-/utils-6.2.3.tgz#1abed4c74a2696e08bd2e49cf2b86fc8b87a32bd"
   integrity sha512-CqAwKb2T5Vi72+rhebSsqNZ9o67buYRdEJrIFzRXz3U59QqezuuxPsyzTSVCacwS5Pf109VRsgCJQoxKRoECZQ==
+
+"@solidjs/meta@^0.29.4":
+  version "0.29.4"
+  resolved "https://registry.npmmirror.com/@solidjs/meta/-/meta-0.29.4.tgz#28a444db5200d1c9e4e62d8762ea808d3e8beffd"
+  integrity sha512-zdIWBGpR9zGx1p1bzIPqF5Gs+Ks/BH8R6fWhmUa/dcK1L2rUC8BAcZJzNRYBQv74kScf1TSOs0EY//Vd/I0V8g==
 
 "@solidjs/router@^0.14.1":
   version "0.14.1"
@@ -1293,7 +1324,7 @@
   dependencies:
     "@types/unist" "^2"
 
-"@types/hast@^3.0.0":
+"@types/hast@^3.0.0", "@types/hast@^3.0.4":
   version "3.0.4"
   resolved "https://registry.npmmirror.com/@types/hast/-/hast-3.0.4.tgz#1d6b39993b82cea6ad783945b0508c25903e15aa"
   integrity sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==
@@ -7045,6 +7076,14 @@ shebang-regex@^3.0.0:
   resolved "https://registry.npmmirror.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
+shiki@1.10.3:
+  version "1.10.3"
+  resolved "https://registry.npmmirror.com/shiki/-/shiki-1.10.3.tgz#2276fb21a07043b28c5b16001e6a04fef99dbb8f"
+  integrity sha512-eneCLncGuvPdTutJuLyUGS8QNPAVFO5Trvld2wgEq1e002mwctAhJKeMGWtWVXOIEzmlcLRqcgPSorR6AVzOmQ==
+  dependencies:
+    "@shikijs/core" "1.10.3"
+    "@types/hast" "^3.0.4"
+
 shikiji-core@0.9.19:
   version "0.9.19"
   resolved "https://registry.npmmirror.com/shikiji-core/-/shikiji-core-0.9.19.tgz#227975e998eb2a579cf83de30977762be3802507"
@@ -7706,7 +7745,7 @@ unified@^10.0.0:
     trough "^2.0.0"
     vfile "^5.0.0"
 
-unified@^11.0.0:
+unified@^11.0.0, unified@^11.0.5:
   version "11.0.5"
   resolved "https://registry.npmmirror.com/unified/-/unified-11.0.5.tgz#f66677610a5c0a9ee90cab2b8d4d66037026d9e1"
   integrity sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==

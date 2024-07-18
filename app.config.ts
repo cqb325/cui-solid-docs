@@ -8,6 +8,7 @@ import { DirectiveDemo, DirectiveDemos, Anchors, remarkCustomBlocks, remarkCodeT
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import rehypeSlug from 'rehype-slug'
+import rehypeShiki from '@shikijs/rehype'
 import addClasses from 'rehype-add-classes';
 
 const { default: mdx } = pkg;
@@ -33,9 +34,17 @@ export default defineConfig({
                 jsx: true,
                 jsxImportSource: "solid-js",
                 providerImportSource: "solid-mdx",
-                rehypePlugins: [[rehypeSlug, {prefix: 'sp-'}], [addClasses, {
+                rehypePlugins: [[rehypeSlug, { prefix: 'sp-' }],
+                [addClasses, {
                     table: 'sp-table',
                     code: 'sp-inline-code',
+                }],
+                [rehypeShiki, {
+                    // or `theme` for a single theme
+                    themes: {
+                        light: 'github-light',
+                        dark: 'github-dark',
+                    }
                 }]],
                 remarkPlugins: [
                     remarkGfm,
@@ -46,9 +55,9 @@ export default defineConfig({
                     addCodeCopyButton,
                     remarkDirective,
                     DirectiveDemos,
-                    [DirectiveDemo, {dir: '/src/cui-comps'}],
+                    [DirectiveDemo, { dir: '/src/cui-comps' }],
                     remarkCustomBlocks,
-                    [Anchors, {prefix: 'sp-'}]
+                    [Anchors, { prefix: 'sp-' }]
                 ]
             }),
             // deguggerMDX()

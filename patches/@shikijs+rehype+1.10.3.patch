@@ -1,0 +1,25 @@
+diff --git a/node_modules/@shikijs/rehype/dist/core.mjs b/node_modules/@shikijs/rehype/dist/core.mjs
+index 600966d..cdd2ed7 100644
+--- a/node_modules/@shikijs/rehype/dist/core.mjs
++++ b/node_modules/@shikijs/rehype/dist/core.mjs
+@@ -13,7 +13,7 @@ function rehypeShikiFromHighlighter(highlighter, options) {
+     onError,
+     ...rest
+   } = options;
+-  return function(tree) {
++  return function (tree) {
+     visit(tree, "element", (node, index, parent) => {
+       if (!parent || index == null || node.tagName !== "pre")
+         return;
+@@ -21,7 +21,10 @@ function rehypeShikiFromHighlighter(highlighter, options) {
+       if (!head || head.type !== "element" || head.tagName !== "code" || !head.properties) {
+         return;
+       }
+-      const classes = head.properties.className;
++      let classes = head.properties.className;
++      if (!Array.isArray(classes)) {
++        classes = classes.split(/\s+/g);
++      }
+       const languageClass = Array.isArray(classes) ? classes.find(
+         (d) => typeof d === "string" && d.startsWith(languagePrefix)
+       ) : void 0;

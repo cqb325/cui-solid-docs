@@ -1,75 +1,57 @@
 ---
 title: "Home"
 ---
-import {Timeline} from '~/cui-solid/components';
-
 <div class="sys-ctx-main-left">
 
-<Timeline>
-        <Timeline.Item>
-            <label class="time">1976年</label>
-            <span class="content">Apple I 问世</span>
-        </Timeline.Item>
-        <Timeline.Item>
-            <label class="time">1984年</label>
-            <span class="content">发布 Macintosh</span>
-        </Timeline.Item>
-        <Timeline.Item>
-            <label class="time">2007年</label>
-            <span class="content">发布 iPhone</span>
-        </Timeline.Item>
-        <Timeline.Item>
-            <label class="time">2010年</label>
-            <span class="content">发布 iPad</span>
-        </Timeline.Item>
-    </Timeline>
+## 关于 CUI-Solid\{about\}
 
-# Hello World!
+CUI-Solid 是基于 solid-js 的一套 UI 组件库，主要用于后台系统。
 
-#{frontmatter.title}
+CUI-Solid 提供了市面上的常规组件（如 Button、Icon、Table、Tree、Input、DatePicker等）及业务组件（如 Login、PageFooter 等）。
 
+## 特性\{props\}
 
+- 丰富的组件和功能，满足绝大部分网站场景
+- 友好的 API ，自由灵活地使用空间
+- 细致、漂亮的 UI
+- 详细的使用文档
 
-:::info[信息]
-info block
-:::
+## 兼容环境
 
-:::tip
-This is a tip.
-:::
+- 适用solidjs，兼容现代浏览器，不支持IE
+- 支持 SSR。
+- 支持TS。
 
-:::warning
-This is a warning.
-:::
+## 安装\{install\}
 
-:::danger
-This is a dangerous warning.
-:::
-
-:::details
-This is a details block.
-:::
-
-
-:::details[点击查看代码]
-```js
-console.log('Hello, VitePress!')
-```
-:::
-
-
-
-```jsx tabs=demo name=index.jsx
-export default function App() {
-  return <div>hello world</div>;
-}
+```bash tabs=install name=npm
+npm install cui-solid
 ```
 
-```css tabs=demo name=style.css
-div {
-  border: 1px solid red;
-}
+```bash tabs=install name=yarn
+yarn add cui-solid
 ```
+
+```bash tabs=install name=pnpm
+pnpm i cui-solid
+```
+
+## 快速开始\{quick-start\}
+
+```ts
+import { render } from 'solid-js/web';
+import { Button } from 'cui-solid';
+import 'cui-solid/dist/styles/cui.css';
+
+render(() => <Button>Button</Button>, document.getElementById('root') as HTMLElement);
+```
+
+## 版本\{version\}
+
+[![CUI SolidJS](https://img.shields.io/npm/v/cui-solid.svg?style=flat-square)](https://www.npmjs.org/package/cui-solid)
+
+
+
 
 </div>
 

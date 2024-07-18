@@ -2,9 +2,10 @@ import { lazy } from 'solid-js';
 
 export const menuData = [
     {
+        type: 'MenuItem',
         name: 'home',
-        path: '/',
-        redirect: '/base/button'
+        to: '/',
+        title: '介绍'
     },
     {
         type: 'SubMenu',

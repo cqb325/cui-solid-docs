@@ -12,6 +12,7 @@ import { Icon } from "./cui-solid/components/Icon";
 import { Popover } from "./cui-solid/components/Popover";
 import { clientOnly } from "@solidjs/start";
 const Nav = clientOnly(() => import('./Nav'));
+import './app.css';
 import "./index.less";
 
 
