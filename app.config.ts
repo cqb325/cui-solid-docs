@@ -28,6 +28,9 @@ function deguggerMDX() {
 
 export default defineConfig({
     extensions: ["mdx", "md"],
+    server: {
+        preset: 'vercel'
+    },
     vite: {
         plugins: [
             mdx.withImports({})({
