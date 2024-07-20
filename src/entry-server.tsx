@@ -15,17 +15,16 @@ export default createHandler(() => (
                 <body>
                     <div id="app">{children}</div>
                     {scripts}
+                    <script>
+                        var _hmt = _hmt || [];
+                        (function() {
+                            var hm = document.createElement("script");
+                            hm.src = "https://hm.baidu.com/hm.js?f33b802084782420c8ec8ddcf3d4535d";
+                            var s = document.getElementsByTagName("script")[0];
+                            s.parentNode.insertBefore(hm, s);
+                        })();
+                    </script>
                 </body>
-                <script>
-                    var _hmt = _hmt || [];
-                    (function() {
-                        var hm = document.createElement("script");
-                        hm.src = "https://hm.baidu.com/hm.js?f33b802084782420c8ec8ddcf3d4535d";
-                        var s = document.getElementsByTagName("script")[0];
-                        s.parentNode.insertBefore(hm, s);
-                    })();
-                </script>
-
             </html>
         )}
     />
