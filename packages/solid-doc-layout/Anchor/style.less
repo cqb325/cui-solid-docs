@@ -2,19 +2,21 @@
     padding-left: 16px;
     border-left: 1px solid var(--cui-default-border);
     position: relative;
-    
+
     &.sd-anchor-hide {
         .sd-anchor-marker {
             opacity: 0;
         }
     }
 }
+
 .sd-anchor-title {
     line-height: 32px;
     font-size: 14px;
     font-weight: 600;
     cursor: default;
 }
+
 .sd-anchor-link {
     line-height: 32px;
     font-size: 14px;
@@ -26,14 +28,17 @@
     transition: color .5s;
     cursor: pointer;
     transition: color 0.2s;
+
     &.sd-anchor-link-active,
     &:hover {
         color: var(--cui-color-primary);
     }
 }
+
 .sd-anchor-link-depth2 {
     padding-left: 16px;
 }
+
 .sd-anchor-marker {
     position: absolute;
     width: 2px;
@@ -43,5 +48,5 @@
     opacity: 1;
     height: 18px;
     background-color: var(--cui-color-primary);
-    transition: top .25s cubic-bezier(0,1,.5,1), background-color .5s, opacity .25s;
+    transition: top .25s cubic-bezier(0, 1, .5, 1), background-color .5s, opacity .25s;
 }
