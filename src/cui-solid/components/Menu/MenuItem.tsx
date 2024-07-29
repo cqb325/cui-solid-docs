@@ -1,10 +1,9 @@
-import type { JSXElement } from "solid-js";
+import type { JSXElement} from "solid-js";
 import { createEffect, createSignal, onMount, Show } from "solid-js";
 import { useClassList } from "../utils/useProps";
 import { Icon } from "../Icon";
 import { useMenuContext } from ".";
 import { Popover } from "../Popover";
-import { isServer } from "solid-js/web";
 
 type MenuItemProps = {
     name?: string,
@@ -17,7 +16,7 @@ type MenuItemProps = {
     cert?: boolean
 }
 
-export function MenuItem(props: MenuItemProps) {
+export function MenuItem (props: MenuItemProps) {
     if (!props.isSubmenuTitle && !props.name) {
         console.warn("MenuItem need name prop");
     }
@@ -32,7 +31,6 @@ export function MenuItem(props: MenuItemProps) {
 
     // 展开的副作用，更新菜单项的padding
     createEffect(() => {
-        if (isServer) return;
         let flag = false;
         if (ctx && self && !props.isSubmenuTitle) {
             const parentName = self.parentElement.getAttribute('x-name');
@@ -50,7 +48,6 @@ export function MenuItem(props: MenuItemProps) {
 
     let self: any;
     onMount(() => {
-        if (isServer) return;
         const parentPadding = self.parentElement.getAttribute('x-padding');
         const padding = parseInt(parentPadding) + 16;
 
@@ -77,7 +74,6 @@ export function MenuItem(props: MenuItemProps) {
     });
 
     const onSelect = () => {
-        if (isServer) return;
         if (props.isSubmenuTitle && !ctx.store.min) {
             props.onSelect && props.onSelect();
         } else {
@@ -90,7 +86,7 @@ export function MenuItem(props: MenuItemProps) {
             <div class="cm-menu-item-text">{props.children}</div>
             <Show when={props.cert}>
                 <div class="cm-menu-item-cert">
-                    <Icon name="chevron-down" size={14} />
+                    <Icon name="chevron-down" size={14}/>
                 </div>
             </Show>
         </li>

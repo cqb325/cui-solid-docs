@@ -1,7 +1,7 @@
-import type { JSXElement, Signal } from "solid-js";
+import type { JSXElement, Signal} from "solid-js";
 import { Match, Show, Switch } from "solid-js";
 import { Icon } from "../Icon";
-import type { TagConfig } from "../TagGroup";
+import type { TagConfig} from "../TagGroup";
 import { TagGroup } from "../TagGroup";
 import { InnerInput } from "../FormElements/Input/input";
 
@@ -12,7 +12,7 @@ export interface ValueProps {
     clearable?: boolean
     icon?: JSXElement
     disabled?: boolean
-    size?: 'small' | 'large'
+    size?: 'small'|'large'
     multi?: boolean
     showMax?: number
     placeholder?: string
@@ -25,8 +25,8 @@ export interface ValueProps {
     onDeleteLastValue?: () => void
 }
 
-export function Value(props: ValueProps) {
-    const [query, setQuery] = props.query ?? [() => '', () => { }];
+export function Value (props: ValueProps) {
+    const [query, setQuery] = props.query ?? [() => '', () => {}];
     let filterInput: any;
     let selection: any;
     const onClear = (e: any) => {
@@ -49,14 +49,13 @@ export function Value(props: ValueProps) {
         })
         if (props.multi && props.text && props.text instanceof Array) {
             return props.text.map((item: any, index: number) => {
-                return { id: item.id, title: item.title };
+                return {id: item.id, title: item.title};
             })
         }
         return [];
     };
 
     const inputStyle = () => {
-        if (!filterInput) return;
         const str = props.filter ? query() : '';
         filterInput.style.width = '10px';
         filterInput.style.width = filterInput.scrollWidth + 'px';
@@ -65,7 +64,7 @@ export function Value(props: ValueProps) {
             filterInput.style.width = '10px';
             const maxWidth = Math.floor(selection?.getBoundingClientRect().width || 10);
             filterInput.style.width = filterInput.scrollWidth + 'px';
-            filterInput.parentElement.style.width = Math.min(maxWidth - 20, filterInput.scrollWidth) + 'px';
+            filterInput.parentElement.style.width = Math.min(maxWidth-20, filterInput.scrollWidth) + 'px';
         })
         return {
             width: '10px',
@@ -82,7 +81,7 @@ export function Value(props: ValueProps) {
     const onFilterKeyDown = (e: any) => {
         const queryStr = query();
         if (e.key === 'Backspace' || e.code === 'Backspace'
-            || e.key === 'Delete' || e.code === 'Delete') {
+        || e.key === 'Delete' || e.code === 'Delete') {
             if (queryStr.length === 0) {
                 props.onDeleteLastValue && props.onDeleteLastValue();
             }
@@ -92,7 +91,7 @@ export function Value(props: ValueProps) {
     return <div classList={classList()} tabIndex="1" onClick={onValueClick}>
         <input type="hidden" />
         {/* 文字对齐辅助 */}
-        <span style={{ width: '0px', "font-size": '12px', visibility: 'hidden', 'line-height': 'initial' }}>A</span>
+        <span style={{width: '0px', "font-size": '12px', visibility: 'hidden', 'line-height': 'initial'}}>A</span>
         <Show when={props.prepend}>
             <div class="cm-field-prepend">
                 {props.prepend}
@@ -104,20 +103,20 @@ export function Value(props: ValueProps) {
                     <TagGroup data={text()} closable={props.valueClosable} max={props.showMax} showMore={props.showMore} onClose={props.onClose}
                         size={props.size === 'small' ? 'small' : 'large'} extra={
                             props.filter
-                                ? <InnerInput ref={filterInput} style={inputStyle()} notCreateFiled class="cm-select-filter"
-                                    trigger="input" size={props.size} value={[query, setQuery]} onKeyDown={onFilterKeyDown} />
-                                : null
-                        } />
+                            ? <InnerInput ref={filterInput} style={inputStyle()} notCreateFiled class="cm-select-filter"
+                                trigger="input" size={props.size} value={[query, setQuery]} onKeyDown={onFilterKeyDown}/>
+                            : null
+                        }/>
                 </div>
             </Match>
             <Match when={!props.multi}>
                 <div class="cm-field-text" ref={selection}>
                     <Show when={!props.filter}>
-                        {props.text ? props.text : <span class="cm-field-placeholder">{props.placeholder ?? ''}</span>}
+                        {props.text ? props.text : <span class="cm-field-placeholder">{props.placeholder??''}</span>}
                     </Show>
                     <Show when={props.filter}>
                         <InnerInput ref={filterInput} style={inputStyle()} notCreateFiled class="cm-select-filter"
-                            trigger="input" size={props.size} value={[query, setQuery]} />
+                            trigger="input" size={props.size} value={[query, setQuery]}/>
                     </Show>
                 </div>
             </Match>
@@ -126,7 +125,7 @@ export function Value(props: ValueProps) {
             {props.icon}
         </span>
         <Show when={props.clearable && props.text && props.text !== ''}>
-            <Icon name="x-circle" class="cm-field-clear" onClick={onClear} />
+            <Icon name="x-circle" class="cm-field-clear" onClick={onClear}/>
         </Show>
     </div>
 }

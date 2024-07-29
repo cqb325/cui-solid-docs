@@ -49,7 +49,7 @@ export function Timepicker(props: TimePickerProps) {
         'cm-time-picker-disabled': props.disabled,
         [`cm-time-picker-${props.theme}`]: props.theme,
         [`cm-time-picker-${props.size}`]: props.size,
-        'cm-time-picker-clearable': !props.disabled && props.clearable && (value() !== '' && value().length !== 0),
+        'cm-time-picker-clearable': !props.disabled && props.clearable && (value() !== '' && value().length !== 0)
     });
 
     createEffect(() => {

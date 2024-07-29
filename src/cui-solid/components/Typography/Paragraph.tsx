@@ -4,7 +4,7 @@ import useCopy from "../utils/useCopy";
 import type { ParagraphProps } from "./paragraph.d";
 import { useClassList } from "../utils/useProps";
 
-export function Paragraph(props: ParagraphProps) {
+export function Paragraph (props: ParagraphProps) {
     const [copyed, setCopyed] = createSignal(false);
     const size = () => props.size || 'normal';
     const classList = () => useClassList(props, 'cm-typograghy-paragraph', {
@@ -14,7 +14,7 @@ export function Paragraph(props: ParagraphProps) {
     });
     let ref: any;
 
-    async function onCopy() {
+    async function onCopy () {
         const ret = await useCopy(props.copyText ?? ref.innerText);
         setCopyed(ret);
         if (ret) {

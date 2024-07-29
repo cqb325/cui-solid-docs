@@ -1,25 +1,28 @@
+import { isServer } from "solid-js/web";
+
 /**
  * 监控元素的移动
  * @param element
  * @param onMove
  * @returns
  */
-export function useMoveObserver (element: Element, onMove: () => void) {
+export function useMoveObserver(element: Element, onMove: () => void) {
+    if (isServer) return;
     let io: IntersectionObserver | null = null;
     let timeoutId: any;
 
     const root = window.document.documentElement;
 
-    function cleanup () {
+    function cleanup() {
         clearTimeout(timeoutId);
         io?.disconnect();
         io = null;
     }
 
-    function refresh (skip = false, threshold = 1) {
+    function refresh(skip = false, threshold = 1) {
         cleanup();
 
-        const {left, top, width, height} = element.getBoundingClientRect();
+        const { left, top, width, height } = element.getBoundingClientRect();
 
         if (!skip) {
             onMove();
@@ -42,7 +45,7 @@ export function useMoveObserver (element: Element, onMove: () => void) {
 
         let isFirstUpdate = true;
 
-        function handleObserve (entries: IntersectionObserverEntry[]) {
+        function handleObserve(entries: IntersectionObserverEntry[]) {
             const ratio = entries[0].intersectionRatio;
 
             if (ratio !== threshold) {

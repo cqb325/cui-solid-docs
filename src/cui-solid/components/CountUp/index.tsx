@@ -1,7 +1,6 @@
 import { createEffect, onCleanup, onMount } from "solid-js";
 import { CountUp as CU } from "./countUp";
 import { useClassList } from "../utils/useProps";
-import { isServer } from "solid-js/web";
 
 interface CountUpProps {
     style?: any
@@ -26,13 +25,12 @@ interface CountUpProps {
  * @param props
  * @returns
  */
-export function CountUp(props: CountUpProps) {
+export function CountUp (props: CountUpProps) {
     const startVal = props.start ?? 0;
     let target: any;
     let instance: any;
 
     onMount(() => {
-        if (isServer) return;
         instance = new CU(target, props.value, {
             startVal: startVal,
             duration: props.duration ?? 2,

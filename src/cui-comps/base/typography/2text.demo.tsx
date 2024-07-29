@@ -1,4 +1,4 @@
-import { Icon, RadioGroup, Space, Text } from "cui-solid"
+import { Icon, RadioGroup, Space, Text, Link } from "cui-solid"
 import { createSignal } from "solid-js";
 
 export default () => {
@@ -19,6 +19,7 @@ export default () => {
         <Text deleted>Deleted</Text>
         <Text strong>Strong</Text>
         <Text link="http://www.baidu.com">链接</Text>
+        <Link icon={<Icon name="link"/>}>Link</Link>
         <Text icon={<Icon name="link"/>} strong underline link="http://www.baidu.com">链接</Text>
         <Text size="small">Small</Text>
         <Text size={size()}>Normal</Text>
