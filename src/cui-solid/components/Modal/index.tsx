@@ -244,7 +244,7 @@ function ModalFun () {
             config.defaultPosition = {top: '200px', ...config.defaultPosition};
             const ele = usePortal('cm-modal-portal-instance', 'cm-modal-portal');
 
-            const disposeFn = render(() => <Modal {...config} class="cm-modal-instance">
+            const disposeFn = ele ? render(() => <Modal {...config} class="cm-modal-instance">
                 <div class="cm-modal-left">
                     <div class="cm-modal-icon">
                         <Icon name={icon} size={24}/>
@@ -253,7 +253,7 @@ function ModalFun () {
                 <div class="cm-modal-right">
                     {typeof config.content === 'function' ? config.content() : config.content}
                 </div>
-            </Modal>, ele);
+            </Modal>, ele) : null;
         },
         success (config: ModalConfig) {
             config.status = 'success';

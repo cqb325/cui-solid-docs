@@ -14,18 +14,9 @@ export default createHandler(() => (
                 </head>
                 <body>
                     <div id="app">{children}</div>
+                    <script src="https://hm.baidu.com/hm.js?f33b802084782420c8ec8ddcf3d4535d"></script>
                     {scripts}
                 </body>
-                <script>
-                    var _hmt = _hmt || [];
-                    (function() {
-                        var hm = document.createElement("script");
-                        hm.src = "https://hm.baidu.com/hm.js?f33b802084782420c8ec8ddcf3d4535d";
-                        var s = document.getElementsByTagName("script")[0];
-                        s.parentNode.insertBefore(hm, s);
-                    })();
-                </script>
-
             </html>
         )}
     />

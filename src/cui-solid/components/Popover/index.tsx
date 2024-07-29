@@ -14,8 +14,8 @@ import { Space } from "../Layout";
 export interface PopoverProps {
     classList?: any
     class?: string
-    align?: 'top' | 'bottom' | 'left' | 'right' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom'
-    trigger?: 'hover' | 'click'
+    align?: 'top'|'bottom'|'left'|'right'|'topLeft'|'topRight'|'bottomLeft'|'bottomRight'|'leftTop'|'leftBottom'|'rightTop'|'rightBottom'
+    trigger?: 'hover'|'click'
     disabled?: boolean
     arrow?: boolean
     theme?: string
@@ -33,7 +33,7 @@ export interface PopoverProps {
     onCancel?: () => void
 }
 
-export function Popover(props: PopoverProps) {
+export function Popover (props: PopoverProps) {
     const [visible, setVisible] = createModel(props, 'visible', false);
     const [opened, setOpened] = createSignal(visible());
     const [_, update] = createSignal(createUniqueId());
@@ -70,7 +70,7 @@ export function Popover(props: PopoverProps) {
             return;
         }
         if (trigger() === 'hover') {
-            timer = setTimeout(() => {
+            timer = setTimeout( () => {
                 setVisible(false);
                 props.onOpen && props.onOpen(false);
             }, hideDelay);
@@ -98,7 +98,7 @@ export function Popover(props: PopoverProps) {
     });
 
     const transition = useTransition({
-        el: () => wrap,
+        el: ()=> wrap,
         startClass: 'cm-popover-inner-visible',
         activeClass: 'cm-popover-inner-show',
         onLeave: () => {
@@ -182,7 +182,7 @@ export function Popover(props: PopoverProps) {
     const id = 'cm-popover-portal';
 
     props.ref && props.ref({
-        updatePosition() {
+        updatePosition () {
             update(createUniqueId());
         }
     });
@@ -190,7 +190,7 @@ export function Popover(props: PopoverProps) {
     const okText = props.okText ?? '确 定';
     const cancleText = props.cancleText ?? '取 消';
     return <>
-        <span style={{ display: 'none' }} ref={inner} />
+        <span style={{display: 'none'}} ref={inner} />
         {props.children}
         <Portal mount={usePortal(id, id)}>
             <div ref={wrap} style={posStyle()} x-placement={align()} classList={classList()}>
@@ -208,7 +208,7 @@ export function Popover(props: PopoverProps) {
                         <path d="M0.5 0L1.5 0C1.5 4, 3 5.5, 5 7.5S8,10 8,12S7 14.5, 5 16.5S1.5,20 1.5,24L0.5 24L0.5 0z" fill="rgba(var(--semi-blue-4),1)" opacity="1" />
                         <path d="M0 0L1 0C1 4, 2 5.5, 4 7.5S7,10 7,12S6 14.5, 4 16.5S1,20 1,24L0 24L0 0z" fill="rgba(var(--semi-blue-4),1)" />
                     </svg>
-                        : null
+                    : null
                 }
             </div>
         </Portal>

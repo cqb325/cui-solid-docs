@@ -37,7 +37,7 @@
         "@babel/standalone": "^7.24.4",
         "assert": "^2.1.0",
         "babel-preset-solid": "^1.8.16",
-        "cui-solid": "^1.0.1",
+        "cui-solid": "^1.0.2",
         "dedent": "^1.5.1"
     }
 }

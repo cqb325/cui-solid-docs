@@ -81,6 +81,7 @@ export const menuData = [
             {name: 'pagefooter', title: 'PageFooter 页底', path: 'pagefooter'},
             {name: 'banner', title: 'Banner 通知横幅', path: 'banner'},
             {name: 'sidebyside', title: 'SideBySide 对比', path: 'sidebyside'},
+            {name: 'watermark', title: 'Watermark 水印', path: 'watermark'},
         ]
     },
     {

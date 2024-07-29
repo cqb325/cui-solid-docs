@@ -23,6 +23,13 @@ export const Anchor = (props: any) => {
         if (!isServer && targetKey) {
             isClickScrolling = true;
             const el = document.querySelector('#' + targetKey) as HTMLElement;
+            const lastActive = document.querySelector('.active_demo');
+            if (lastActive) {
+                lastActive.classList.remove("active_demo");
+            }
+            if (el) {
+                el.classList.add("active_demo");
+            }
             const h = document.documentElement.clientHeight;
             const from = document.documentElement.scrollTop;
             const to = el.offsetTop;

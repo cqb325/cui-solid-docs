@@ -1,0 +1,42 @@
+---
+path: /view/watermark
+name: watermark
+title: Watermark 水印
+---
+import img from '~/assets/images/watermark-img.png';
+
+<div class="sys-ctx-main-left">
+
+# Watermark 水印\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/view/watermark/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[多行水印]{id='multi' src='/view/watermark/2multi.demo.tsx'}
+
+`content` 支持数组形式
+
+:::
+
+:::demo[图片水印]{id='image' src='/view/watermark/3image.demo.tsx' scopes='{img: img}'}
+
+支持图片水印
+
+:::
+
+:::demo[动态设置]{id='setting' src='/view/watermark/4danymic.demo.tsx'}
+
+动态设置
+
+:::
+
+
+</div>

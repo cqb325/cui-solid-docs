@@ -1,14 +1,14 @@
 import { isServer } from "solid-js/web";
 
-export default function usePortal(id: string, className: string) {
+export default function usePortal (id: string, className: string) {
     if (isServer) return;
-    function createRootElement(id: string) {
+    function createRootElement (id: string) {
         const rootContainer = document.createElement('div');
         rootContainer.setAttribute('id', id);
         return rootContainer;
     }
 
-    function addRootElement(rootElem: any) {
+    function addRootElement (rootElem: any) {
         document.body.appendChild(rootElem);
     }
 

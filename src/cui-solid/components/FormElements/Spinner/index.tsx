@@ -7,7 +7,7 @@ import type { Signal } from "solid-js";
 type SpinnerProps = {
     classList?: any,
     class?: string,
-    size?: 'small' | 'default' | 'large',
+    size?: 'small'|'default'|'large',
     name?: string,
     value?: number | Signal<any>,
     style?: any,
@@ -21,7 +21,7 @@ type SpinnerProps = {
     onSub?: (value: number, step: number) => void,
     disabled?: boolean
 }
-export function Spinner(props: SpinnerProps) {
+export function Spinner (props: SpinnerProps) {
     const classList = () => useClassList(props, 'cm-spinner', {
         [`cm-spinner-${props.size}`]: props.size,
         'cm-spinner-disabled': props.disabled
@@ -111,7 +111,7 @@ export function Spinner(props: SpinnerProps) {
      * @param {[type]} num1 [description]
      * @param {[type]} num2 [description]
      */
-    function add(num1: number, num2: number): number {
+    function add (num1: number, num2: number): number {
         let r1; let r2;
         try {
             r1 = num1.toString().split('.')[1].length;
@@ -131,11 +131,11 @@ export function Spinner(props: SpinnerProps) {
         onChange={_onChange} onKeyDown={_onKeyDown} append={
             <>
                 <span class="cm-spinner-plus" onClick={plus}>
-                    <Icon name="chevron-up" size={12} />
+                    <Icon name="chevron-up" size={12}/>
                 </span>
                 <span class="cm-spinner-subs" onClick={sub}>
-                    <Icon name="chevron-down" size={12} />
+                    <Icon name="chevron-down" size={12}/>
                 </span>
             </>
-        } />
+        }/>
 }

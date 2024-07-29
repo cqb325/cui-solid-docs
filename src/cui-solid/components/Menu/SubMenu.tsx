@@ -1,4 +1,4 @@
-import type { JSXElement } from "solid-js";
+import type { JSXElement} from "solid-js";
 import { createEffect, createSignal, onMount, Show } from "solid-js";
 import { useClassList } from "../utils/useProps";
 import { MenuItem } from "./MenuItem";
@@ -13,14 +13,13 @@ type SubMenuProps = {
     title?: any
 }
 
-export function SubMenu(props: SubMenuProps) {
+export function SubMenu (props: SubMenuProps) {
     if (!props.name) {
         console.warn("SubMenu need name prop");
     }
     const [min, setMin] = createSignal(false);
     const ctx: any = useMenuContext();
     const open = () => {
-        if (!listEle) return;
         let isOpen = false;
         if (ctx && ctx.store.openKeys && props.name) {
             isOpen = ctx.store.openKeys[props.name];
