@@ -39,4 +39,34 @@ import img from '~/assets/images/watermark-img.png';
 :::
 
 
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|zIndex|水印层的zindex|number|9|
+|rotate|水印层旋转的角度|number|-22|
+|width|单个水印的宽度|number||
+|height|单个水印的高度|number||
+|image|图片水印，图片的地址|string||
+|content|水印文案内容|string &#124; string[] ||
+|font|字体对象|WatermarkFontType||
+|gap|水印之间的间距|number[]|[100, 100]|
+|offset|水印的水平、垂直偏移|number[]||
+
+
+## 字体属性 \{#font_props\}
+
+WatermarkFontType属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|color|字体颜色|string|rgba(0,0,0,.26)|
+|fontSize|字体大小|number &#124; string|14|
+|fontWeight|字体权重|normal &#124; light &#124; weight &#124; number |normal|
+|fontStyle|字体样式|none &#124; normal &#124; italic &#124; oblique|normal|
+|fontFamily|字体|string|sans-serif|
+
 </div>
