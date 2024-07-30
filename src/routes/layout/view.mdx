@@ -16,19 +16,12 @@ export const centerStyle = {
 
 # View 视图\{#title\}
 
+<Paragraph type="secondary" spacing="extended">
+    包含 <Text code>View</Text> <Text code>VView</Text> <Text code>HView</Text>三种视图
+</Paragraph>
+
 ## 代码演示 \{#sp-demos\}
 
-<View>
-    <div class="sys-ctx-main-left">
-        <Space dir="v" size={32}>
-            <Title heading={2}>
-                View 视图
-            </Title>
-            <Paragraph type="secondary" spacing="extended">
-                包含 <Text code>View</Text> <Text code>VView</Text> <Text code>HView</Text>三种视图
-            </Paragraph>
-        </Space>
-    </div>
     <VView class="components-layout-demo" size="450px">
         <View class="layout-demo-header" size="64px" style={centerStyle}>Header</View>
         <View style={centerStyle}>Main</View>
@@ -50,7 +43,6 @@ export const centerStyle = {
             <View class="layout-demo-header" size="64px" style={centerStyle}>Footer</View>
         </VView>
     </HView>
-</View>
 
 
 ## 属性 \{#props\}
