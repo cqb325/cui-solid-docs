@@ -27,6 +27,7 @@ export default function Nav(props: any) {
                                         aItem.to = item.path + '/' + aItem.path;
                                         return <MenuItem name={aItem.to} data={aItem}>
                                             {aItem.title}
+                                            <a href={aItem.to}/>
                                         </MenuItem>
                                     }}
                                 </For>
@@ -35,6 +36,7 @@ export default function Nav(props: any) {
                         <Match when={item.type === 'MenuItem'}>
                             <MenuItem name={item.name} data={item}>
                                 {item.title}
+                                <a href={item.to}/>
                             </MenuItem>
                         </Match>
                     </Switch>
