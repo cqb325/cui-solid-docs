@@ -5,7 +5,7 @@
     "type": "module",
     "author": "cqb325",
     "homepage": "https://cqb325.gitee.io",
-    "main": "src/components/index.ts",
+    "main": "src/index.ts",
     "keywords": [
         "cui-solid",
         "solid-js",

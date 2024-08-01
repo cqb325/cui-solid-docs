@@ -1,3 +1,5 @@
+import type { JSXElement} from "solid-js";
+import { Show } from "solid-js";
 import { useClassList } from "../utils/useProps";
 
 type CardProps = {
@@ -7,6 +9,8 @@ type CardProps = {
     bordered?: boolean,
     rised?: boolean,
     title?: any,
+    size?: 'small'|'default'|'large',
+    cover?: JSXElement,
     style?: any,
     bodyStyle?: any,
     footer?: any
@@ -16,6 +20,7 @@ export function Card (props: CardProps) {
     const classList = () => useClassList(props, 'cm-card', {
         'cm-card-bordered': props.bordered,
         'cm-card-rised': props.rised,
+        [`cm-card-${props.size}`]: props.size,
     });
     return <div classList={classList()} style={props.style}>
         {
@@ -24,6 +29,9 @@ export function Card (props: CardProps) {
             </div>
             : null
         }
+        <Show when={props.cover}>
+            <div class="cm-card-cover">{props.cover}</div>
+        </Show>
         <div class="cm-card-body" style={props.bodyStyle}>
             { props.children }
         </div>

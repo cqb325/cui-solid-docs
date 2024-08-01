@@ -5,7 +5,7 @@ import babelPresetSolid from 'babel-preset-solid';
 import * as solidCore from 'solid-js';
 import * as solidWeb from 'solid-js/web';
 import * as solidStore from 'solid-js/store';
-import * as cuiSolid from 'cui-solid';
+import * as cuiSolid from '~/cui-solid/components';
 // import * as cuiVirtualList from "cui-virtual-list";
 
 import dd from 'dedent';
