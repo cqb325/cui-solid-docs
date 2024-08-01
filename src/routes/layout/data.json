@@ -1,0 +1,14 @@
+{
+    "title": "layout",
+    "pages": [
+        "card.mdx",
+        "grid.mdx",
+        "list.mdx",
+        "skeleton.mdx",
+        "space.mdx",
+        "split.mdx",
+        "style.less",
+        "tablestylelayout.mdx",
+        "view.mdx"
+    ]
+}

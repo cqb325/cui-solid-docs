@@ -1,0 +1,9 @@
+{
+    "title": "other",
+    "pages": [
+        "countdown.mdx",
+        "countup.mdx",
+        "virtuallist.mdx",
+        "wordcount.mdx"
+    ]
+}

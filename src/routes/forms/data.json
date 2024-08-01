@@ -1,0 +1,26 @@
+{
+    "title": "forms",
+    "pages": [
+        "autocomplete.mdx",
+        "cascader.mdx",
+        "checkbox.mdx",
+        "colorpicker.mdx",
+        "datepicker.mdx",
+        "form.mdx",
+        "input.mdx",
+        "inputgroup.mdx",
+        "login.mdx",
+        "progress.mdx",
+        "radio.mdx",
+        "rate.mdx",
+        "select.mdx",
+        "slider.mdx",
+        "spinner.mdx",
+        "switch.mdx",
+        "table.mdx",
+        "timepicker.mdx",
+        "transfer.mdx",
+        "treeselect.mdx",
+        "upload.mdx"
+    ]
+}

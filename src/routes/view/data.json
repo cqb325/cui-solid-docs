@@ -1,0 +1,20 @@
+{
+    "title": "view",
+    "pages": [
+        "banner.mdx",
+        "carousel.mdx",
+        "drawer.mdx",
+        "exception.mdx",
+        "image.mdx",
+        "message.mdx",
+        "modal.mdx",
+        "notice.mdx",
+        "pagefooter.mdx",
+        "qrcode.mdx",
+        "sidebyside.mdx",
+        "timeline.mdx",
+        "tree.mdx",
+        "utils.tsx",
+        "watermark.mdx"
+    ]
+}
