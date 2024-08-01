@@ -1,0 +1,16 @@
+{
+    "title": "nav",
+    "pages": [
+        "accordion.mdx",
+        "anchor.mdx",
+        "badge.mdx",
+        "breadcrumb.mdx",
+        "dropdown.mdx",
+        "indexlist.mdx",
+        "loadingbar.mdx",
+        "menu.mdx",
+        "pagination.mdx",
+        "steps.mdx",
+        "tabs.mdx"
+    ]
+}

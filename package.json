@@ -3,9 +3,11 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "build": "vinxi build",
+    "build": "npm run sync && npm run build:sitemap && vinxi build",
     "start": "vinxi start",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "sync": "node scripts/collections/index.mjs",
+    "build:sitemap": "node scripts/generateSitemap.js"
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.3.0",
@@ -32,7 +34,11 @@
     "solid-mdx": "^0.0.7",
     "vinxi": "^0.3.14"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "sitemap": "^8.0.0",
+    "zod": "^3.23.8"
+  },
   "private": true,
   "workspaces": [
     "packages/*"

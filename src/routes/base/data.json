@@ -1,0 +1,17 @@
+{
+    "title": "base",
+    "pages": [
+        "avatar.mdx",
+        "avatarList.mdx",
+        "button.mdx",
+        "collapase.mdx",
+        "divider.mdx",
+        "draggable.mdx",
+        "icon.mdx",
+        "popover.mdx",
+        "spin.mdx",
+        "tag.mdx",
+        "tooltip.mdx",
+        "typography.mdx"
+    ]
+}

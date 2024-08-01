@@ -5,7 +5,12 @@ import FormatterWorker from 'solid-repl/repl/formatter?worker';
 import { languages } from 'monaco-editor';
 import onigasm from 'onigasm/lib/onigasm.wasm?url';
 
-const solidTypes: Record<string, string> = import.meta.glob('../node_modules/{solid-js,csstype,cui-solid,cui-virtual-list}/**/*.{d.ts,json}', {
+const solidTypes: Record<string, string> = import.meta.glob('../node_modules/{solid-js,csstype}/**/*.{d.ts,json}', {
+    eager: true,
+    query: '?raw',
+    import: 'default',
+});
+const solidTypes2: Record<string, string> = import.meta.glob('./cui-solid/**/*.{d.ts,json}', {
     eager: true,
     query: '?raw',
     import: 'default',
@@ -14,6 +19,10 @@ const solidTypes: Record<string, string> = import.meta.glob('../node_modules/{so
 for (const path in solidTypes) {
     languages.typescript.typescriptDefaults.addExtraLib(solidTypes[path], `file://${path.replace('../', '/')}`);
     languages.typescript.javascriptDefaults.addExtraLib(solidTypes[path], `file://${path}`);
+}
+for (const path in solidTypes2) {
+    languages.typescript.typescriptDefaults.addExtraLib(solidTypes2[path], `file://${path.replace('./', '/node_modules/')}`);
+    languages.typescript.javascriptDefaults.addExtraLib(solidTypes2[path], `file://${path}`);
 }
 
 import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';

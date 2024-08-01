@@ -4,7 +4,8 @@ name: card
 title: Card 卡片
 ---
 
-import img from '~/assets/images/avatar.png';
+import avatar from '~/assets/images/avatar.png';
+import img from '~/assets/images/card-cover.webp';
 
 <div class="sys-ctx-main-left">
 
@@ -14,24 +15,46 @@ import img from '~/assets/images/avatar.png';
 
 ::demos
 
-:::demo[基础用法]{id='base' src='/layout/list/1base.demo.tsx'}
+:::demo[基础用法]{id='base' src='/layout/card/1base.demo.tsx'}
 
-默认列表
-
-:::
-
-
-:::demo[列表尺寸]{id='size' src='/layout/list/2size.demo.tsx'}
-
-size可设置为small
+基础用法
 
 :::
 
 
+:::demo[无边框]{id='size' src='/layout/card/2border.demo.tsx'}
 
-:::demo[基础列表]{id='complex' src='/layout/list/3complex.demo.tsx' scopes='{img}'}
+`bordered` 设置为false可以没有边框
 
-带有图标、标题、描述的基础列表。也可以带有列表操作组。
+:::
+
+
+
+:::demo[简洁卡片]{id='simple' src='/layout/card/3simple.demo.tsx'}
+
+简洁卡片
+
+:::
+
+:::demo[阴影]{id='simple' src='/layout/card/4shadow.demo.tsx'}
+
+阴影
+
+:::
+
+
+:::demo[封面]{id='cover' src='/layout/card/5cover.demo.tsx' scopes='{img, avatar}'}
+
+卡片支持 `cover` 封面
+
+`footer` 为卡片底部
+
+:::
+
+
+:::demo[带页签]{id='tabs' src='/layout/card/6tabs.demo.tsx'}
+
+可以结合 Tabs 组件，实现带页签的卡片。
 
 :::
 
@@ -43,29 +66,15 @@ size可设置为small
 |classList|自定义class|Object|-|
 |class|自定义class|string|-|
 |style|自定义样式|Object||
-|border|边框|boolean||
-|size|大小|small &#124; large ||
-|head|头部|string &#124; JSXElement ||
-|foot|底部|string &#124; JSXElement ||
-|render|内容自定义函数|Function ||
-|onSelect|列表项选中事件|Function ||
+|bordered|边框|boolean|false|
+|rised|阴影|boolean||
+|size|大小|small &#124; default &#124; large ||
+|title|标题|string &#124; JSXElement ||
+|cover|封面|JSXElement ||
+|headStyle|head样式|any||
+|bodyStyle|body样式|any||
+|footer|底部元素|JSXElement||
 
-
-## Item属性 \{#item_props\}
-
-| 属性 | 说明 | 类型 | 默认值 |
-| :--- | :---- | :--- | :--- |
-|classList|自定义class|Object|-|
-|class|自定义class|string|-|
-|style|自定义样式|Object||
-|id|id标识|string &#124; number||
-|data|数据项|Object||
-|render|内容自定义函数|Function||
-|actions|操作内容|JSXElement||
-|avatar|头像|Avatar||
-|content|内容|string &#124; JSXElement||
-|title|标题|string &#124; JSXElement||
-|desc|描述|string &#124; JSXElement||
 
 </div>
 

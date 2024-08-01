@@ -1,0 +1,12 @@
+{
+    "title": "root",
+    "pages": [
+        "index.mdx",
+        "base",
+        "forms",
+        "layout",
+        "nav",
+        "other",
+        "view"
+    ]
+}
