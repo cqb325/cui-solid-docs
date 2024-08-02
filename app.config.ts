@@ -1,10 +1,11 @@
+import { transform } from '@babel/standalone';
 import { defineConfig } from "@solidjs/start/config";
 /* @ts-ignore */
 import pkg from "@vinxi/plugin-mdx";
 import remarkGfm from 'remark-gfm';
 import remarkAttributes from 'remark-attributes';
 import remarkDirective from 'remark-directive';
-import { DirectiveDemo, DirectiveDemos, Anchors, remarkCustomBlocks, remarkCodeTabs, addCodeCopyButton } from 'my-remark-plugins';
+import { DirectiveDemo, DirectiveDemos, Anchors, remarkCustomBlocks, remarkCodeTabs, addCodeCopyButton, SyncOrama } from 'my-remark-plugins';
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import rehypeSlug from 'rehype-slug'
@@ -60,7 +61,8 @@ export default defineConfig({
                     DirectiveDemos,
                     [DirectiveDemo, { dir: '/src/cui-comps' }],
                     remarkCustomBlocks,
-                    [Anchors, { prefix: 'sp-' }]
+                    [Anchors, { prefix: 'sp-' }],
+                    [SyncOrama, { prefix: 'sp-', url: 'https://cui.cqb325.cn' }]
                 ]
             }),
             // deguggerMDX()
@@ -71,6 +73,6 @@ export default defineConfig({
                     entryFileNames: `assets/[name].js`,
                 }
             }
-        },
+        }
     }
 });

@@ -10,3 +10,17 @@ p {
     padding: 0;
     margin: 0 !important;
 }
+
+.sp-search-box {
+    button {
+        --search-btn-border-color: transparent;
+        --search-btn-text-color: #eeeeee;
+        --search-btn-icon-color: #ffffff80;
+        --search-btn-background-color-hover: #b2dcf175;
+        --search-btn-text-color-hover: #eeeeee;
+
+        padding: calc(5rem/var(--oc-base-font-size, 16)) calc(16rem/var(--oc-base-font-size, 16));
+        border-radius: calc(5rem / var(--oc-base-font-size, 16));
+        background-color: transparent;
+    }
+}
