@@ -56,6 +56,27 @@ title: Switch 开关
 :::
 
 
+:::demo[类型]{id='type' src='/form/switch/7type.demo.tsx'}
+
+`round` 设置为false时 默认为方形
+
+:::
+
+
+:::demo[底色]{id='color' src='/form/switch/8color.demo.tsx'}
+
+`colors` 设置底色
+
+:::
+
+
+:::demo[自定义图标]{id='icon' src='/form/switch/9icon.demo.tsx'}
+
+`icon` 设置自定义图标
+
+:::
+
+
 
 ## 属性 \{#props\}
 
@@ -67,7 +88,10 @@ title: Switch 开关
 |name|name属性|string||
 |value|值，可控属性|Signal||
 |disabled|禁用|boolean||
+|round|圆角形|boolean|true|
 |checked|默认是否开启|any||
+|colors|自定义底色|string[]||
+|icon|自定义图标，数组形式时为不同状态的图标|JSXElement &#124; JSXElement[]||
 |size|尺寸大小|small、large||
 |loading|加载中状态，不可切换|boolean||
 |labels|开关的文案|string[]||
