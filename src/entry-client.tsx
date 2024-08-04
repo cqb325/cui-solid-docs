@@ -1,6 +1,6 @@
 // @refresh reload
 import { mount, StartClient } from "@solidjs/start/client";
-import 'cui-solid/dist/styles/cui.css';
+import '~/cui-solid/styles/cui.css';
 import FormatterWorker from 'solid-repl/repl/formatter?worker';
 import { languages } from 'monaco-editor';
 import onigasm from 'onigasm/lib/onigasm.wasm?url';

@@ -14,6 +14,6 @@ export default () => {
     </DropdownMenu>} onSelect={(name: string) => {
         console.log(name);
     }}>
-        <Text>下拉菜单</Text>
+        <Text>禁用下拉菜单</Text>
     </Dropdown>
 }

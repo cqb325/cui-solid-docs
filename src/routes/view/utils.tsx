@@ -1,4 +1,4 @@
-import type { TreeNode } from "cui-solid"
+import type { TreeNode } from "~/cui-solid/components"
 
 interface IGeneratorOptions {
     treeDepth?: number

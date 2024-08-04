@@ -58,6 +58,27 @@ title: Dropdown 下拉菜单
 :::
 
 
+:::demo[可控]{id='control' src='/nav/dropdown/7control.demo.tsx'}
+
+可控菜单
+
+:::
+
+
+:::demo[渐变背景色]{id='background' src='/nav/dropdown/8background.demo.tsx'}
+
+渐变背景色，如: ['45deg', '#9B59B6', '#3498DB']
+
+:::
+
+
+:::demo[手动定位]{id='pos' src='/nav/dropdown/9pos.demo.tsx'}
+
+`position = {x: 100, y: 100}` 进行自定义定位
+
+:::
+
+
 ## 属性 \{#props\}
 
 | 属性 | 说明 | 类型 | 默认值 |
@@ -75,6 +96,10 @@ title: Dropdown 下拉菜单
 |theme|主题色|dark &#124; light|light|
 |disabled|禁用状态|boolean||
 |revers|超出范围反向显示|boolean||
+|gradient|渐变色背景|string[]||
+|color|文字颜色|string||
+|position|自定义位置|\{x: number, y: number\}||
+|onMouseClick|鼠标点击事件|(e: MouseEvent) => void||
 |onSelect|选择菜单项选中事件|Function||
 
 
@@ -93,6 +118,7 @@ title: Dropdown 下拉菜单
 | 事件名称 | 说明 | 返回值|
 | :--- | :---- | :--- |
 |`OnSelect`|选择菜单项选中事件|name:菜单项名称|
+|`onMouseClick`|鼠标点击事件|e: MouseEvent|
 
 </div>
 

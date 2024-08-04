@@ -2,18 +2,27 @@ import { Dropdown, DropdownItem, DropdownMenu, Icon, Text } from "cui-solid"
 
 export default () => {
     return <Dropdown align="bottomLeft" menu={<DropdownMenu>
-        <DropdownItem>驴打滚</DropdownItem>
-        <DropdownItem>炸酱面</DropdownItem>
-        <DropdownItem disabled>豆汁儿</DropdownItem>
-        <DropdownItem divided>北京烤鸭<Icon name="chevron-right" />
+        <DropdownItem icon={<Icon name="edit"/>} arrow>Edit
             <DropdownMenu>
-                <DropdownItem name="挂炉烤鸭">挂炉烤鸭</DropdownItem>
-                <DropdownItem>焖炉烤鸭</DropdownItem>
+                <DropdownItem>Color</DropdownItem>
+                <DropdownItem>Size</DropdownItem>
             </DropdownMenu>
         </DropdownItem>
+        <DropdownItem icon={<Icon name="cart"/>}>Add to Cart</DropdownItem>
+        <DropdownItem disabled icon={<Icon name="heart"/>}>Save to Wishlist</DropdownItem>
+        <DropdownItem divided arrow icon={<Icon name="share-2"/>}>Share
+            <DropdownMenu>
+                <DropdownItem>微信</DropdownItem>
+                <DropdownItem>微博</DropdownItem>
+                <DropdownItem>短视频</DropdownItem>
+            </DropdownMenu>
+        </DropdownItem>
+        <DropdownItem icon={<Icon name="copy"/>}>Copy link</DropdownItem>
+        <DropdownItem divided icon={<Icon name="image"/>}>View image</DropdownItem>
+        <DropdownItem icon={<Icon name="cog"/>}>Settings</DropdownItem>
     </DropdownMenu>} onSelect={(name: string) => {
         console.log(name);
     }}>
-        <Text>下拉菜单</Text>
+        <Text>选择操作</Text>
     </Dropdown>
 }

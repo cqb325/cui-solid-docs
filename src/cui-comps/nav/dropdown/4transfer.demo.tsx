@@ -14,6 +14,6 @@ export default () => {
     </DropdownMenu>} onSelect={(name: string) => {
         console.log(name);
     }}>
-        <Text>下拉菜单</Text>
+        <Text>菜单元素在body下</Text>
     </Dropdown>
 }

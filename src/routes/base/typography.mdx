@@ -20,6 +20,27 @@ title: Typography 排版
 :::
 
 
+:::demo[渐变色]{id='gradient' src='/base/typography/5gradient.demo.tsx'}
+
+渐变色
+
+:::
+
+
+:::demo[竖条前缀]{id='prefix_bar' src='/base/typography/6prefix.demo.tsx'}
+
+竖条前缀、prefix支持 `bar` 和 `dot` 两种类型, prefix 支持设置 `prefixWidth`、 `prefixGap`、 `prefixColor`
+
+:::
+
+
+:::demo[点前缀]{id='prefix_dot' src='/base/typography/7prefixDot.demo.tsx'}
+
+竖条前缀、prefix支持 `bar` 和 `dot` 两种类型, prefix 支持设置 `prefixWidth`、 `prefixGap`、 `prefixColor`
+
+:::
+
+
 :::demo[文本]{id='text' src='/base/typography/2text.demo.tsx'}
 
 内置不同样式的文本以及超链接文本
@@ -59,6 +80,7 @@ title: Typography 排版
 |underline|下划线文本|boolean||
 |deleted|删除样式文本|boolean||
 |strong|加粗文本|boolean||
+|gradient|渐变色背景|string[]||
 |size|文本大小|small &#124; default &#124; large|default|
 
 
@@ -69,6 +91,12 @@ title: Typography 排版
 |classList|自定义class|Object|-|
 |class|自定义class|string|-|
 |style|自定义样式|Object||
+|inline|行内显示|boolean||
+|prefix|前缀| bar &#124; dot ||
+|prefixWidth|前缀大小| number ||
+|prefixGap|文字的左边距| number ||
+|prefixColor|前缀颜色| string &#124; string[] ||
+|gradient|渐变色背景|string[]||
 |type|文本类型|default &#124; secondary &#124; warning &#124; error &#124; success &#124; primary| default|
 |heading|标题等级|1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6|1|
 

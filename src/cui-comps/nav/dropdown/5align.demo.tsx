@@ -1,7 +1,7 @@
 import { Dropdown, DropdownItem, DropdownMenu, Icon, Space, Text } from "cui-solid"
 
 export default () => {
-    return <Space dir="h">
+    return <Space dir="h" size={50}>
         <Dropdown trigger="click" align="rightTop" menu={<DropdownMenu>
             <DropdownItem>驴打滚</DropdownItem>
             <DropdownItem>炸酱面</DropdownItem>
@@ -15,7 +15,7 @@ export default () => {
         </DropdownMenu>} onSelect={(name: string) => {
             console.log(name);
         }}>
-            <Text>右侧</Text>
+            <Text>右侧显示</Text>
         </Dropdown>
 
         <Dropdown trigger="click" align="bottomRight" menu={<DropdownMenu>
@@ -31,7 +31,7 @@ export default () => {
         </DropdownMenu>} onSelect={(name: string) => {
             console.log(name);
         }}>
-            <Text>右下侧</Text>
+            <Text>右下侧显示</Text>
         </Dropdown>
     </Space>
 }
