@@ -12,6 +12,7 @@ type CardProps = {
     size?: 'small'|'default'|'large',
     cover?: JSXElement,
     style?: any,
+    headStyle?: any,
     bodyStyle?: any,
     footer?: any
 }
@@ -24,7 +25,7 @@ export function Card (props: CardProps) {
     });
     return <div classList={classList()} style={props.style}>
         {
-            props.title ? <div class="cm-card-head">
+            props.title ? <div class="cm-card-head" style={props.headStyle}>
                 { props.title }
             </div>
             : null

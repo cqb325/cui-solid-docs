@@ -25,6 +25,7 @@ type TableProps = {
     border?: boolean,
     stripe?: boolean,
     highlight?: boolean,
+    showHeader?: boolean,
     selectedRowKeys?: Signal<KeyType[]>,
     onRowSelect?: (row: any, preRow: any) => void,
     onRowChecked?: (row: any, checked: boolean) => void,
@@ -35,11 +36,15 @@ type TableProps = {
     spanMethod?: (data: any, column: any, index: number, columnIndex: number) => any,
     loading?: boolean,
     loadingText?: string|JSXElement,
+    title?: JSXElement,
+    footer?: JSXElement,
+    empty?: JSXElement,
     virtual?: boolean
 }
 // 表格存储
 export type TableStore = {
     columns: ColumnProps[],
+    columnsRows: any[],
     data: any[],
     showFixedLeft: boolean,
     showFixedRight: boolean,
@@ -76,6 +81,11 @@ export type ColumnProps = {
     tooltipStyle?: any,
     fixedLeftLast?: boolean,
     fixedRightFirst?: boolean,
+    children?: ColumnProps[],
+    _colspan?: number,
+    _rowspan?: number,
+    _parent?: ColumnProps,
+    _level?: number,
     id: string,
     _index: number,
     // 触发更新使用
@@ -87,6 +97,8 @@ export function Table (props: TableProps) {
         'cm-table-border': props.border,
         'cm-table-stripe': props.stripe,
         'cm-table-small': props.size === 'small',
+        'cm-table-with-title': props.title,
+        'cm-table-with-footer': props.footer,
         'cm-table-resizing': store.resizing
     });
     let wrap: any;
@@ -105,14 +117,16 @@ export function Table (props: TableProps) {
 
     // 传入的columns变化
     createEffect(() => {
-        initColumns(props.columns);
-        setStore('columns', props.columns ?? []);
+        const {maxFixedLeft, minFixedRight, columnsRows, calcColumns} = initColumns(props.columns);
+        setStore('columns', calcColumns);
+        setStore('columnsRows', columnsRows);
         setStore('showFixedLeft', false);
         setStore('showFixedRight', true);
     });
 
     const [store, setStore] = createStore<TableStore>({
         columns: [],
+        columnsRows: [],
         data: [],
         showFixedLeft: false,
         showFixedRight: true,
@@ -327,17 +341,25 @@ export function Table (props: TableProps) {
 
     return <TableContext.Provider value={{onSelectRow, onRowChecked, onHeadChecked, onSort,
         onShowChildren, onExpand, onDragStart, highlight: props.highlight, border: props.border,
-        spanMethod: props.spanMethod}}>
+        spanMethod: props.spanMethod, empty: props.empty}}>
         <div classList={classList()} ref={wrap}>
             <div class="cm-table-resize-helper" style={resizeStyle()} />
             <div class="cm-table-loading" />
             <Show when={props.loading} fallback={null}>
                 <Spin type="dot" title={props.loadingText || ''}/>
             </Show>
+            <Show when={props.title}>
+                <div class="cm-table-title">{props.title}</div>
+            </Show>
             <div class="cm-table" style={style()} >
-                <Head data={store} sticky={isSticky()} onInitColumnWidth={onInitColumnWidth} onResizeHeader={onResizeHeader} virtual={props.virtual}/>
+                <Show when={props.showHeader ?? true}>
+                    <Head data={store} sticky={isSticky()} onInitColumnWidth={onInitColumnWidth} onResizeHeader={onResizeHeader} virtual={props.virtual}/>
+                </Show>
                 <Body data={store} onScroll={onScrollBody} height={props.height} virtual={props.virtual}/>
             </div>
+            <Show when={props.footer}>
+                <div class="cm-table-footer">{props.footer}</div>
+            </Show>
         </div>
     </TableContext.Provider>;
 }

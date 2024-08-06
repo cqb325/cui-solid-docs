@@ -140,6 +140,34 @@ title: Table 表格
 :::
 
 
+:::demo[显示隐藏表头]{id='showHeader' src='/form/table/18showHeader.demo.tsx'}
+
+表格 `showHeader` 可控制表头显示隐藏
+
+:::
+
+
+:::demo[标题底部]{id='titleFooter' src='/form/table/19titleFooter.demo.tsx'}
+
+`title` 可设置表格的标题、`footer` 可设置表格的底部内容
+
+:::
+
+
+:::demo[组合表头]{id='mergeColumns' src='/form/table/20mergeHeader.demo.tsx'}
+
+支持组合表头
+
+:::
+
+
+:::demo[自定义空内容]{id='empty' src='/form/table/21empty.demo.tsx'}
+
+使用 `empty` 自定义空内容
+
+:::
+
+
 
 ## 属性 \{#props\}
 
@@ -156,8 +184,14 @@ title: Table 表格
 |border|边框|boolean||
 |stripe|斑马条纹|boolean||
 |highlight|点击高亮选中的行|boolean||
+|showHeader|是否显示表头|boolean|true|
 |size|大小|small||
 |loading|加载状态|boolean||
+|loadingText|加载文案|string||
+|title|标题|JSXElement||
+|footer|底部内容|JSXElement||
+|empty|自定义空内容|JSXElement||
+|virtual|使用虚拟列表,大数据量使用|boolean||
 |spanMethod|行列合并的钩子|Function||
 |onRowSelect|行选中事件 返回item|Function||
 |onRowChecked|行选中事件 返回item|Function||

@@ -12,6 +12,7 @@ type TableProps = {
     border?: boolean;
     stripe?: boolean;
     highlight?: boolean;
+    showHeader?: boolean;
     selectedRowKeys?: Signal<KeyType[]>;
     onRowSelect?: (row: any, preRow: any) => void;
     onRowChecked?: (row: any, checked: boolean) => void;
@@ -22,10 +23,14 @@ type TableProps = {
     spanMethod?: (data: any, column: any, index: number, columnIndex: number) => any;
     loading?: boolean;
     loadingText?: string | JSXElement;
+    title?: JSXElement;
+    footer?: JSXElement;
+    empty?: JSXElement;
     virtual?: boolean;
 };
 export type TableStore = {
     columns: ColumnProps[];
+    columnsRows: any[];
     data: any[];
     showFixedLeft: boolean;
     showFixedRight: boolean;
@@ -61,6 +66,11 @@ export type ColumnProps = {
     tooltipStyle?: any;
     fixedLeftLast?: boolean;
     fixedRightFirst?: boolean;
+    children?: ColumnProps[];
+    _colspan?: number;
+    _rowspan?: number;
+    _parent?: ColumnProps;
+    _level?: number;
     id: string;
     _index: number;
     _: string;

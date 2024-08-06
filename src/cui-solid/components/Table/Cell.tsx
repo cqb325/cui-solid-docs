@@ -142,7 +142,7 @@ export function Cell (props: any) {
 
     return <Switch>
         <Match when={props.type === 'th'}>
-            <th classList={cellClassList()} ref={(el) => {cell = el; props.ref && props.ref(el)}} data-index={props.colIndex}>
+            <th classList={cellClassList()} ref={(el) => {cell = el; props.ref && props.ref(el)}} colSpan={props.colSpan} rowSpan={props.rowSpan} data-index={props.colIndex}>
                 <div class="cm-table-cell">
                     {text()}
                     <Show when={col.sort}>

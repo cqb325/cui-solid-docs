@@ -76,9 +76,10 @@ export function Row (props: RowProps) {
 }
 
 function EmprtyRow (props: any) {
+    const ctx: any = useTableContext();
     return <tr>
         <td colSpan={props.store.columns.length}>
-            <div class="cm-table-emprty-cell">暂无数据</div>
+            <div class="cm-table-emprty-cell">{ctx?.empty || '暂无数据'}</div>
         </td>
     </tr>
 }
