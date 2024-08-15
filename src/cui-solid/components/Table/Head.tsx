@@ -4,7 +4,6 @@ import { Cell } from "./Cell";
 
 import type { TableStore, ColumnProps } from '.';
 import { Colgroup } from "./Colgroup";
-import { getFlatColumns } from "./utils";
 
 type HeadProps = {
     data: TableStore,

@@ -344,6 +344,9 @@ export const observerSizeChange = (store: TableStore, setStore: SetStoreFunction
 export const getFlatColumns = (columns: ColumnProps[], flatColumns: ColumnProps[] = [], parent?: ColumnProps) => {
     columns.forEach((col: ColumnProps) => {
         col.id = col.id ?? createUniqueId();
+        if (!col.name) {
+            col.name = col.id;
+        }
         col._parent = parent;
         if (col.children) {
             getFlatColumns(col.children, flatColumns, col);

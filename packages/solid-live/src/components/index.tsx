@@ -1,5 +1,5 @@
 import type { Signal } from "solid-js";
-import { createContext, createSignal, useContext } from "solid-js"
+import { createContext, createEffect, createSignal, useContext } from "solid-js"
 import SolidLiveEditor from './SolidLiveEditor';
 import SolidLivePreview from './SolidLivePreview';
 
@@ -26,6 +26,12 @@ const SolidLiveContext = createContext<SolidLiveContextProps>();
 function SolidLive (props: SolidLiveProps) {
     const [output, setOutput] = createSignal<any>(null);
     const [error, setError] = createSignal<any>(null);
+
+    createEffect(() => {
+        if (error()) {
+            console.error(error());
+        }
+    })
     return <SolidLiveContext.Provider value={{signal: [output, setOutput], errorSignal: [error, setError], ...props}}>
         {props.children}
     </SolidLiveContext.Provider>

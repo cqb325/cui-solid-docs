@@ -21,6 +21,8 @@ type TableProps = {
     ref?: any;
     size?: 'small';
     spanMethod?: (data: any, column: any, index: number, columnIndex: number) => any;
+    showSummary?: boolean;
+    summaryMethod?: (columns: ColumnProps[], data: any[]) => any;
     loading?: boolean;
     loadingText?: string | JSXElement;
     title?: JSXElement;
@@ -37,6 +39,7 @@ export type TableStore = {
     checkedAll: boolean | string;
     resizing: boolean;
     headerSize: any;
+    summarySize: any;
     headerLeft: number;
     x: number;
     posX: number;
@@ -47,7 +50,7 @@ export type ColumnProps = {
     name?: string;
     title?: string | JSXElement;
     render?: (value: any, column: any, row: any) => any;
-    type?: string;
+    type?: 'index' | 'date' | 'datetime' | 'enum' | 'checkbox' | 'expand';
     width?: string;
     minWidth?: number;
     maxWidth?: number;

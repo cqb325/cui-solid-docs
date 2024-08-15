@@ -9,6 +9,7 @@ import { showHideChildren, sortHandler, addRemoveExpand,
     observerSizeChange} from "./utils";
 import { Spin } from "../Spin";
 import type { PopoverProps } from "../Popover";
+import { Summary } from "./Summary";
 
 const TableContext = createContext();
 
@@ -34,6 +35,8 @@ type TableProps = {
     ref?: any,
     size?: 'small',
     spanMethod?: (data: any, column: any, index: number, columnIndex: number) => any,
+    showSummary?: boolean,
+    summaryMethod?: (columns: ColumnProps[], data: any[]) => any,
     loading?: boolean,
     loadingText?: string|JSXElement,
     title?: JSXElement,
@@ -51,6 +54,7 @@ export type TableStore = {
     checkedAll: boolean | string,
     resizing: boolean,
     headerSize: any,
+    summarySize: any,
     headerLeft: number,
     x: number,
     posX: number,
@@ -62,7 +66,7 @@ export type ColumnProps = {
     name?: string,
     title?: string | JSXElement,
     render?: (value: any, column: any, row: any) => any,
-    type?: string,
+    type?: 'index'|'date'|'datetime'|'enum'|'checkbox'|'expand',
     width?: string,
     minWidth?: number,
     maxWidth?: number,
@@ -99,6 +103,7 @@ export function Table (props: TableProps) {
         'cm-table-small': props.size === 'small',
         'cm-table-with-title': props.title,
         'cm-table-with-footer': props.footer,
+        'cm-table-with-summary': props.showSummary,
         'cm-table-resizing': store.resizing
     });
     let wrap: any;
@@ -139,6 +144,10 @@ export function Table (props: TableProps) {
         headerSize: {
             with: 0,
             height: 48
+        },
+        summarySize: {
+            with: 0,
+            height: 0
         },
         headerLeft: 0,
     });
@@ -298,6 +307,10 @@ export function Table (props: TableProps) {
         setStore('headerSize', 'width', width);
         setStore('headerSize', 'height', height);
     }
+    const onResizeSummary = (width: number, height: number) => {
+        setStore('summarySize', 'width', width);
+        setStore('summarySize', 'height', height);
+    }
     const onScrollBody = (scrollLeft: number, clientWidth: number, scrollWidth: number) => {
         updateScrollFixed(maxFixedLeft, minFixedRight, setStore, scrollLeft, clientWidth, scrollWidth);
         if (store.headerLeft !== scrollLeft) {
@@ -356,6 +369,9 @@ export function Table (props: TableProps) {
                     <Head data={store} sticky={isSticky()} onInitColumnWidth={onInitColumnWidth} onResizeHeader={onResizeHeader} virtual={props.virtual}/>
                 </Show>
                 <Body data={store} onScroll={onScrollBody} height={props.height} virtual={props.virtual}/>
+                <Show when={props.showSummary}>
+                    <Summary data={store} onResizeSummary={onResizeSummary} summaryMethod={props.summaryMethod}/>
+                </Show>
             </div>
             <Show when={props.footer}>
                 <div class="cm-table-footer">{props.footer}</div>

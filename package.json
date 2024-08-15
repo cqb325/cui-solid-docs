@@ -20,7 +20,7 @@
     "@vinxi/plugin-mdx": "^3.7.1",
     "async-validator": "^4.2.5",
     "codesandbox": "^2.2.3",
-    "cui-solid": "^1.0.4",
+    "cui-solid": "^1.0.5",
     "hast-util-to-string": "^3.0.0",
     "less": "^4.2.0",
     "mdast-typeguards": "^0.0.1",

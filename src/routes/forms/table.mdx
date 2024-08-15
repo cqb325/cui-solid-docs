@@ -168,6 +168,21 @@ title: Table 表格
 :::
 
 
+:::demo[合计]{id='summary' src='/form/table/22summary.demo.tsx'}
+
+使用 `showSummary` 可对表格进行合计，并显示合计行, 通过summaryMethod自定义合计数据
+
+:::
+
+
+:::demo[其他字段类型]{id='type' src='/form/table/23type.demo.tsx'}
+
+column 支持其他类型数据的格式化  `date`  `datetime` `enum`\
+如type='enum' 则需提供 enum 枚举数据
+
+:::
+
+
 
 ## 属性 \{#props\}
 
@@ -192,7 +207,9 @@ title: Table 表格
 |footer|底部内容|JSXElement||
 |empty|自定义空内容|JSXElement||
 |virtual|使用虚拟列表,大数据量使用|boolean||
-|spanMethod|行列合并的钩子|Function||
+|spanMethod|行列合并的钩子|(data: any, column: any, index: number, columnIndex: number) => any||
+|showSummary|是否显示合计|boolean||
+|summaryMethod|自定义合计数据函数|(columns: ColumnProps[], data: any[]) => any||
 |onRowSelect|行选中事件 返回item|Function||
 |onRowChecked|行选中事件 返回item|Function||
 |onCheckedAll|全选事件, 所有选中的数据data|Function||
@@ -207,7 +224,7 @@ title: Table 表格
 |name|字段名称|string|-|
 |title|字段表头文案|JSXElement||
 |render|自定义渲染函数， v, column, row|Function||
-|type|字段类型 index, checkbox、 expend|string||
+|type|字段类型 index &#124; checkbox &#124; expend &#124; date &#124; datetime &#124; enum|string||
 |width|字段宽度|string||
 |minWidth|字段最小宽度|number||
 |maxWidth|字段最大宽度|number||
