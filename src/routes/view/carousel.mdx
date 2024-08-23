@@ -8,6 +8,7 @@ import img1 from '~/assets/images/carousel/1.jpg';
 import img2 from '~/assets/images/carousel/2.jpg';
 import img3 from '~/assets/images/carousel/3.jpg';
 import img4 from '~/assets/images/carousel/4.jpg';
+import img5 from '~/assets/images/carousel/5.jpg';
 
 <div class="sys-ctx-main-left">
 
@@ -15,17 +16,24 @@ import img4 from '~/assets/images/carousel/4.jpg';
 
 ## 代码演示 \{#sp-demos\}
 
-::demos
+::demos{columns=2}
 
-:::demo[基础用法]{id='base' src='/view/carousel/1base.demo.tsx' scopes='{img1, img2, img3, img4}'}
+:::demo[基础用法]{id='base' src='/view/carousel/1base.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
 
 基本用法
 
 :::
 
 
+:::demo[箭头]{id='arrow' src='/view/carousel/6arrow.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
 
-:::demo[自动播放]{id='autoplay' src='/view/carousel/2autoplay.demo.tsx' scopes='{img1, img2, img3, img4}'}
+`arrow` 属性可显示切换箭头
+
+:::
+
+
+
+:::demo[自动播放]{id='autoplay' src='/view/carousel/2autoplay.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
 
 添加`autoPlay` 可以自动播放
 
@@ -33,23 +41,65 @@ import img4 from '~/assets/images/carousel/4.jpg';
 
 
 
-:::demo[dot位置]{id='dotAlign' src='/view/carousel/3dotAlign.demo.tsx' scopes='{img1, img2, img3, img4}'}
+:::demo[dot位置]{id='dotAlign' src='/view/carousel/3dotAlign.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
 
-`dotAlign` 支持 `left` 和 `right`  默认 `center`
-
-:::
-
-
-:::demo[dot样式]{id='dotstyle' src='/view/carousel/4dotstyle.demo.tsx' scopes='{img1, img2, img3, img4}'}
-
-`dotType` 支持 `line` 和 `columnar`  默认圆形
+`dotAlign` 支持 `left` 、 `right` 、 `top` 、 `bottom`
 
 :::
 
 
-:::demo[可控]{id='control' src='/view/carousel/5control.demo.tsx' scopes='{img1, img2, img3, img4}'}
+:::demo[dot样式]{id='dotstyle' src='/view/carousel/4dotstyle.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
+
+`dotType` 支持 `dot`、 `line` 和 `columnar`  默认 `dot`
+
+:::
+
+:::demo[垂直]{id='vertical' src='/view/carousel/7vertical.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
+
+`dir` 属性 支持 `h` 横向 和 `v` 垂直
+
+:::
+
+
+
+:::demo[每屏显示数量]{id='itemsPerView' src='/view/carousel/8itemsPerView.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
+
+`itemsPerView` 属性 可以指定每屏显示的数量
+
+:::
+
+
+:::demo[自动数量]{id='autoItems' src='/view/carousel/10autoItems.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
+
+`itemsPerView` 属性 为 `auto` 可以自动显示数量
+
+:::
+
+
+:::demo[相邻间距]{id='gutter' src='/view/carousel/9gutter.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
+
+指定 `gutter` 属性 可以设置相邻之间的间距
+
+:::
+
+
+:::demo[过度效果]{id='effect' src='/view/carousel/11effect.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
+
+`effect` 属性 支持 `slide` `fade` `card` 默认为 `slide`
+
+:::
+
+
+:::demo[可控]{id='control' src='/view/carousel/5control.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
 
 `activeIndex` 属性进行控制显示的索引
+
+:::
+
+
+:::demo[点位颜色]{id='dotColor' src='/view/carousel/12dotColor.demo.tsx' scopes='{img1, img2, img3, img4, img5}'}
+
+`dotColor` 为默认颜色 `dotActiveColor` 为高亮颜色
 
 :::
 
@@ -63,13 +113,20 @@ import img4 from '~/assets/images/carousel/4.jpg';
 |classList|自定义class|Object|-|
 |class|自定义class|string|-|
 |style|自定义样式|Object||
-|arrow|切换按钮的显示方式|hover &#124; always &#124; never|hover|
+|arrow|是否显示切换按钮|boolean|false|
 |autoPlay|自动播放|boolean||
 |duration|自动播放时间ms|number|4000|
-|effect|动效|fade &#124; slide||
+|effect|动效|fade &#124; slide &#124; card|slide|
 |dotType|缩略点位的样式|dot &#124; line &#124; columnar|dot|
-|dotAlign|点位的位置|left &#124; center &#124; right|center|
+|dotAlign|点位的位置|left &#124; top &#124; right &#124; bottom|bottom|
+|dotColor|点位默认颜色|string|rgba(var(--cui-grey-8), 0.3)|
+|dotActiveColor|点位高亮颜色|string|rgba(var(--cui-white), 1)|
 |activeIndex|控制活跃的索引|Signal||
+|height|高度|number|240|
+|itemsPerView|每屏显示数量|number &#124; auto|1|
+|gutter|间距|number||
+|draggable|是否支持拖拽|boolean|false|
+|dir|切换的方向|h &#124; v|h|
 |onChange|切换事件|Function||
 
 

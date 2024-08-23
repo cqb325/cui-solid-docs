@@ -6,13 +6,14 @@ export interface UseTransitionProps {
     onEnter?(): void;
     onLeave?(): void;
 }
+export interface TransitionReturn {
+    enter(): void;
+    leave(): void;
+}
 export declare function nextFrame(fn: () => void): void;
 /**
  * 简单动画指令
  * @param props
  * @returns
  */
-export declare function useTransition(props: UseTransitionProps): {
-    enter(): void;
-    leave(): void;
-};
+export declare function useTransition(props: UseTransitionProps): TransitionReturn;

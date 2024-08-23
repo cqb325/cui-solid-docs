@@ -7,7 +7,7 @@ import img4 from './4.jpg';
 import img5 from './5.jpg';
 
 export default () => {
-    return <Carousel autoPlay>
+    return <Carousel itemsPerView={3} draggable gutter={20}>
         <Carousel.Item>
             <div class="demo-carousel">
                 <Image src={img1} fit="cover"/>

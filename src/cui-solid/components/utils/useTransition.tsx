@@ -11,6 +11,11 @@ export interface UseTransitionProps {
     onLeave?(): void
 }
 
+export interface TransitionReturn {
+    enter(): void
+    leave(): void
+}
+
 export function nextFrame (fn: () => void) {
     requestAnimationFrame(() => requestAnimationFrame(fn));
 }
@@ -20,7 +25,7 @@ export function nextFrame (fn: () => void) {
  * @param props
  * @returns
  */
-export function useTransition (props: UseTransitionProps) {
+export function useTransition (props: UseTransitionProps): TransitionReturn {
     const { el } = props;
 
     const endTransition = (e: Event) => {
