@@ -11,4 +11,4 @@ export interface PopconfirmProps extends InnerPopupProps {
     icon?: JSX.Element;
     showCancel?: boolean;
 }
-export default function Popconfirm(props: PopconfirmProps): JSX.Element;
+export function Popconfirm(props: PopconfirmProps): JSX.Element;

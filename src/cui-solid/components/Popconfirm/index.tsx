@@ -13,7 +13,7 @@ export interface PopconfirmProps extends InnerPopupProps {
     icon?: JSX.Element
     showCancel?: boolean
 }
-export default function Popconfirm (props: PopconfirmProps) {
+export function Popconfirm (props: PopconfirmProps) {
     const [local, rest] = splitProps(props, ['okText', 'theme', 'cancelText', 'title', 'onOk', 'onCancel',
         'okType', 'cancelType', 'icon', 'align', 'showCancel']);
     const title = () => <>

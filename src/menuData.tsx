@@ -71,6 +71,7 @@ export const menuData = [
             {name: 'message', title: 'Message 消息提示', path: 'message'},
             {name: 'notice', title: 'Notice 通知', path: 'notice'},
             {name: 'modal', title: 'Modal 对话框', path: 'modal'},
+            {name: 'popconfirm', title: 'Popconfirm 气泡确认框', path: 'popconfirm'},
             {name: 'tree', title: 'Tree 树状控件', path: 'tree'},
             {name: 'image', title: 'Image 图片', path: 'image'},
             {name: 'timeline', title: 'Timeline 时间轴', path: 'timeline'},
