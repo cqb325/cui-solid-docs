@@ -1,7 +1,8 @@
 import { BothSide, Button, Space, Tooltip } from "cui-solid"
+import type { JSX } from "solid-js"
 
 export default () => {
-    const style = { width: '100px', 'text-align': 'center' }
+    const style: JSX.CSSProperties = { width: '100px', 'text-align': 'center' }
 
     return <Space dir="v" align="center">
         <Space dir="v" style={{ width: '400px' }}>

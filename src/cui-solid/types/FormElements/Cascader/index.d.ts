@@ -1,5 +1,7 @@
 import type { JSXElement } from "solid-js";
-type CascaderProps = {
+import type { TreeCheckMod } from "../../Tree";
+import type { TagGroupProps } from "../../TagGroup";
+export interface CascaderProps {
     classList?: any;
     class?: string;
     disabled?: boolean;
@@ -7,22 +9,31 @@ type CascaderProps = {
     size?: 'small' | 'large';
     prepend?: string | JSXElement;
     value?: string | string[] | number[];
+    valueField?: string;
+    titleField?: string;
+    mode?: TreeCheckMod;
+    showMax?: TagGroupProps['max'];
+    max?: number;
+    onExceed?: () => void;
+    showMore?: boolean;
+    filter?: boolean;
+    emptyText?: string;
     seperator?: string;
     transfer?: boolean;
+    header?: JSXElement;
+    footer?: JSXElement;
+    triggerRender?: (labels: any, values: any) => JSXElement;
     align?: 'bottomLeft' | 'bottomRight';
     revers?: boolean;
     data: any[];
     onSelect?: (item: any) => void;
     onChange?: (value: any) => void;
     trigger?: 'click' | 'hover';
+    multi?: boolean;
     changeOnSelect?: boolean;
     placeholder?: string;
+    asFormField?: boolean;
     loadData?: (item: any) => Promise<any>;
-};
-export type CascaderStore = {
-    selectedValue: any[];
-    columns: any[][];
-};
+}
 export declare function Cascader(props: CascaderProps): import("solid-js").JSX.Element;
 export declare const useCascaderContext: () => unknown;
-export {};

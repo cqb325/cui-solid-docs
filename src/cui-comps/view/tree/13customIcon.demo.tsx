@@ -1,12 +1,13 @@
-import { Space, Tree, Icon } from "cui-solid";
+import { Space, Tree } from "cui-solid";
+import { FeatherBox, FeatherFileText, FeatherLoader } from "cui-solid-icons/feather";
 
 export default () => {
     const data = [
-        {id: 'beijing', title: '北京', icon: <Icon name="box1"/>, children: [
-            {id: 'gugong', title: '故宫', icon: <Icon name="file-text"/>},
-            {id: 'tiantan', title: '天坛', icon: <Icon name="file-text"/>},
+        {id: 'beijing', title: '北京', icon: <FeatherBox />, children: [
+            {id: 'gugong', title: '故宫', icon: <FeatherFileText />},
+            {id: 'tiantan', title: '天坛', icon: <FeatherFileText />},
         ]},
-        {id: 'zhejiang', title: '浙江', icon: <Icon name="loader"/>, children: [
+        {id: 'zhejiang', title: '浙江', icon: <FeatherLoader />, children: [
             {id: 'xihu', title: '西湖'},
             {id: 'linyin', title: '灵隐'},
         ]}

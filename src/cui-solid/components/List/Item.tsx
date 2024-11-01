@@ -2,7 +2,7 @@ import { useClassList } from "../utils/useProps";
 import type { ListContextProps } from ".";
 import { useListContext } from ".";
 
-type ListItemProps = {
+export interface ListItemProps {
     id: string | number,
     data?: any,
     style?: any,

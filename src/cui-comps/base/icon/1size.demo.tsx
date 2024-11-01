@@ -1,9 +1,10 @@
-import { Space, Icon } from 'cui-solid';
+import { Space } from 'cui-solid';
+import { FeatherBox, FeatherThumbsUp, FeatherLoader } from 'cui-solid-icons/feather';
 
 export default () => {
     return <Space dir="h" align="center">
-        <Icon name="box1" />
-        <Icon name="loader" size={16}/>
-        <Icon name="thumbs-up" size={24}/>
+        <FeatherBox />
+        <FeatherLoader size={16}/>
+        <FeatherThumbsUp size={24}/>
     </Space>
 }

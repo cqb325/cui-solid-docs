@@ -1,18 +1,20 @@
-import { Button, Icon, Menu, MenuGroup, MenuItem, SubMenu } from "cui-solid"
+import { Button, Menu, MenuGroup, MenuItem, SubMenu } from "cui-solid"
 import { createSignal } from "solid-js";
+
+import { F7Gear, F7Person2Fill, F7PersonFill } from "cui-solid-icons/f7"
 
 export default () => {
     const [activeName, setActiveName] = createSignal('2');
 
     return <div style={{width: '220px', 'border-right': '1px solid var(--cui-color-border)'}}>
         <Menu dir="v" activeName={[activeName, setActiveName]}>
-            <SubMenu name="1" icon={<Icon name="users"/>} title="角色管理">
+            <SubMenu name="1" icon={<F7Person2Fill />} title="角色管理">
                 <MenuItem name="11">添加</MenuItem>
                 <MenuItem name="12">修改</MenuItem>
                 <MenuItem name="13">删除</MenuItem>
             </SubMenu>
-            <MenuItem name="2" icon={<Icon name="user"/>}>用户管理</MenuItem>
-            <SubMenu name="3" icon={<Icon name="cog"/>} title="系统管理">
+            <MenuItem name="2" icon={<F7PersonFill />}>用户管理</MenuItem>
+            <SubMenu name="3" icon={<F7Gear />} title="系统管理">
                 <MenuItem name="31">菜单管理</MenuItem>
                 <SubMenu name="32" title="字典管理">
                     <MenuGroup name="321" title="系统字典">

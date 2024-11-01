@@ -3,36 +3,49 @@ import createModel from "../utils/createModel";
 import usePortal from "../utils/usePortal";
 import { useClassList } from "../utils/useProps";
 import { Draggable } from "../Draggable";
-import { Icon } from "../Icon";
-import { Button } from "../Button";
+import { Button, ButtonProps } from "../Button";
 import type { JSXElement, Setter, Signal} from "solid-js";
-import { createEffect, createSignal, createUniqueId, untrack, Show } from "solid-js";
+import { createComponent, createEffect, createSignal, createUniqueId, Show } from "solid-js";
 import usezIndex from "../utils/usezIndex";
+import { F7ExclamationmarkTriangleFill, F7CheckmarkAltCircleFill, F7XmarkCircleFill, F7QuestionCircleFill, F7InfoCircleFill } from "cui-solid-icons/f7";
+import { FeatherX } from "cui-solid-icons/feather";
 
-type Position = {
+const icons: any = {
+    info: F7InfoCircleFill,
+    success: F7CheckmarkAltCircleFill,
+    warning: F7ExclamationmarkTriangleFill,
+    error: F7XmarkCircleFill,
+    confirm: F7QuestionCircleFill
+}
+
+export interface Position {
     top?: string,
     bottom?: string,
     left?: string,
     right?: string,
 }
 
-type ModalProps = {
+export interface ModalProps {
     bounds?: string,
     disabled?: boolean,
     style?: any,
     classList?: any,
     class?: string,
     title?: any,
+    headerStyle?: any,
     bodyStyle?: any,
     children?: any,
     footer?: boolean,
     footerAlign?: 'start' | 'center' | 'end',
+    footerReverse?: boolean,
     loading?: boolean | Signal<boolean>,
     onOk?: () => boolean | Promise<boolean> | undefined | void,
     onCancel?: () => void,
     onClosed?: () => void,
     onClickClose?: () => void,
     okText?: any,
+    okButtonType?: keyof ButtonProps['type'],
+    cancleButtonType?: keyof ButtonProps['type'],
     cancleText?: any,
     visible?: boolean | Signal<boolean>,
     defaultPosition?: Position,
@@ -51,7 +64,10 @@ export function Modal (props: ModalProps) {
     const [loading, setLoading] = createSignal(false);
     let setOverflow = false;
     let originOverflow = '';
-    const footerAlign = props.footerAlign ?? 'center';
+    const footerAlign = props.footerAlign ?? 'end';
+    const footerReverse = props.footerReverse ?? false;
+    const okButtonType = props.okButtonType ?? 'primary';
+    const cancleButtonType = props.cancleButtonType ?? 'default';
     const classList = () => useClassList(props, 'cm-modal');
     const zindex = usezIndex();
 
@@ -181,10 +197,10 @@ export function Modal (props: ModalProps) {
             <Draggable ref={draggable} bounds={props.bounds || 'body'} style={props.defaultPosition} handle={'.cm-modal-header[data-id="' + modalId + '"]'}
                 disabled={props.disabled}>
                 <div classList={classList()} style={props.style}>
-                    <div class="cm-modal-header" data-id={`${modalId}`}>
+                    <div class="cm-modal-header" style={props.headerStyle} data-id={`${modalId}`}>
                         { props.title ? <div class="cm-modal-title">{props.title}</div> : null }
                         <Show when={hasCloseIcon}>
-                            <span class="cm-modal-close" onClick={onClickClose}><Icon name="x"/></span>
+                            <span class="cm-modal-close" onClick={onClickClose}><FeatherX /></span>
                         </Show>
                     </div>
                     <div class="cm-modal-body" style={props.bodyStyle}>
@@ -193,10 +209,11 @@ export function Modal (props: ModalProps) {
                     <Show when={footer}>
                         <div classList={{
                             'cm-modal-footer': true,
+                            'cm-modal-footer-reverse': footerReverse,
                             [`cm-modal-footer-${footerAlign}`]: !!footerAlign
                         }}>
-                            <Button type="primary" loading={loading()} onClick={onOk}>{okText}</Button>
-                            <Button type="default" onClick={onCancel}>{cancleText}</Button>
+                            <Button type={okButtonType} loading={loading()} onClick={onOk}>{okText}</Button>
+                            <Button type={cancleButtonType} onClick={onCancel}>{cancleText}</Button>
                         </div>
                     </Show>
                 </div>
@@ -213,26 +230,12 @@ export interface ModalConfig extends ModalProps{
 
 function ModalFun () {
     const [visible, setVisible] = createSignal<boolean>(true);
-    let disposeFn: () => void;
+    let disposeFn: (() => void) | null;
     return {
         open (config: ModalConfig) {
             setVisible(true);
-            let icon = '';
-            if (config.status === 'success') {
-                icon = 'check-circle'
-            }
-            if (config.status === 'info') {
-                icon = 'info'
-            }
-            if (config.status === 'warning') {
-                icon = 'alert-circle'
-            }
-            if (config.status === 'error') {
-                icon = 'x-circle'
-            }
-            if (config.status === 'confirm') {
-                icon = 'help-circle'
-            }
+            let icon = null;
+            icon = ()=> createComponent(icons[config.status!], {class: `cm-modal-icon-${config.status}`, size: 24})
             const close: Setter<boolean> = (v?: unknown) => {
                 setVisible(v as boolean);
                 setTimeout(() => {
@@ -244,10 +247,10 @@ function ModalFun () {
             config.defaultPosition = {top: '200px', ...config.defaultPosition};
             const ele = usePortal('cm-modal-portal-instance', 'cm-modal-portal');
 
-            const disposeFn = ele ? render(() => <Modal {...config} class="cm-modal-instance">
+            disposeFn = ele ? render(() => <Modal {...config} class="cm-modal-instance">
                 <div class="cm-modal-left">
                     <div class="cm-modal-icon">
-                        <Icon name={icon} size={24}/>
+                        {icon()}
                     </div>
                 </div>
                 <div class="cm-modal-right">

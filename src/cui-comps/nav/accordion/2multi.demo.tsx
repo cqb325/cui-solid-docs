@@ -1,4 +1,5 @@
-import { Accordion, Button, HView, Icon, View, VView } from "cui-solid"
+import { Accordion, Button, HView, View, VView } from "cui-solid"
+import { F7Flag, F7GearAltFill, F7Speedometer } from "cui-solid-icons/f7";
 import { createSignal } from "solid-js";
 
 export default () => {
@@ -14,14 +15,14 @@ export default () => {
                 <Accordion activeKey={[activeKey, setActiveKey]} multi onSelect={(name: string, open: boolean, v: any) => {
                     console.log(name, open, v);
                 }}>
-                    <Accordion.Item name="a1" title="Title1" icon={<Icon name="dashboard"/>}>content1</Accordion.Item>
-                    <Accordion.Item name="a2" title="Title2" icon={<Icon name="cog"/>}>
+                    <Accordion.Item name="a1" title="Title1" icon={<F7Speedometer />}>content1</Accordion.Item>
+                    <Accordion.Item name="a2" title="Title2" icon={<F7GearAltFill/>}>
                         <p>content2</p>
                         <p>content2</p>
                         <p>content2</p>
                         <p>content2</p>
                     </Accordion.Item>
-                    <Accordion.Item name="a3" title="Title3" icon={<Icon name="flag"/>}>
+                    <Accordion.Item name="a3" title="Title3" icon={<F7Flag/>}>
                         <p>content3</p>
                         <p>content3</p>
                         <p>content3</p>

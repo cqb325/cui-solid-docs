@@ -1,10 +1,11 @@
-import { Space, Icon } from 'cui-solid';
+import { Space } from 'cui-solid';
+import { FeatherLoader, FeatherSettings } from 'cui-solid-icons/feather';
 
 export default () => {
     return <Space dir="h">
         <div>
-            <Icon name="cog" spin/>
-            <Icon name="loader" spin/>
+            <FeatherSettings spin/>
+            <FeatherLoader spin/>
         </div>
     </Space>
 }

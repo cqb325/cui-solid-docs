@@ -8,13 +8,13 @@ import logo from './assets/images/logo.svg';
 import { Image } from "./cui-solid/components/Image";
 import { Text } from "./cui-solid/components/Typography/Text";
 import { Dropdown, DropdownItem, DropdownMenu } from "./cui-solid/components/Dropdown";
-import { Icon } from "./cui-solid/components/Icon";
 import { Popover } from "./cui-solid/components/Popover";
 import { clientOnly } from "@solidjs/start";
 const Nav = clientOnly(() => import('./Nav'));
 import './app.css';
 import "./index.less";
 import { SearchBox } from "./components/SearchBox";
+import { FeatherChevronDown } from "cui-solid-icons/feather";
 
 
 export default function App() {
@@ -53,7 +53,7 @@ export default function App() {
                                     </DropdownMenu>}>
                                         <div style={{ 'margin-left': '100px' }}>
                                             <Text strong style={{ color: '#fff' }}>预览</Text>
-                                            <Icon name="chevron-down" />
+                                            <FeatherChevronDown/>
                                         </div>
                                     </Dropdown>
                                 </Space>

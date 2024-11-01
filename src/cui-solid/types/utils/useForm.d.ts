@@ -1,7 +1,7 @@
 import type { Accessor } from "solid-js";
-type CheckFunction = (v: any) => any;
-type clearFunction = () => any;
-export type useFormProps = {
+declare type CheckFunction = (v: any) => any;
+declare type clearFunction = () => any;
+export declare type useFormProps = {
     isValid(): boolean;
     validate(): boolean;
     getFormData(): any;

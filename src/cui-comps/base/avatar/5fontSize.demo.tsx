@@ -5,6 +5,6 @@ export default () => {
     const [value, setValue] = createSignal('Name');
     return <Space dir="h" align="center">
         <Avatar>{value()}</Avatar>
-        <Input value={[value, setValue]}/>
+        <Input value={[value, setValue]} style={{width: '100px'}}/>
     </Space>
 }

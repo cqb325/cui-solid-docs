@@ -1,52 +1,53 @@
 import { BothSide, Button, Popover, Space } from "cui-solid"
+import type { JSX } from "solid-js"
 
 export default () => {
-    const style = {width: '120px', 'text-align': 'center'}
+    const style: JSX.CSSProperties = {width: '120px', 'text-align': 'center'}
     return <Space dir="v" align="center">
         <Space dir="v" style={{width: '500px'}}>
             <Space dir="h" align="center" justify="center" size={30}>
-                <Popover content="Content" trigger="click" align="topLeft" arrow>
+                <Popover title="Title" content="Content" trigger="click" align="topLeft" arrow>
                     <Button style={style}>Top Left</Button>
                 </Popover>
-                <Popover content="Content" trigger="click" align="top" arrow>
+                <Popover title="Title" content="Content" trigger="click" align="top" arrow>
                     <Button style={style}>Top Center</Button>
                 </Popover>
-                <Popover content="Content" trigger="click" align="topRight" arrow>
+                <Popover title="Title" content="Content" trigger="click" align="topRight" arrow>
                     <Button style={style}>Top Right</Button>
                 </Popover>
             </Space>
             <BothSide>
                 <Space dir="v">
-                    <Popover content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="leftTop" arrow>
+                    <Popover title="Title" content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="leftTop" arrow>
                         <Button>Left Top</Button>
                     </Popover>
-                    <Popover content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="left" arrow>
+                    <Popover title="Title" content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="left" arrow>
                         <Button>Left Center</Button>
                     </Popover>
-                    <Popover content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="leftBottom" arrow>
+                    <Popover title="Title" content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="leftBottom" arrow>
                         <Button>Left Bottom</Button>
                     </Popover>
                 </Space>
                 <Space dir="v">
-                    <Popover content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="rightTop" arrow>
+                    <Popover title="Title" content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="rightTop" arrow>
                         <Button>Right Top</Button>
                     </Popover>
-                    <Popover content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="right" arrow>
+                    <Popover title="Title" content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="right" arrow>
                         <Button>Right Center</Button>
                     </Popover>
-                    <Popover content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="rightBottom" arrow>
+                    <Popover title="Title" content={<div><div>Content</div><div>Content</div><div>Content</div></div>} trigger="click" align="rightBottom" arrow>
                         <Button>Right Bottom</Button>
                     </Popover>
                 </Space>
             </BothSide>
             <Space dir="h" align="center" justify="center" size={30}>
-                <Popover content="Content" trigger="click" align="bottomLeft" arrow>
+                <Popover title="Title" content="Content" trigger="click" align="bottomLeft" arrow>
                     <Button style={style}>Bottom Left</Button>
                 </Popover>
-                <Popover content="Content" trigger="click" align="bottom" arrow>
+                <Popover title="Title" content="Content" trigger="click" align="bottom" arrow>
                     <Button style={style}>Bottom Center</Button>
                 </Popover>
-                <Popover content="Content" trigger="click" align="bottomRight" arrow>
+                <Popover title="Title" content="Content" trigger="click" align="bottomRight" arrow>
                     <Button style={style}>Bottom Right</Button>
                 </Popover>
             </Space>

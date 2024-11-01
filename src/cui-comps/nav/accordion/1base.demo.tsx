@@ -1,4 +1,5 @@
-import { Accordion, BothSide, HView, Icon, Tag, View, VView } from "cui-solid"
+import { Accordion, BothSide, HView, Tag, View, VView } from "cui-solid"
+import { F7GearAltFill, F7Speedometer } from "cui-solid-icons/f7";
 
 export default () => {
     const centerStyle = {
@@ -10,11 +11,11 @@ export default () => {
             <Accordion onSelect={(name: string, open: boolean, v: any) => {
                 console.log(name, open, v);
             }}>
-                <Accordion.Item name="a1" title="Title1" icon={<Icon name="dashboard"/>}>content1</Accordion.Item>
+                <Accordion.Item name="a1" title="Title1" icon={<F7Speedometer />}>content1</Accordion.Item>
                 <Accordion.Item name="a2" title={<BothSide>
                     <span>Title2</span>
                     <Tag size="small" theme="success">1234</Tag>
-                </BothSide>} icon={<Icon name="cog"/>}>
+                </BothSide>} icon={<F7GearAltFill />}>
                     <p>content2</p>
                     <p>content2</p>
                     <p>content2</p>

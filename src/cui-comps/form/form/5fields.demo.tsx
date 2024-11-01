@@ -1,4 +1,4 @@
-import { Button, Checkbox, Col, Form, FormItem, Input, Option, Row, Space, useForm } from "cui-solid"
+import { Button, Checkbox, CheckboxGroup, Col, Form, FormItem, Input, Option, RadioGroup, Row, Space, useForm, Switch as CSwitch, Spinner, Select, Cascader, Timepicker, Datepicker, Slider, TreeSelect, ColorPicker } from "cui-solid"
 import dayjs from 'dayjs';
 
 export default () => {
@@ -137,7 +137,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="水果:" name="fruit">
                     <Space dir="h" align="baseline">
-                        <Input type="checkbox" data={[{label: '苹果', value: '1'}, {label: '桃子', value: '2'}]}/>
+                        <CheckboxGroup data={[{label: '苹果', value: '1'}, {label: '桃子', value: '2'}]}/>
                         <Button onClick={() => {
                             form.fruit = ['2'];
                             console.log(form.getFormData());
@@ -148,7 +148,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="性别:" name="sex">
                     <Space dir="h" align="baseline">
-                        <Input type="radio" data={[{label: '男', value: 1}, {label: '女', value: 2}]}/>
+                        <RadioGroup data={[{label: '男', value: 1}, {label: '女', value: 2}]}/>
                         <Button onClick={() => {
                             form.sex = 2;
                             console.log(form.getFormData());
@@ -162,7 +162,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="开关：" name="switch">
                     <Space dir="h" align="center">
-                        <Input type="switch" />
+                        <CSwitch />
                         <Button onClick={() => {
                             form.switch = !form.switch;
                             console.log(form.getFormData());
@@ -184,7 +184,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="年龄：" name="age">
                     <Space dir="h" align="center">
-                        <Input type="spinner" />
+                        <Spinner />
                         <Button onClick={() => {
                             form.age = form.age + 1;
                             console.log(form.getFormData());
@@ -198,11 +198,11 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="地市：" name="city">
                     <Space dir="h" align="center">
-                        <Input type="select" clearable>
+                        <Select>
                             <Option label="北京" value="1" />
                             <Option label="上海" value="2" />
                             <Option label="深圳" value="3" />
-                        </Input>
+                        </Select>
                         <Button onClick={() => {
                             form.city = '2';
                             console.log(form.getFormData());
@@ -213,7 +213,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="景点：" name="cascader">
                     <Space dir="h" align="center">
-                        <Input type="cascader" data={cascaderData} />
+                        <Cascader data={cascaderData} />
                         <Button onClick={() => {
                             form.cascader = ['beijing','gugong'];
                             console.log(form.getFormData());
@@ -224,7 +224,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="时间：" name="time">
                     <Space dir="h" align="center">
-                        <Input type="time" />
+                        <Timepicker />
                         <Button onClick={() => {
                             form.time = '10:10:10';
                             console.log(form.getFormData());
@@ -237,7 +237,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="时间区间：" name="timeRange">
                     <Space dir="h" align="center">
-                        <Input type="timeRange" />
+                        <Timepicker type="timeRange"/>
                         <Button onClick={() => {
                             form.timeRange = ['10:10:10', '12:12:00'];
                             console.log(form.getFormData());
@@ -248,7 +248,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="日期：" name="date">
                     <Space dir="h" align="center">
-                        <Input type="date" />
+                        <Datepicker/>
                         <Button onClick={() => {
                             form.date = '2023-04-05';
                             console.log(form.getFormData());
@@ -259,7 +259,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="日期范围：" name="dateRange">
                     <Space dir="h" align="center">
-                        <Input type="dateRange" />
+                        <Datepicker type="dateRange"/>
                         <Button onClick={() => {
                             form.dateRange = ['2023-04-05', '2023-04-08'];
                             console.log(form.getFormData());
@@ -273,7 +273,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="月份：" name="month">
                     <Space dir="h" align="center">
-                        <Input type="month" />
+                        <Datepicker type="month"/>
                         <Button onClick={() => {
                             form.month = '2023-04';
                             console.log(form.getFormData());
@@ -284,7 +284,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="月份范围：" name="monthRange">
                     <Space dir="h" align="center">
-                        <Input type="monthRange" />
+                        <Datepicker type="monthRange"/>
                         <Button onClick={() => {
                             form.monthRange = [dayjs('2023-04').toDate(), dayjs('2023-08').toDate()];
                             console.log(form.getFormData());
@@ -295,7 +295,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="日期时间：" name="dateTime">
                     <Space dir="h" align="center">
-                        <Input type="dateTime" />
+                        <Datepicker type="dateTime"/>
                         <Button onClick={() => {
                             form.dateTime = dayjs('2023-04-05 10:10:10').toDate();
                             console.log(form.getFormData());
@@ -309,7 +309,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="日期时间范围：" name="dateTimeRange">
                     <Space dir="h" align="center">
-                        <Input type="dateTimeRange" />
+                        <Datepicker type="dateTimeRange"/>
                         <Button onClick={() => {
                             form.dateTimeRange = [dayjs('2023-04-05 10:10:10').toDate(), dayjs('2023-04-08 12:10:10').toDate()];
                             console.log(form.getFormData());
@@ -320,7 +320,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="进度：" name="slider">
                     <Space dir="h" align="center">
-                        <Input type="slider" />
+                        <Slider />
                         <Button onClick={() => {
                             form.slider = 30;
                             console.log(form.getFormData());
@@ -331,7 +331,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="地点：" name="tree" labelAlign="start" labelStyle={{'margin-top': '8px'}}>
                     <Space dir="h" align="center">
-                        <Input type="treeSelect" data={treeData} multi/>
+                        <TreeSelect data={treeData} multi/>
                         <Button onClick={() => {
                             form.tree = ['2_1'];
                             console.log(form.getFormData());
@@ -344,7 +344,7 @@ export default () => {
             <Col grid={0.33}>
                 <FormItem label="颜色：" name="color">
                     <Space dir="h" align="center">
-                        <Input type="color" />
+                        <ColorPicker />
                         <Button onClick={() => {
                             form.color = '';
                             console.log(form.getFormData());

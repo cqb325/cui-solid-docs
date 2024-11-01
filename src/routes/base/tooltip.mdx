@@ -14,8 +14,7 @@ title: Tooltip 文字提示
 
 :::demo[基础用法]{id='base' src='/base/tooltip/1base.demo.tsx'}
 
-简单的展示，添加属性 `closable` 可以关闭标签。\
-点击关闭标签时，会触发 `onClose` 事件。
+基础用法
 
 :::
 
@@ -47,7 +46,16 @@ title: Tooltip 文字提示
 
 :::demo[样式]{id='theme' src='/base/tooltip/5theme.demo.tsx'}
 
-通过设置 `theme` 切换显示样式, 支持 `light` 和 `dark` 默认 `dark`
+设置 `theme` 属性，可设置不同样式的背景色.\
+支持'light', 'primary','success','info', 'warning','error', 'blue', 'green', 'red', 'yellow', 'magenta', 'pink', 'volcano', 'orange', 'gold', 'lime', 'cyan', 'geekblue', 'purple'\
+支持自定义颜色。
+
+:::
+
+
+:::demo[箭头位置]{id='arrowCenter' src='/base/tooltip/6arrowCenter.demo.tsx'}
+
+通过设置 `arrowPointAtCenter` 可以将箭头指向目标元素的中心。
 
 :::
 
@@ -57,13 +65,18 @@ title: Tooltip 文字提示
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :---- | :--- | :--- |
-|classList|自定义class|Object|-|
-|class|自定义class|string|-|
-|style|自定义样式|Object||
 |align|位置|top &#124; bottom &#124; left &#124; right &#124; topLeft &#124; topRight &#124; bottomLeft &#124; bottomRight &#124; leftTop &#124; leftBottom &#124; rightTop &#124; rightBottom | right|
-|theme|样式|light &#124; dark|dark|
-|content|提示内容|any||
+|trigger|触发条件|hover &#124; click &#124; focus|hover|
 |disabled|禁用状态|boolean||
+|arrow|显示箭头|boolean||
+|hideDelay|隐藏延迟|number|200|
+|theme|主题|string &#124; `light` &#124; `primary` &#124; `success` &#124; `info` &#124; `warning` &#124; `error` &#124; `blue` &#124; `green` &#124; `red` &#124; `yellow` &#124; `pink` &#124; `magenta` &#124; `volcano` &#124; `orange` &#124; `gold` &#124; `lime` &#124; `cyan` &#124; `geekblue` &#124; `purple` ||
+|content|提示内容|string &#124; JSXElement||
+|contentStyle|内容区域的样式|JSX.CSSProperties &#124; string||
+|visible|显示隐藏控制|Signal||
+|onVisibleChange|打开回调函数|Function||
+|offset|偏移量|number||
+|arrowPointAtCenter|箭头位置在目标元素中间|boolean|-|
 
 
 </div>

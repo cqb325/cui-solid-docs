@@ -1,0 +1,48 @@
+.cui-icon {
+    display: inline-flex;
+    align-items: center;
+    font-style: normal;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: -0.155em;
+}
+
+.cui-icon .cui-icon-filled {
+    fill: currentColor;
+    stroke: none;
+}
+
+.cui-icon-spinning {
+    animation: 1.5s linear infinite cui-icon-animation-rotate;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cui-icon-animation-rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cui-tt-primary {
+    fill: var(--cui-icon-twotone-primary);
+}
+
+.cui-tt-secondary {
+    fill: lch(from var(--cui-icon-twotone-primary) calc(l + 30) c h);
+}
+
+.cui-tt-tertiary {
+    fill: lch(from var(--cui-icon-twotone-primary) calc(l + 50) c h);
+}
+
+.cui-tt-quaternary {
+    fill: lch(from var(--cui-icon-twotone-primary) calc(l + 70) c h);
+}

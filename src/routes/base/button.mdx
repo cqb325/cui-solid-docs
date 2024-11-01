@@ -10,18 +10,13 @@ title: Button 按钮
 ::demos{columns=2}
 
 :::demo[按钮类型]{id="button_base" src="/base/button/1type.demo.tsx"}
-通过设置 `type` 为 `primary`、`success`、`warning`、`error`、`default`、`dashed`、`text`、`link` 创建不同样式的按钮，不设置为默认样式。
+通过设置 `type` 为 `primary`、`secondary`、`tertiary`、`success`、`warning`、`error`、`default`、`danger` 创建不同样式的按钮，不设置为默认样式。
 :::
 
 
-:::demo[危险按钮]{id="button_danger" src="/base/button/8danger.demo.tsx"}
-危险按钮， 通过danger属性设置。
-:::
+:::demo[按钮样式]{id='button_theme' src='/base/button/2theme.demo.tsx'}
 
-
-:::demo[幽灵按钮]{id='button_ghost' src='/base/button/2ghost.demo.tsx'}
-
-幽灵按钮将其他按钮的内容反色，背景变为透明，常用在有色背景上。
+按钮样式支持 solid: 填充 light: 浅色 borderless: 无背景 outline: 边框 dashed: 虚线。
 
 :::
 
@@ -43,7 +38,7 @@ title: Button 按钮
 
 :::demo[按钮形状]{id='shaps' src='/base/button/9shaps.demo.tsx'}
 
-按钮形状：通过设置circle属性将按钮设置为圆形， 通过设置round属性将按钮设置为圆角
+按钮形状：通过设置shape属性将按钮设置为圆形circle 或 圆角形状 round
 
 :::
 
@@ -51,8 +46,7 @@ title: Button 按钮
 :::demo[图标按钮]{id='button_icon' src='/base/button/5icon.demo.tsx'}
 
 通过设置`icon`属性在Button内嵌入一个Icon\
-使用`Button`的`icon`属性，图标位置将在最左边，通过设置 `iconAlign` 将按钮放置在后面。\
-通过设置`circle`属性，可将按钮置为圆的形状
+使用`Button`的`icon`属性，图标位置将在最左边，通过设置 `iconAlign` 将按钮放置在后面。
 
 :::
 
@@ -72,23 +66,26 @@ title: Button 按钮
 
 :::
 
+:::demo[块状按钮]{id='button_block' src='/base/button/8block.demo.tsx'}
+
+通过添加`block`属性可以让按钮变为块状按钮
+
+:::
+
 ## 属性 \{#props\}
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :---- | :--- | :--- |
 |classList|自定义class|Object|-|
 |class|自定义class|string|-|
-|link|按钮链接|string|-|
-|type|按钮类型支持|`primary`、`success`、`error`、`warning`、`default`、`dashed`、`link`、`text`|default|
+|type|按钮类型支持|`primary`、`secondary`、`tertiary`、`success`、`error`、`warning`、`default`、`danger`|default|
+|theme|按钮样式|`light`、`solid`、`borderless`、`outline`、`dashed`|default|
 |block|块状按钮|boolean|false|
 |size|按钮大小|`small`、`default`、`large`|-|
 |active|选中按钮状态在ButtonGroup中使用|boolean|false|
-|circle|圆形按钮|boolean|false|
-|round|圆角按钮|boolean|false|
+|shape|按钮形状|`circle`、`round`|-|
 |disabled|禁用状态|boolean|false|
 |loading|加载状态，true情况下不会响应点击事件|boolean|false|
-|ghost|幽灵按钮|boolean|false|
-|danger|危险按钮|boolean|false|
 |icon|按钮图标|Icon|-|
 |iconAlign|按钮图标位置|`left`、`right`|left|
 |onClick|点击回调函数|Function|-|

@@ -1,8 +1,9 @@
-import { Avatar, Icon, Space } from "cui-solid"
+import { Avatar, Space } from "cui-solid"
+import { FeatherSettings } from "cui-solid-icons/feather";
 
 export default () => {
     return <Space dir="h" align="center">
-        <Avatar icon={<Icon name="settings"/>} />
-        <Avatar shape="square" icon={<Icon name="settings"/>} />
+        <Avatar icon={<FeatherSettings />} />
+        <Avatar shape="square" icon={<FeatherSettings/>} />
     </Space>
 }

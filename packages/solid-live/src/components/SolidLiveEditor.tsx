@@ -34,9 +34,9 @@ export default function (props: SolidLiveEditorProps) {
         current={'demo.tsx'}
         id={ctx.id}
         {...props}
-        onChange={(source: string) => {
+        onChange={async (source: string) => {
             try {
-                const complied: any = babel(source, ctx.scopes);
+                const complied: any = await babel(source, ctx.scopes);
                 setOutput(complied);
             } catch (e: any) {
                 ctx.errorSignal[1](e.message);

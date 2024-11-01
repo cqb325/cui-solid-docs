@@ -1,5 +1,5 @@
 import { createSignal, For } from "solid-js";
-import { Button, Tab, Tabs } from "cui-solid"
+import { Button, TabPane, Tabs } from "cui-solid"
 
 export default () => {
     const [data, setData] = createSignal([
@@ -21,10 +21,15 @@ export default () => {
     }
 
     return <>
-        <Tabs activeName="tab1" card>
+        <Tabs activeName="tab1" type="card" onRemove={(name) => {
+            const arr = data();
+            const index = arr.findIndex((item: any) => item.name === name)
+            arr.splice(index, 1);
+            setData(arr);
+        }}>
             <For each={data()}>
                 {(item: any)=> {
-                    return <Tab title={item.title} name={item.name} closeable>{item.context}</Tab>
+                    return <TabPane title={item.title} name={item.name} closeable>{item.context}</TabPane>
                 }}
             </For>
         </Tabs>

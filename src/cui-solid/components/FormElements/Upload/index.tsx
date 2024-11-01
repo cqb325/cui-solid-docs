@@ -6,7 +6,7 @@ import { List } from "./List";
 import { PictureList } from "./PictureList";
 import { ImagePreview } from "../../ImagePreview";
 
-type UploadProps = {
+export interface UploadProps {
     multiple?: boolean,
     webkitdirectory?: boolean,
     accept?: string,
@@ -34,6 +34,7 @@ type UploadProps = {
     defaultFileList?: any[],
     type?: 'select'|'drag',
     paste?: boolean,
+    asFormField?: boolean
     getFileUrl?: (res: any, file: any) => void,
     ref?: any,
     listType?: 'picture'

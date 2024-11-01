@@ -30,7 +30,7 @@ title: Dropdown 下拉菜单
 :::
 
 
-:::demo[主题]{id='theme' src='/nav/dropdown/3theme.demo.tsx'}
+:::demo[暗色主题]{id='dark' src='/nav/dropdown/3dark.demo.tsx'}
 
 通过 `theme` 属性可以设置暗色下拉菜单 `dark`。
 
@@ -46,7 +46,7 @@ title: Dropdown 下拉菜单
 
 :::demo[位置]{id='align' src='/nav/dropdown/5align.demo.tsx'}
 
-`align` 属性支持12个方位， 最常用的是 `bottom`/`bottomLeft`/`bottomRight`, 默认为 `bottom`
+`align` 属性支持12个方位， 详见API， 默认为 `bottom`
 
 :::
 
@@ -79,7 +79,45 @@ title: Dropdown 下拉菜单
 :::
 
 
-## 属性 \{#props\}
+:::demo[箭头]{id='arrow' src='/nav/dropdown/12arrow.demo.tsx'}
+
+通过 `arrow` 可显示箭头。
+
+:::
+
+
+:::demo[数据]{id='data' src='/nav/dropdown/11data.demo.tsx'}
+
+通过 `data` 传入菜单数据。
+
+:::
+
+
+:::demo[主题颜色]{id='themes' src='/nav/dropdown/10themes.demo.tsx'}
+
+通过 `theme` 属性可以设置各种色彩的背景色。\
+支持'light', 'dark', 'primary','success','info', 'warning','error', 'blue', 'green', 'red', 'yellow', 'magenta', 'pink', 'volcano', 'orange', 'gold', 'lime', 'cyan', 'geekblue', 'purple'\
+支持自定义颜色。
+
+:::
+
+
+:::demo[选择项主题]{id='itemTheme' src='/nav/dropdown/13itemTheme.demo.tsx'}
+
+`DropdownItem` 支持通过 `theme` 属性设置主题色。
+
+:::
+
+
+
+:::demo[下拉按钮]{id='dropdownButton' src='/nav/dropdown/14dropdownButton.demo.tsx'}
+
+下拉按钮。
+
+:::
+
+
+## Dropdown属性 \{#props\}
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :---- | :--- | :--- |
@@ -88,19 +126,41 @@ title: Dropdown 下拉菜单
 |style|自定义样式|Object||
 |trigger|触发方式|hover &#124; click &#124; contextMenu &#124; custom|hover|
 |handler|触发事件的元素|string||
-|align|触发方式|bottom &#124; bottomLeft &#124; bottomRight &#124; right &#124; left &#124; rightTop &#124; leftTop|bottom|
+|align|触发方式|bottom &#124; bottomLeft &#124; bottomRight &#124; right &#124; rightBottom &#124; rightTop &#124; left &#124; leftBottom &#124; leftTop &#124; top &#124; topLeft &#124; topRight|bottom|
 |menu|下拉菜单内容|any||
 |visible|菜单显隐绑定属性|Signal||
 |transfer|是否将弹层放置于 body 内，在overflow 为 hidden的容器内效果更友好|boolean||
 |fixWidth|是否在使用transfer时打开弹框后弹框固定宽度至出发元素宽度，在select中使用|boolean||
-|theme|主题色|dark &#124; light|light|
+|theme|主题色|string &#124; `dark` &#124; `light` &#124; `primary` &#124; `success` &#124; `info` &#124; `warning` &#124; `error` &#124; `blue` &#124; `green` &#124; `red` &#124; `yellow` &#124; `pink` &#124; `magenta` &#124; `volcano` &#124; `orange` &#124; `gold` &#124; `lime` &#124; `cyan` &#124; `geekblue` &#124; `purple`|light|
+|data|菜单数据|DropdownNode[]||
 |disabled|禁用状态|boolean||
 |revers|超出范围反向显示|boolean||
 |gradient|渐变色背景|string[]||
 |color|文字颜色|string||
 |position|自定义位置|\{x: number, y: number\}||
+|arrow|显示箭头|boolean||
+|offset|偏移量|number||
 |onMouseClick|鼠标点击事件|(e: MouseEvent) => void||
-|onSelect|选择菜单项选中事件|Function||
+|onSelect|选择菜单项选中事件|(name: string, data: any) => void||
+|onBeforeDrop|显示前回调，返回false可阻止展开|(visible: boolean) => boolean||
+
+
+## DropdownNode 结构 \{#DropdownNode\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|name|菜单项名称|string||
+|title|菜单项标题|string||
+|children|子菜单项|DropdownNode[]||
+|disabled|禁用状态|boolean||
+|divided|显示分割线|boolean||
+|icon|图标|JSXElement||
+|arrow|显示箭头|boolean||
+|theme|主题色|string &#124; `primary` &#124; `secondary` &#124; `tertiary` &#124; `success` &#124; `info` &#124; `warning` &#124; `error` &#124; `light`||
+|selected|是否选中|boolean||
 
 
 ## Item属性 \{#item_props\}
@@ -112,6 +172,11 @@ title: Dropdown 下拉菜单
 |style|自定义样式|Object||
 |disabled|禁用状态|boolean||
 |name|菜单项名称|string||
+|divided|显示分割线|boolean||
+|icon|图标|JSXElement||
+|arrow|显示箭头|boolean||
+|theme|主题色|string &#124; `primary` &#124; `secondary` &#124; `tertiary` &#124; `success` &#124; `info` &#124; `warning` &#124; `error` &#124; `light`||
+|selected|是否选中|boolean||
 
 ## 事件 \{#events\}
 

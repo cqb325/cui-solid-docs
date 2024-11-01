@@ -27,7 +27,28 @@ title: Popover 气泡提示
 
 :::demo[可控]{id='controller' src='/base/popover/3controller.demo.tsx'}
 
-`visible` 属性为可控属性
+`visible` 属性为可控属性, onOk事件返回void或Promise对象，可控制显示隐藏。return false可阻止关闭。
+
+:::
+
+:::demo[箭头位置]{id='arrowPointerCenter' src='/base/popover/4arrowCenter.demo.tsx'}
+
+设置 `arrowPointerCenter` 属性，箭头将居中显示。
+
+:::
+
+
+:::demo[样式主题]{id='themes' src='/base/popover/5themes.demo.tsx'}
+
+设置 `theme` 属性，可设置不同样式的背景色.\
+支持'light', 'primary','success','info', 'warning','error', 'blue', 'green', 'red', 'yellow', 'magenta', 'pink', 'volcano', 'orange', 'gold', 'lime', 'cyan', 'geekblue', 'purple'\
+支持自定义颜色。
+
+:::
+
+:::demo[偏移量]{id='offset' src='/base/popover/6offset.demo.tsx'}
+
+设置 `offset` 属性，可设置popover距离目标元素的偏移量。
 
 :::
 
@@ -38,14 +59,18 @@ title: Popover 气泡提示
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :---- | :--- | :--- |
 |align|位置|top &#124; bottom &#124; left &#124; right &#124; topLeft &#124; topRight &#124; bottomLeft &#124; bottomRight &#124; leftTop &#124; leftBottom &#124; rightTop &#124; rightBottom | right|
-|trigger|触发条件|hover &#124; click|hover|
+|trigger|触发条件|hover &#124; click &#124; focus|hover|
 |disabled|禁用状态|boolean||
 |arrow|显示箭头|boolean||
-|theme|主题|string||
 |hideDelay|隐藏延迟|number|200|
+|theme|主题|string &#124; `light` &#124; `primary` &#124; `success` &#124; `info` &#124; `warning` &#124; `error` &#124; `blue` &#124; `green` &#124; `red` &#124; `yellow` &#124; `pink` &#124; `magenta` &#124; `volcano` &#124; `orange` &#124; `gold` &#124; `lime` &#124; `cyan` &#124; `geekblue` &#124; `purple` ||
 |content|提示内容|string &#124; JSXElement||
+|contentStyle|内容区域的样式|JSX.CSSProperties &#124; string||
 |visible|显示隐藏控制|Signal||
-|onOpen|打开回调函数|Function||
+|onVisibleChange|打开回调函数|Function||
+|title|标题|JSX.Element||
+|offset|偏移量|number||
+|arrowPointAtCenter|箭头位置在目标元素中间|boolean|-|
 
 
 </div>
