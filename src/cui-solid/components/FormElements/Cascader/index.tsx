@@ -1,4 +1,4 @@
-import type { Accessor, JSXElement} from "solid-js";
+import type { Accessor, JSXElement, Signal} from "solid-js";
 import { For, Show, createContext, createEffect, createSignal, onMount, useContext } from "solid-js";
 import createModel from "../../utils/createModel";
 import { useClassList } from "../../utils/useProps"
@@ -18,7 +18,7 @@ export interface CascaderProps {
     clearable?: boolean,
     size?: 'small'|'large',
     prepend?: string | JSXElement,
-    value?: string | string[] | number[],
+    value?: string | string[] | number[] | Signal<any>,
     valueField?: string,
     titleField?: string,
     mode?: TreeCheckMod,

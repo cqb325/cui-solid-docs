@@ -3,7 +3,8 @@ import createModel from "../utils/createModel";
 import usePortal from "../utils/usePortal";
 import { useClassList } from "../utils/useProps";
 import { Draggable } from "../Draggable";
-import { Button, ButtonProps } from "../Button";
+import type { ButtonProps } from "../Button";
+import { Button } from "../Button";
 import type { JSXElement, Setter, Signal} from "solid-js";
 import { createComponent, createEffect, createSignal, createUniqueId, Show } from "solid-js";
 import usezIndex from "../utils/usezIndex";
@@ -39,7 +40,7 @@ export interface ModalProps {
     footerAlign?: 'start' | 'center' | 'end',
     footerReverse?: boolean,
     loading?: boolean | Signal<boolean>,
-    onOk?: () => boolean | Promise<boolean> | undefined | void,
+    onOk?: () => boolean | Promise<boolean | void> | undefined | void,
     onCancel?: () => void,
     onClosed?: () => void,
     onClickClose?: () => void,

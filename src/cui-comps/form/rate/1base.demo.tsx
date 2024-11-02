@@ -1,7 +1,8 @@
-import { Icon, Rate } from "cui-solid"
+import { Rate } from "cui-solid"
+import { FeatherStar } from "cui-solid-icons/feather";
 
 export default () => {
-    return <Rate icon={<Icon name="star" size={24}/>} onChange={(v: number) => {
+    return <Rate icon={<FeatherStar size={24}/>} onChange={(v: number) => {
         console.log(v);
     }}/>
 }

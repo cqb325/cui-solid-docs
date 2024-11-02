@@ -76,6 +76,7 @@ export * from './TableStyleLayout';
 export * from './Tabs';
 export * from './Tag';
 export * from './TagGroup';
+export * from './TeleportBox';
 export * from './Timeline';
 export * from './Tooltip';
 export * from './Tree';

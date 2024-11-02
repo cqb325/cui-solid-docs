@@ -1,7 +1,7 @@
 import { isServer, Portal } from "solid-js/web";
 import usePortal from "../utils/usePortal";
 import useAlignPostion from "../utils/useAlignPostion";
-import type { JSX} from "solid-js";
+import type { JSX, Signal} from "solid-js";
 import { createSignal, createUniqueId, onCleanup, onMount, Show, splitProps } from "solid-js";
 import { useClassList } from "../utils/useProps";
 import { useClickOutside } from "../utils/useClickOutside";
@@ -23,8 +23,8 @@ export interface InnerPopupProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>
     onVisibleChange?: (open: boolean) => void
     content?: JSX.Element
     contentStyle?: JSX.CSSProperties | string
-    visible?: any
-    theme?: string |'light'|'blue'|'green'|'red'|'yellow'|'pink'|'magenta'|'volcano'|'orange'|'gold'|'lime'|'cyan'|'geekblue'|'purple',
+    visible?: Signal<boolean>
+    theme?: string |'light'|'primary'|'success'|'info'|'warning'|'error'|'blue'|'green'|'red'|'yellow'|'pink'|'magenta'|'volcano'|'orange'|'gold'|'lime'|'cyan'|'geekblue'|'purple',
     ref?: any
     confirm?: boolean
     okText?: any

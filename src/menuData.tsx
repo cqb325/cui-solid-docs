@@ -106,6 +106,7 @@ export const menuData = [
             {name: 'upload', title: 'Upload 上传', path: 'upload'},
             {name: 'progress', title: 'Progress 进度条', path: 'progress'},
             {name: 'transfer', title: 'Transfer 穿梭框', path: 'transfer'},
+            {name: 'teleport', title: 'TeleportBox 数据选择框', path: 'teleport'},
             {name: 'switch', title: 'Switch 开关', path: 'switch'},
             {name: 'rate', title: 'Rate 评分', path: 'rate'},
             {name: 'spinner', title: 'Spinner 数字输入框', path: 'spinner'},

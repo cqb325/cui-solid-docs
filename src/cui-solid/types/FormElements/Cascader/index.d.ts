@@ -1,4 +1,4 @@
-import type { JSXElement } from "solid-js";
+import type { JSXElement, Signal } from "solid-js";
 import type { TreeCheckMod } from "../../Tree";
 import type { TagGroupProps } from "../../TagGroup";
 export interface CascaderProps {
@@ -8,7 +8,7 @@ export interface CascaderProps {
     clearable?: boolean;
     size?: 'small' | 'large';
     prepend?: string | JSXElement;
-    value?: string | string[] | number[];
+    value?: string | string[] | number[] | Signal<any>;
     valueField?: string;
     titleField?: string;
     mode?: TreeCheckMod;

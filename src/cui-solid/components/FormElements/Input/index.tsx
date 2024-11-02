@@ -1,4 +1,5 @@
-import { JSX, Show, createSignal, splitProps } from 'solid-js';
+import type { JSX} from 'solid-js';
+import { Show, createSignal, splitProps } from 'solid-js';
 import { useClassList } from '../../utils/useProps';
 import createField from '../../utils/createField';
 import { WordCount } from '../../WordCount';

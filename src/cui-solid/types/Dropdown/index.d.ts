@@ -10,6 +10,7 @@ export interface DropdownPosition {
 export interface DropdownNode extends DropdownItemProps {
     title: string;
     children?: DropdownNode[];
+    [key: string]: any;
 }
 export interface DropdownProps {
     trigger?: 'hover' | 'click' | 'contextMenu' | 'custom';

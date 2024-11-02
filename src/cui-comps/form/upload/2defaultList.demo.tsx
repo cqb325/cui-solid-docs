@@ -1,4 +1,5 @@
-import { Button, Icon, Upload } from "cui-solid"
+import { Button, Upload } from "cui-solid"
+import { F7CloudUploadFill } from "cui-solid-icons/f7";
 
 export default () => {
     return <Upload action="https://cqb325.gitee.io/cui-solid-doc/" name="file" accept="jpg"
@@ -18,6 +19,6 @@ export default () => {
         }} onError={(e: any) => {
             console.log(e);
         }}>
-        <Button icon={<Icon name="upload"/>} type="primary">Upload Files</Button>
+        <Button icon={<F7CloudUploadFill/>} type="primary">Upload Files</Button>
     </Upload>
 }

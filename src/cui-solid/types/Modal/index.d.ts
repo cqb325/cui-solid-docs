@@ -1,4 +1,4 @@
-import { ButtonProps } from "../Button";
+import type { ButtonProps } from "../Button";
 import type { JSXElement, Signal } from "solid-js";
 export interface Position {
     top?: string;

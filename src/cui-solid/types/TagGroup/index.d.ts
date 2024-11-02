@@ -20,7 +20,7 @@ export interface TagGroupProps {
     tooltipTheme?: PopoverProps['color'];
     tooltipTrigger?: PopoverProps['trigger'];
     tooltipStyle?: PopoverProps['style'];
-    size?: 'small' | 'large';
+    size?: 'small' | 'large' | 'xlarge';
     extra?: JSXElement;
     onClose?(item: TagConfig, e: any): void;
 }

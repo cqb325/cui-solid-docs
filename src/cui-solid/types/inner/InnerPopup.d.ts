@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js";
+import type { JSX, Signal } from "solid-js";
 import type { ButtonProps } from "../Button";
 export interface InnerPopupProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title'> {
     align?: 'top' | 'bottom' | 'left' | 'right' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
@@ -9,8 +9,8 @@ export interface InnerPopupProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>
     onVisibleChange?: (open: boolean) => void;
     content?: JSX.Element;
     contentStyle?: JSX.CSSProperties | string;
-    visible?: any;
-    theme?: string | 'light' | 'blue' | 'green' | 'red' | 'yellow' | 'pink' | 'magenta' | 'volcano' | 'orange' | 'gold' | 'lime' | 'cyan' | 'geekblue' | 'purple';
+    visible?: Signal<boolean>;
+    theme?: string | 'light' | 'primary' | 'success' | 'info' | 'warning' | 'error' | 'blue' | 'green' | 'red' | 'yellow' | 'pink' | 'magenta' | 'volcano' | 'orange' | 'gold' | 'lime' | 'cyan' | 'geekblue' | 'purple';
     ref?: any;
     confirm?: boolean;
     okText?: any;
