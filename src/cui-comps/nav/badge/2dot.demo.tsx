@@ -1,4 +1,5 @@
-import { Badge, Icon, Space } from "cui-solid"
+import { Badge, Space } from "cui-solid"
+import { FeatherBell } from "cui-solid-icons/feather"
 
 export default () => {
     return <Space dir="h" size={24}>
@@ -6,7 +7,7 @@ export default () => {
             <a href="#" class="demo-badge" />
         </Badge>
         <Badge dot>
-            <Icon name="bell1" size={26} />
+            <FeatherBell size={26} />
         </Badge>
         <Badge dot>
             <a href="#">可以是一个链接</a>
