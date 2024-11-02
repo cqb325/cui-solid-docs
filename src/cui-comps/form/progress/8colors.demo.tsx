@@ -1,4 +1,5 @@
-import { Button, Icon, Progress, Space } from "cui-solid";
+import { Button, Progress, Space } from "cui-solid";
+import { FeatherMinus, FeatherPlus } from "cui-solid-icons/feather";
 import { createSignal } from "solid-js";
 
 export default () => {
@@ -13,10 +14,10 @@ export default () => {
             ]}/>
         </Space>
         <Space dir="h">
-            <Button type="primary" icon={<Icon name="plus"/>} onClick={() => {
+            <Button type="primary" icon={<FeatherPlus />} onClick={() => {
                 setValue(value() + 5);
             }} />
-            <Button type="primary" icon={<Icon name="minus"/>} onClick={() => {
+            <Button type="primary" icon={<FeatherMinus/>} onClick={() => {
                 setValue(value() - 5);
             }} />
         </Space>

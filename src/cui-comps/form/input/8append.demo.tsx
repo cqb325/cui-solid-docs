@@ -1,5 +1,6 @@
-import { Icon, Input } from "cui-solid"
+import { Input } from "cui-solid"
+import { FeatherSearch, FeatherUser } from "cui-solid-icons/feather"
 
 export default () => {
-    return <Input prepend={<Icon name="user"/>} append={<Icon name="search1"/>}/>
+    return <Input prepend={<FeatherUser />} append={<FeatherSearch/>}/>
 }
