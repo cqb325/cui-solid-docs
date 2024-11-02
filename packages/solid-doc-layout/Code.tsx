@@ -1,7 +1,8 @@
-import { Button, Icon, message, Space, Tooltip, useCopy } from "~/cui-solid/components";
+import { Button, message, Space, Tooltip, useCopy } from "~/cui-solid/components";
 import { createSignal } from "solid-js";
 import SolidLiveEditor from "solid-live/src/components/SolidLiveEditor";
 import { openSandbox } from "./OpenSandbox";
+import { FeatherCode, FeatherCodesandbox, FeatherCopy } from "cui-solid-icons/feather";
 
 export default function Code(props: any) {
     let wrap: any;
@@ -31,13 +32,13 @@ export default function Code(props: any) {
         <div ref={wrap}>
             <Space dir="h" justify="end" size={20}>
                 <Tooltip content="在CodeSandbox中打开" align="top">
-                    <Icon name="codesandbox" size={16} onClick={openInSnadbox} />
+                    <FeatherCodesandbox size={16} onClick={openInSnadbox} />
                 </Tooltip>
                 <Tooltip content="拷贝" align="top">
-                    <Icon name="copy" size={16} onClick={onCopy} />
+                    <FeatherCopy size={16} onClick={onCopy} />
                 </Tooltip>
                 <Tooltip content={open() ? '收起代码' : '显示代码，可实时编辑'} align="top">
-                    <Icon name="code" size={16} onClick={() => {
+                    <FeatherCode size={16} onClick={() => {
                         setOpen(!open());
                         setTimeout(() => {
                             if (wrap) {
@@ -67,7 +68,7 @@ export default function Code(props: any) {
                     <div innerHTML={decodeURIComponent(props.js)}></div>
                 </Tab>
             </Tabs> */}
-            <Button type="dashed" onClick={() => setOpen(false)}>收 起 代 码</Button>
+            <Button theme="dashed" onClick={() => setOpen(false)}>收 起 代 码</Button>
         </Space>
     </Space>
 }

@@ -1,4 +1,5 @@
-import { Icon, Upload } from "cui-solid"
+import { Upload } from "cui-solid"
+import { FeatherPlus } from "cui-solid-icons/feather";
 
 export default () => {
     const data = {
@@ -19,6 +20,6 @@ export default () => {
                 url: 'https://cqb325.gitee.io/cui-solid-doc/logo.svg',
             }
         ]}>
-        <Icon name="plus1" size={20}/>
+        <FeatherPlus size={20}/>
     </Upload>
 }

@@ -1,0 +1,83 @@
+---
+path: /form/teleport
+name: TeleportBox
+title: TeleportBox 数据选择框
+---
+
+<div class="sys-ctx-main-left">
+
+# TeleportBox 数据选择框\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基础用法]{id='base' src='/form/teleport/1base.demo.tsx'}
+
+基础用法
+
+:::
+
+
+:::demo[禁用]{id='disabled' src='/form/teleport/2disabled.demo.tsx'}
+
+禁用
+
+:::
+
+
+:::demo[分组]{id='group' src='/form/teleport/3group.demo.tsx'}
+
+支持分组数据
+
+:::
+
+
+:::demo[自定义渲染]{id='customrender' src='/form/teleport/4customrender.demo.tsx'}
+
+支持自定义渲染
+
+:::
+
+
+:::demo[虚拟列表]{id='virtual' src='/form/teleport/5virtual.demo.tsx'}
+
+添加 `virtual` 属性 支持虚拟列表
+
+:::
+
+
+
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|data|数据|TeleportBoxItem[]||
+|value|值，可控属性|Signal||
+|disabled|禁用|boolean||
+|defaultValue|默认值|any[]||
+|virtual|是否使用虚拟列表|boolean||
+|renderSourceItem|源数据列表项渲染函数|(item: TeleportBoxItem, onChange: (checked: boolean) => void) => JSX.Element||
+|renderSelectedItem|已选择数据列表项渲染函数|(item: TeleportBoxItem, onRemove: () => void) => JSX.Element||
+|filter|自定义查询过滤函数|(item: TeleportBoxItem, keyword: string) => boolean||
+|onChange|数据选择改变回调|(value: any[]) => void||
+
+
+## TeleportBoxItem 属性 \{#teleportBoxItem_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|value|值|any||
+|label|文案|any||
+|disabled|禁用|boolean||
+|checked|是否选择|boolean||
+|children|子选项|TeleportBoxItem[]||
+
+
+
+
+</div>

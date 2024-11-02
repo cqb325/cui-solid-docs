@@ -1,5 +1,6 @@
-import { Icon, Rate } from "cui-solid"
+import { Rate } from "cui-solid"
+import { FeatherStar } from "cui-solid-icons/feather"
 
 export default () => {
-    return <Rate count={3} icon={<Icon name="star" size={24}/>}/>
+    return <Rate count={3} icon={<FeatherStar size={24}/>}/>
 }

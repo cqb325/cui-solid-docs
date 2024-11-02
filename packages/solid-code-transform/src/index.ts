@@ -6,6 +6,8 @@ import * as solidCore from 'solid-js';
 import * as solidWeb from 'solid-js/web';
 import * as solidStore from 'solid-js/store';
 import * as cuiSolid from '~/cui-solid/components';
+import * as Feather from 'cui-solid-icons/feather';
+import * as F7 from 'cui-solid-icons/f7';
 // import * as cuiVirtualList from "cui-virtual-list";
 
 import dd from 'dedent';
@@ -151,6 +153,12 @@ export function babel(sourceCode: string, scopes?: any) {
         }
         if (scope.source === 'cui-solid' && scope.realKey in cuiSolid) {
             return cuiSolid[scope.realKey as keyof typeof cuiSolid];
+        }
+        if (scope.source === 'cui-solid-icons/feather' && scope.realKey in Feather) {
+            return Feather[scope.realKey as keyof typeof Feather];
+        }
+        if (scope.source === 'cui-solid-icons/f7' && scope.realKey in F7) {
+            return F7[scope.realKey as keyof typeof F7];
         }
         // if (scope.source === 'cui-virtual-list' && scope.realKey in cuiVirtualList) {
         //     return cuiVirtualList[scope.realKey as keyof typeof cuiVirtualList];

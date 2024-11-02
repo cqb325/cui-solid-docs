@@ -1,4 +1,5 @@
-import { Button, Space, Icon } from 'cui-solid';
+import { Button, Space } from 'cui-solid';
+import { F7Search } from 'cui-solid-icons/f7';
 
 export default function Demo () {
     return <Space dir="v">
@@ -8,15 +9,15 @@ export default function Demo () {
             <Button type="primary" size="small">SMALL</Button>
         </Space>
         <Space dir="h">
-            <Button type="primary" size="large" icon={<Icon name="search1"/>}>SEARCH</Button>
-            <Button type="primary" size="large" icon={<Icon name="search1"/>} />
-            <Button type="primary" size="large" circle icon={<Icon name="search1"/>} />
+            <Button type="primary" size="large" icon={<F7Search />}>SEARCH</Button>
+            <Button type="primary" size="large" icon={<F7Search />} />
+            <Button type="primary" size="large" shape="circle" icon={<F7Search />} />
         </Space>
         <Space dir="h">
-            <Button type="primary" size="small" icon={<Icon name="search1"/>}>SEARCH</Button>
-            <Button type="primary" size="small" icon={<Icon name="search1"/>} />
-            <Button type="primary" size="small" circle icon={<Icon name="search1"/>} />
-            <Button type="text" size="small">Text</Button>
+            <Button type="primary" size="small" icon={<F7Search />}>SEARCH</Button>
+            <Button type="primary" size="small" icon={<F7Search />} />
+            <Button type="primary" size="small" shape="circle" icon={<F7Search />} />
+            <Button theme="borderless" size="small">Text</Button>
         </Space>
     </Space>
 }

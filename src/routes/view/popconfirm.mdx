@@ -1,0 +1,88 @@
+---
+path: /view/popconfirm
+name: popconfirm
+title: Popconfirm 气泡确认框
+---
+
+<div class="sys-ctx-main-left">
+
+# Popconfirm 气泡确认框\{#title\}
+
+## 代码演示 \{#sp-demos\}
+
+::demos
+
+:::demo[基本用法]{id='base' src='/view/popconfirm/1base.demo.tsx'}
+
+基本用法
+
+:::
+
+:::demo[按钮类型]{id='btntype' src='/view/popconfirm/2btntype.demo.tsx'}
+
+按钮支持类型 okType 和 cancelType, 值同Button的type属性
+
+:::
+
+
+:::demo[阻止关闭]{id='stopclose' src='/view/popconfirm/3stopclose.demo.tsx'}
+
+onOK返回false 或 Promise\<false\> 可以阻止关闭
+
+:::
+
+
+:::demo[异步关闭]{id='asyncclose' src='/view/popconfirm/4asyncclose.demo.tsx'}
+
+onOK返回 Promise\<true\> 可以异步关闭
+
+:::
+
+
+:::demo[禁止]{id='disable' src='/view/popconfirm/5disable.demo.tsx'}
+
+禁止
+
+:::
+
+
+:::demo[隐藏取消按钮]{id='hidecancel' src='/view/popconfirm/6hidecancel.demo.tsx'}
+
+隐藏取消按钮
+
+:::
+
+
+:::demo[控制显隐]{id='control' src='/view/popconfirm/7control.demo.tsx'}
+
+visible 可控popconfirm的显隐
+
+:::
+
+## 属性 \{#props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|align|位置|top &#124; bottom &#124; left &#124; right &#124; topLeft &#124; topRight &#124; bottomLeft &#124; bottomRight &#124; leftTop &#124; leftBottom &#124; rightTop &#124; rightBottom | right|
+|trigger|触发条件|hover &#124; click &#124; focus|hover|
+|disabled|禁用状态|boolean||
+|arrow|显示箭头|boolean||
+|hideDelay|隐藏延迟|number|200|
+|theme|主题|string &#124; `light` &#124; `primary` &#124; `success` &#124; `info` &#124; `warning` &#124; `error` &#124; `blue` &#124; `green` &#124; `red` &#124; `yellow` &#124; `pink` &#124; `magenta` &#124; `volcano` &#124; `orange` &#124; `gold` &#124; `lime` &#124; `cyan` &#124; `geekblue` &#124; `purple` ||
+|content|提示内容|string &#124; JSXElement||
+|contentStyle|内容区域的样式|JSX.CSSProperties &#124; string||
+|visible|显示隐藏控制|Signal||
+|onVisibleChange|打开回调函数|Function||
+|title|标题|JSX.Element||
+|offset|偏移量|number||
+|arrowPointAtCenter|箭头位置在目标元素中间|boolean|-|
+|okText|确认按钮的文案|string|确认|
+|cancelText|取消按钮的文案|string|取消|
+|okType|确认按钮的类型|同Button的type||
+|cancelType|取消按钮的类型|同Button的type||
+|icon|图标|JSXElement||
+|showCancel|是否隐藏取消按钮|boolean||
+|onOk|确认按钮点击回调|() => void &#124; Promise\<boolean&#124;void\>||
+|onCancel|取消按钮点击回调|() => void||
+
+</div>

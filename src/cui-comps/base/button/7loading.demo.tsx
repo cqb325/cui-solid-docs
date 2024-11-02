@@ -7,7 +7,7 @@ export default function Demo () {
         <Space dir="h" align="center">
             <Button type="primary" loading size="small">Sphinx</Button>
             <Button type="success" loading size="small" />
-            <Button type="success" loading size="small" circle />
+            <Button type="success" loading size="small" shape="circle" />
         </Space>
         <Space dir="h">
             <Button type="primary" loading>Loading</Button>

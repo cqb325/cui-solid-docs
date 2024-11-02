@@ -1,8 +1,9 @@
-import { Icon, Option, Select } from "cui-solid"
+import { Option, Select } from "cui-solid"
+import { FeatherTag } from "cui-solid-icons/feather"
 
 export default () => {
 
-    return <Select clearable prefix={<Icon name="tag"/>}>
+    return <Select clearable prefix={<FeatherTag />}>
         <Option value={1} label="北京" />
         <Option value={2} label="上海" />
         <Option value={3} label="杭州" />

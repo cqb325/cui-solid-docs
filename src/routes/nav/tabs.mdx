@@ -28,6 +28,19 @@ Tabs 的 `activeName` 与Tab的 `name` 对应，用于标识当前激活的是�
 :::
 
 
+:::demo[居中显示]{id='center' src='/nav/tabs/8center.demo.tsx'}
+
+设置`centered`，可以将标签页居中显示
+
+:::
+
+
+:::demo[边框]{id='bordered' src='/nav/tabs/9bordered.demo.tsx'}
+
+设置`bordered`，可以显示边框，类似card卡片样式。
+
+:::
+
 
 :::demo[动画时间]{id='duration' src='/nav/tabs/3duration.demo.tsx'}
 
@@ -45,9 +58,16 @@ Tabs 的 `activeName` 与Tab的 `name` 对应，用于标识当前激活的是�
 
 
 
-:::demo[卡片]{id='card' src='/nav/tabs/5card.demo.tsx'}
+:::demo[类型]{id='type' src='/nav/tabs/5card.demo.tsx'}
 
-设置属性 `type` 为 `card` 可以显示卡片样式，常用于容器顶部。
+`type` 支持 `line`  `card`  `button` 默认为line。
+
+:::
+
+
+:::demo[高度保持不变]{id='keepHeight' src='/nav/tabs/10keepHeight.demo.tsx'}
+
+设置属性 `keepHeight` 可将高度保持最大内容高度不变。
 
 :::
 
@@ -55,7 +75,7 @@ Tabs 的 `activeName` 与Tab的 `name` 对应，用于标识当前激活的是�
 
 :::demo[附加内容]{id='extra' src='/nav/tabs/6extra.demo.tsx'}
 
-使用 `extra` 可以在页签右边添加附加操作
+使用 `prepend` 和 `append` 可以在页签前方或后方添加附加内容
 
 :::
 
@@ -63,28 +83,59 @@ Tabs 的 `activeName` 与Tab的 `name` 对应，用于标识当前激活的是�
 
 :::demo[动态]{id='danymic' src='/nav/tabs/7danymic.demo.tsx'}
 
-Tab添加 `closeable` 属性可以支持关闭Tab页。
+Tabs添加 `closeable` 属性可以支持关闭Tab页。
+
+:::
+
+
+:::demo[位置]{id='align' src='/nav/tabs/11align.demo.tsx'}
+
+支持 `top`  `bottom`  `left`  `right` 四个方向的位置
+
+:::
+
+
+:::demo[超出显示更多]{id='more' src='/nav/tabs/12more.demo.tsx'}
+
+当标签页超出容器宽度时，可以显示更多按钮,可通过 `moreDropdownProps` 属性设置下拉菜单的属性
 
 :::
 
 
 
+:::demo[箭头]{id='arrow' src='/nav/tabs/13arrow.demo.tsx'}
 
-## 属性 \{#props\}
+当标签页超出容器宽度时，设置 arrowPosition 属性可以显示箭头按钮, 支持 `both` `start` `end`
+
+:::
+
+
+
+## Tabs属性 \{#props\}
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :---- | :--- | :--- |
 |classList|自定义class|Object|-|
 |class|自定义class|string|-|
 |style|自定义样式|Object||
-|card|卡片标签|boolean||
+|type|标签类型|line &#124; card &#124; button|line|
 |activeName|当前活跃的标签,和Tab的name对应|string||
-|extra|额外内容|JSXElement||
-|onTabClick|标签页点击事件|Function||
-|onRemove|标签删除事件|Function||
+|append|追加额外内容|JSX.Element||
+|prepend|前追加额外内容|JSX.Element||
+|centered|置中|boolean||
+|bordered|边框模式|boolean||
+|arrowPosition|滚动箭头位置,不设置不显示|start &#124; both &#124; end||
+|more|标签页超出容器显示更多下拉|boolean||
+|moreDropdownProps|更多下拉的属性，同DropdownProps|同DropdownProps||
+|renderMore|自定义更多元素|() => JSX.Element||
+|duration|动画时间|number|0|
+|align|标签停靠位置|top &#124; bottom &#124; left &#124; right|top|
+|keepHeight|保持高度|boolean||
+|onTabClick|标签页点击事件|(item: any) => void||
+|onRemove|标签删除事件|(name: string) => void||
 
 
-## Item属性 \{#item_props\}
+## TabPane属性 \{#item_props\}
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :---- | :--- | :--- |

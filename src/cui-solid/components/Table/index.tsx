@@ -15,7 +15,7 @@ const TableContext = createContext();
 
 type KeyType = string | number;
 
-type TableProps = {
+export interface TableProps {
     columns: any[],
     data: any[],
     rowKey?: string,
@@ -62,7 +62,7 @@ export type TableStore = {
     resizeId?: string
 }
 
-export type ColumnProps = {
+export interface ColumnProps {
     name?: string,
     title?: string | JSXElement,
     render?: (value: any, column: any, row: any) => any,
@@ -80,7 +80,7 @@ export type ColumnProps = {
     ellipsis?: boolean,
     tooltip?: boolean,
     tooltipAlign?: PopoverProps['align'],
-    tooltipTheme?: PopoverProps['theme'],
+    tooltipTheme?: PopoverProps['color'],
     tooltipMaxWidth?: number,
     tooltipStyle?: any,
     fixedLeftLast?: boolean,

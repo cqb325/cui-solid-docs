@@ -45,7 +45,8 @@ export interface VirtualListProps {
     items: any[],
     onScroll?: (scrollTop: number) => void,
     itemComponent: CustomComponentProps, // 列表项组件
-    ref?: any
+    ref?: any,
+    displayDelay?: number,
 }
 
 export interface MeasuredData {

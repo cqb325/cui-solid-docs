@@ -1,9 +1,9 @@
 import type { JSXElement, Signal} from "solid-js";
 import { Show, createComputed } from "solid-js";
-import { Icon } from "../Icon";
 import { useClassList } from "../utils/useProps";
 import createModel from "../utils/createModel";
 import { useTransition } from "../utils/useTransition";
+import { FeatherX } from "cui-solid-icons/feather";
 
 export interface DrawerProps {
     classList?: any
@@ -32,6 +32,7 @@ export function Drawer (props: DrawerProps) {
     });
     let box: any;
     let target: any;
+    let originBodyOverflow: string;
 
     const transition = useTransition({
         el: ()=> box,
@@ -40,6 +41,11 @@ export function Drawer (props: DrawerProps) {
         activeClass: 'cm-drawer-open',
         onLeave: () => {
             props.onClose && props.onClose();
+            document.body.style.overflow = originBodyOverflow;
+        },
+        onEnter: () => {
+            originBodyOverflow = document.body.style.overflow;
+            document.body.style.overflow = 'hidden';
         }
     })
 
@@ -78,7 +84,7 @@ export function Drawer (props: DrawerProps) {
                 </div>
             </Show>
             <Show when={props.hasClose ?? true}>
-                <Icon name="x" size={18} class="cm-drawer-close" onClick={onClose}/>
+                <FeatherX class="cm-drawer-close" onClick={onClose}/>
             </Show>
             <div class="cm-drawer-body">
                 {props.children}

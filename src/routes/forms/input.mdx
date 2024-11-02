@@ -27,6 +27,21 @@ Input的基础用法
 :::
 
 
+
+:::demo[搜索框]{id='search' src='/form/input/12search.demo.tsx'}
+
+Search搜索框
+
+:::
+
+
+:::demo[密码]{id='password' src='/form/input/13password.demo.tsx'}
+
+密码框，添加 `password` 属性可以切换显示密码
+
+:::
+
+
 :::demo[禁用]{id='disabled' src='/form/input/3disabled.demo.tsx'}
 
 使用 `disabled` 可以禁用 `Input`
@@ -112,14 +127,16 @@ Input的基础用法
 |suffixStyle|前缀样式|Object||
 |prefixStyle|后缀样式|Object||
 |clearable|是否可清空|boolean||
-|trigger|值改变的触发事件|string|blur|
-|notCreateFiled|非可控组件|boolean|false|
 |value|值，可控属性|Signal||
-|autocomplete|自动填充选项|string||
 |placeholder|placeholder|string||
+|autocomplete|自动填充选项|string||
+|trigger|值改变的触发事件|string|blur|
+|password|type='password'时,可切换显示密码|boolean||
+|asFormField|FormItem下多表单元素时，强制标记为表单元素|boolean||
 |maxLength|原生maxLength|number||
 |wordCount|显示字数限制|boolean||
 |autoHeight|自动尺寸，对于type=textarea|boolean||
+|rows|type=textarea时，设置textarea的高度|number||
 |onChange|值改变事件根据triggrt触发=textarea|Function||
 |onEnter|回车按下事件|Function||
 |onKeyDown|键盘按下事件|Function||

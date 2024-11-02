@@ -70,15 +70,22 @@ title: Tag 标签
 :::
 
 
+:::demo[自适应]{id='response' src='/base/tag/8response.demo.tsx'}
 
-## 属性 \{#props\}
+标签组的more='auto'可以根据容器的长度自适应显示标签
+
+:::
+
+
+
+## Tag属性 \{#props\}
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :---- | :--- | :--- |
 |classList|自定义class|Object|-|
 |class|自定义class|string|-|
 |style|自定义样式|Object||
-|size|标签尺寸|small &#124; large||
+|size|标签尺寸|small &#124; large &#124; xlarge||
 |theme|内置样式|primary &#124; danger &#124; warning &#124; success &#124; info &#124; magenta &#124; red &#124; volcano &#124; orange &#124; gold &#124; yellow &#124; lime &#124; green &#124; cyan &#124; blue &#124; geekblue &#124; purple|default|
 |value|数值|number||
 |circle|圆角标签|boolean||
@@ -95,6 +102,29 @@ title: Tag 标签
 | :--- | :---- | :--- |
 |`onBeforeClose`|关闭标签前置回调|Event|
 |`onClose`|关闭标签回调|Event|
+
+
+## TagGroup属性 \{#group_props\}
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :--- | :---- | :--- | :--- |
+|classList|自定义class|Object|-|
+|class|自定义class|string|-|
+|style|自定义样式|Object||
+|data|数据|TagConfig[]||
+|closable|可关闭标签|boolean||
+|max|可显示的最大数量，其余的隐藏并显示隐藏数量, auto 可自适应容器宽度|number &#124; auto||
+|showMore|隐藏的是否可以通过tooltip显示|boolean||
+|moreCloseable|隐藏的是否可以关闭|boolean||
+|tooltipAlign|同popover的align属性|同popover的align属性|top|
+|tooltipTheme|同popover的theme属性|同popover的theme属性|light|
+|tooltipTrigger|同popover的trigger属性|同popover的trigger属性|hover|
+|tooltipStyle|popover的样式|any||
+|size|尺寸大小|small &#124; large &#124; xlarge||
+|extra|扩展元素|JSXElement||
+|onClose|关闭事件回调|(item: TagConfig, e: any): void||
+
+
 
 </div>
 

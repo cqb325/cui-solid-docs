@@ -1,4 +1,5 @@
-import { Icon, TreeSelect } from "cui-solid"
+import { TreeSelect } from "cui-solid"
+import { FeatherTag } from "cui-solid-icons/feather"
 
 export default () => {
     const data = [
@@ -12,5 +13,5 @@ export default () => {
         ]},
     ]
 
-    return <TreeSelect prepend={<Icon name="tag"/>} data={data} clearable/>
+    return <TreeSelect prepend={<FeatherTag/>} data={data} clearable/>
 }

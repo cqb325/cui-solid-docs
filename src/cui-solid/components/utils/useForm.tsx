@@ -127,6 +127,12 @@ function useForm<T>({
             setV(value);
         }
     };
+
+    const setProxyValue = (name: string, value: any) => {
+        if (controllers.has(name)) {
+            newData[name] = value;
+        }
+    };
     const bindController = (
         name: string,
         v: Accessor<any>,
@@ -150,6 +156,7 @@ function useForm<T>({
         resetFieldsValidate: clearValidates,
         checkField,
         resetFields,
+        setProxyValue,
     };
     const ret: useFormProps & T = new Proxy(newData, {
         get(target, prop: string, receiver) {

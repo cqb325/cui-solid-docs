@@ -59,5 +59,5 @@ export declare const observerSizeChange: (store: TableStore, setStore: SetStoreF
  * @param flatColumns
  * @returns
  */
-export declare const getFlatColumns: (columns: ColumnProps[], flatColumns?: ColumnProps[], parent?: ColumnProps) => void;
+export declare const getFlatColumns: (columns: ColumnProps[], flatColumns?: ColumnProps[], parent?: ColumnProps | undefined) => void;
 export declare const getAllColumns: (columns: ColumnProps[]) => ColumnProps[];

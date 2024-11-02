@@ -4,7 +4,7 @@ import createModel from "../utils/createModel";
 import { useClassList } from "../utils/useProps";
 import { Item } from "./Item";
 
-type ListProps = {
+export interface ListProps {
     classList?: any,
     class?: string,
     border?: boolean,
@@ -16,7 +16,7 @@ type ListProps = {
     onSelect?: (item: any) => void
 }
 
-export type ListContextProps = {
+export interface ListContextProps {
     signal: Signal<any>,
     onSelect?: (item: any) => void
 }

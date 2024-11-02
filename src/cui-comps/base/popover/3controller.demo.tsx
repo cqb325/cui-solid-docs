@@ -1,28 +1,29 @@
-import { Button, Icon, Popover, Space, Text } from "cui-solid"
+import { Button, Popover, Space, Text } from "cui-solid"
 import { createSignal } from "solid-js";
+import { F7QuestionCircleFill } from "cui-solid-icons/f7";
 
 export default () => {
     const [visible, setVisible] = createSignal(false);
 
-    return <Space dir="v">
+    return <Space dir="v" size={24}>
         <div>
-            <Popover visible={[visible, setVisible]} theme="light" content={<div>
+            <Popover visible={[visible, setVisible]} theme="light" title="Title" content={<div>
                 <div>content!content!content!</div>
                 <div>content!content!content!</div>
                 <div>content!content!content!</div>
                 <div>content!content!content!</div>
-                <Button type="text" size="small" onClick={() => {
+                <Button theme="borderless" size="small" onClick={() => {
                     setVisible(false);
                 }}>Close</Button>
             </div>} arrow trigger="click">
-                <span>Click</span>
+                <Button>Click me</Button>
             </Popover>
 
             <div>
-                <Popover theme="light" align="topRight" content={<Space dir="v" style={{width: '150px'}}>
-                    <div><Icon name="help-circle" color="var(--cui-warning-color)"/> <Text>确认用户信息</Text></div>
-                    <div>是否确认删除该信息</div>
-                </Space>} arrow confirm onOk={() => {
+                <Popover theme="light" align="topLeft" title={<Space align="center"><F7QuestionCircleFill size={16} color="var(--cui-color-warning)"/> <Text>确认用户信息</Text></Space>}
+                        content={<Space dir="v" style={{width: '150px'}}>
+                        <div>是否确认删除该信息</div>
+                    </Space>} arrow confirm onOk={() => {
                     console.log(1);
                     return new Promise((resolve) => {
                         setTimeout(() => {
@@ -30,7 +31,7 @@ export default () => {
                         }, 2000)
                     });
                 }}>
-                    <span>confirm</span>
+                    <Button type="primary">删除选项?</Button>
                 </Popover>
             </div>
         </div>

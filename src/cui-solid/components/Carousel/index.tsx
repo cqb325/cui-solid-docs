@@ -1,5 +1,4 @@
 import { createStore } from "solid-js/store";
-import { Icon } from "../Icon";
 import { useClassList, useStyle } from "../utils/useProps"
 import type { Accessor, Signal } from "solid-js";
 import { For, createContext, createEffect, onMount, useContext, onCleanup, children, createComputed, createSignal, untrack, Show, batch, createMemo } from "solid-js";
@@ -8,8 +7,9 @@ import { CarouselItem } from "./Item";
 import createModel from "../utils/createModel";
 import { InnerCarouselItem } from "./InnerItem";
 import { Space } from "../Layout";
+import { FeatherChevronLeft } from "cui-solid-icons/feather";
 
-type CarouselProps = {
+export interface CarouselProps {
     classList?: any,
     class?: string,
     style?: any,
@@ -358,10 +358,14 @@ export function Carousel (props: CarouselProps) {
                 <Show when={arrow()}>
                     <Space dir={dotAlign() === 'bottom' || dotAlign() === 'top' ? 'h' : 'v'}>
                         <div classList={arrowClasses()} x-placement="left" onClick={onPrev}>
-                            <Icon name={dir() === 'h' ? 'chevron-left' : 'chevron-up'} size={20}/>
+                            {
+                                dir() === 'h' ? <FeatherChevronLeft /> : <FeatherChevronLeft rotate={90}/>
+                            }
                         </div>
                         <div classList={arrowClasses()} x-placement="right" onClick={onNext}>
-                            <Icon name={dir() === 'h' ? 'chevron-right' : 'chevron-down'} size={20}/>
+                            {
+                                dir() === 'h' ? <FeatherChevronLeft rotate={180}/> : <FeatherChevronLeft rotate={-90}/>
+                            }
                         </div>
                     </Space>
                 </Show>
