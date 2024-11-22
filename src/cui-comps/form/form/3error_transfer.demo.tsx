@@ -4,11 +4,7 @@ import { createSignal } from "solid-js";
 export default () => {
     const [addModal, setAddModal] = createSignal(false);
 
-    interface FormData {
-        value: string
-    }
-
-    const form = useForm<FormData>({
+    const form = useForm({
         data: {
             value: ''
         },

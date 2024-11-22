@@ -1,12 +1,7 @@
 import { Form, FormItem, Input, RadioGroup, useForm } from "cui-solid"
 
 export default () => {
-    interface FormData {
-        select: number
-        value: string
-    }
-
-    const form = useForm<FormData>({
+    const form = useForm({
         data: {
             select: 1,
             value: ''

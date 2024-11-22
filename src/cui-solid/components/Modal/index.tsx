@@ -6,10 +6,11 @@ import { Draggable } from "../Draggable";
 import type { ButtonProps } from "../Button";
 import { Button } from "../Button";
 import type { JSXElement, Setter, Signal} from "solid-js";
-import { createComponent, createEffect, createSignal, createUniqueId, Show } from "solid-js";
+import { createComponent, createComputed, createEffect, createSignal, createUniqueId, Show } from "solid-js";
 import usezIndex from "../utils/usezIndex";
 import { F7ExclamationmarkTriangleFill, F7CheckmarkAltCircleFill, F7XmarkCircleFill, F7QuestionCircleFill, F7InfoCircleFill } from "cui-solid-icons/f7";
 import { FeatherX } from "cui-solid-icons/feather";
+import { useTransition } from "../utils/useTransition";
 
 const icons: any = {
     info: F7InfoCircleFill,
@@ -55,6 +56,7 @@ export interface ModalProps {
     resetPostion?: boolean,
     hasCloseIcon?: boolean
     fullScreen?: boolean
+    destroyOnClose?: boolean
 }
 
 export function Modal (props: ModalProps) {
@@ -63,6 +65,8 @@ export function Modal (props: ModalProps) {
     let draggable: any;
     const [visible, setVisible] = createModel(props, 'visible', false);
     const [loading, setLoading] = createSignal(false);
+    const [opened, setOpened] = createSignal(visible());
+    const [destroyed, setDestroyed] = createSignal(props.destroyOnClose && !open());
     let setOverflow = false;
     let originOverflow = '';
     const footerAlign = props.footerAlign ?? 'end';
@@ -74,7 +78,7 @@ export function Modal (props: ModalProps) {
 
     const wrapClass = () => ({
         'cm-modal-wrap': true,
-        'cm-modal-visible': visible(),
+        // 'cm-modal-visible': visible(),
         'cm-modal-fullscreen': props.fullScreen,
     });
 
@@ -128,7 +132,7 @@ export function Modal (props: ModalProps) {
     }
 
     createEffect(() => {
-        const show = visible();
+        const show = opened();
         if (!show) {
             setLoading(false);
             if (setOverflow) {
@@ -163,7 +167,31 @@ export function Modal (props: ModalProps) {
                 }
             }
         }
-    });
+    })
+
+    const transition = useTransition({
+        el: () => wrap,
+        startClass: 'cm-modal-visible',
+        activeClass: 'cm-modal-open',
+        enterEndClass: 'cm-modal-opened',
+        onLeave: () => {
+            setOpened(false);
+            props.destroyOnClose && setDestroyed(true);
+        },
+        onEnter: () => {
+            setOpened(true);
+        }
+    })
+
+    createComputed(() => {
+        const v = visible();
+        if (v) {
+            props.destroyOnClose && setDestroyed(false);
+            transition.enter();
+        } else {
+            transition.leave();
+        }
+    })
 
     const onMaskClick = (e: any) => {
         if (maskClosable) {
@@ -190,6 +218,7 @@ export function Modal (props: ModalProps) {
     const mask = props.mask ?? true;
     const maskClosable = props.maskClosable ?? true;
     const resetPostion = props.resetPostion ?? false;
+
     return <Portal mount={usePortal(id, id)}>
         <Show when={mask}>
             <div classList={maskClass()} onClick={onMaskClick} ref={maskEle} style={{"z-index": (zindex - 1)}} />
@@ -205,7 +234,7 @@ export function Modal (props: ModalProps) {
                         </Show>
                     </div>
                     <div class="cm-modal-body" style={props.bodyStyle}>
-                        {props.children}
+                        {destroyed() ? null : props.children}
                     </div>
                     <Show when={footer}>
                         <div classList={{
@@ -230,25 +259,26 @@ export interface ModalConfig extends ModalProps{
 }
 
 function ModalFun () {
-    const [visible, setVisible] = createSignal<boolean>(true);
     let disposeFn: (() => void) | null;
     return {
         open (config: ModalConfig) {
-            setVisible(true);
+            const [visible, setVisible] = createSignal(false);
             let icon = null;
             icon = ()=> createComponent(icons[config.status!], {class: `cm-modal-icon-${config.status}`, size: 24})
-            const close: Setter<boolean> = (v?: unknown) => {
-                setVisible(v as boolean);
+            const close = () => {
                 setTimeout(() => {
                     disposeFn?.()
                 }, 250)
             }
             config.style = {'min-width': '24vw', ...config.style};
-            config.visible = [visible, close];
             config.defaultPosition = {top: '200px', ...config.defaultPosition};
             const ele = usePortal('cm-modal-portal-instance', 'cm-modal-portal');
 
-            disposeFn = ele ? render(() => <Modal {...config} class="cm-modal-instance">
+            setTimeout(() => {
+                setVisible(true);
+            })
+
+            disposeFn = ele ? render(() => <Modal {...config} visible={[visible, setVisible]} onClosed={() => close()} class="cm-modal-instance">
                 <div class="cm-modal-left">
                     <div class="cm-modal-icon">
                         {icon()}
@@ -280,7 +310,6 @@ function ModalFun () {
             return this.open(config);
         },
         remove () {
-            setVisible(false);
             setTimeout(() => {
                 disposeFn?.()
             }, 250)

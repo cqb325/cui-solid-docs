@@ -110,6 +110,21 @@ Tabs添加 `closeable` 属性可以支持关闭Tab页。
 :::
 
 
+:::demo[标题最大宽度]{id='maxTabSize' src='/nav/tabs/14maxTabSize.demo.tsx'}
+
+设置 `maxTabSize` 可以限制tab标题的内容宽度，添加 `tooltip` 可以以显示tooltip
+
+:::
+
+
+
+:::demo[右键菜单]{id='contextMenu' src='/nav/tabs/15contextMenu.demo.tsx'}
+
+设置 `contextMenu` 可以添加右键菜单，通过 `onContextMenu` 事件获取右键菜单项，通过 `onSelectContextMenu` 事件获取右键菜单项选择事件
+
+:::
+
+
 
 ## Tabs属性 \{#props\}
 
@@ -119,6 +134,7 @@ Tabs添加 `closeable` 属性可以支持关闭Tab页。
 |class|自定义class|string|-|
 |style|自定义样式|Object||
 |type|标签类型|line &#124; card &#124; button|line|
+|buttonTheme|按钮类型的时候类型样式|solid &#124; outline &#124; light &#124; borderless||
 |activeName|当前活跃的标签,和Tab的name对应|string||
 |append|追加额外内容|JSX.Element||
 |prepend|前追加额外内容|JSX.Element||
@@ -131,6 +147,12 @@ Tabs添加 `closeable` 属性可以支持关闭Tab页。
 |duration|动画时间|number|0|
 |align|标签停靠位置|top &#124; bottom &#124; left &#124; right|top|
 |keepHeight|保持高度|boolean||
+|maxTabSize|tab标题的最大宽度|number||
+|tooltip|超出显示tooltip|boolean||
+|tooltipProps|tooltip的属性|同TooltipProps||
+|contextMenu|右键菜单|JSX.Element||
+|onContextMenu|右键选择事件|`(item: any) => void`||
+|onSelectContextMenu|菜单项选择事件回调|`(name: string, data: any) => void`||
 |onTabClick|标签页点击事件|(item: any) => void||
 |onRemove|标签删除事件|(name: string) => void||
 

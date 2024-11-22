@@ -38,6 +38,7 @@ export interface UploadProps {
     getFileUrl?: (res: any, file: any) => void,
     ref?: any,
     listType?: 'picture'
+    customRequest?: (option: any) => void
 }
 
 export function Upload (props: UploadProps) {
@@ -125,23 +126,38 @@ export function Upload (props: UploadProps) {
             }
         }
         handleStart(file);
-        ajax({
-            headers: props.headers,
-            withCredentials: props.withCredentials,
-            file: file,
-            data: props.data,
-            filename: name,
-            action: props.action,
-            onProgress: (e: any) => {
-                handleProgress(e, file);
-            },
-            onSuccess: (res: any) => {
-                handleSuccess(res, file);
-            },
-            onError: (err: any, response: any) => {
-                handleError(err, response, file);
-            }
-        });
+        if (props.customRequest) {
+            props.customRequest({
+                file: file,
+                onProgress: (e: any) => {
+                    handleProgress(e, file);
+                },
+                onSuccess: (res: any) => {
+                    handleSuccess(res, file);
+                },
+                onError: (err: any, response: any) => {
+                    handleError(err, response, file);
+                }
+            });
+        } else {
+            ajax({
+                headers: props.headers,
+                withCredentials: props.withCredentials,
+                file: file,
+                data: props.data,
+                filename: name,
+                action: props.action,
+                onProgress: (e: any) => {
+                    handleProgress(e, file);
+                },
+                onSuccess: (res: any) => {
+                    handleSuccess(res, file);
+                },
+                onError: (err: any, response: any) => {
+                    handleError(err, response, file);
+                }
+            });
+        }
     }
 
     const handleStart = (file: any) => {

@@ -48,7 +48,18 @@ title: Upload 上传
 
 :::
 
+## customRequest\{#customRequest\}
 
+通过 `customRequest` 属性可以自定义上传行为
+
+```tsx
+customRequest = ({file, onProgress, onSuccess, onError}) => {
+    // file: File 上传的文件对象
+    // onProgress: Function 上传进度回调
+    // onSuccess: Function 上传成功回调
+    // onError: Function 上传失败回调
+}
+```
 
 ## 属性 \{#props\}
 
@@ -74,6 +85,7 @@ title: Upload 上传
 |ref|组件引用|any||
 |getFileUrl|自定义预览的url地址|Function||
 |listType|列表的类型 picture|boolean||
+|customRequest|自定义上传行为|`({file, onProgress, onSuccess, onError}) => void`||
 |onProgress|文件上传时的钩子，返回字段为 event, file, fileList|Function||
 |onSuccess|文件上传成功时的钩子，返回字段为 response, file, fileList|Function||
 |onError|文件上传失败时的钩子，返回字段为 error, file, fileList|Function||

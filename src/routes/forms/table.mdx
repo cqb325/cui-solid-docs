@@ -223,7 +223,7 @@ column 支持其他类型数据的格式化  `date`  `datetime` `enum`\
 | :--- | :---- | :--- | :--- |
 |name|字段名称|string|-|
 |title|字段表头文案|JSXElement||
-|render|自定义渲染函数， v, column, row|Function||
+|render|自定义渲染函数|`(value: any, column: any, row: any, index: number) => JSX.Element`||
 |type|字段类型 index &#124; checkbox &#124; expend &#124; date &#124; datetime &#124; enum|string||
 |width|字段宽度|string||
 |minWidth|字段最小宽度|number||

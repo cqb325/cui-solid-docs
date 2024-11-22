@@ -1,13 +1,14 @@
 import type { JSXElement } from "solid-js";
-import { createContext, splitProps, ComponentProps, useContext } from "solid-js";
+import { createContext, splitProps, useContext } from "solid-js";
 import { useClassList } from "../utils/useProps";
+import type { useFormProps } from "../utils/useForm";
 
 export const FormContext = createContext<FormContextOptions>();
 
 export interface FormContextOptions {
     labelWidth?: number,
     inline?: boolean,
-    form: any,
+    form?: useFormProps,
     errorTransfer?: boolean,
     errorAlign?: 'top'|'bottom'|'left'|'right'|'topLeft'|'topRight'|'bottomLeft'|'bottomRight'|'leftTop'|'leftBottom'|'rightTop'|'rightBottom',
     onChange: (name: string, value: any, silence?: boolean) => void
@@ -21,7 +22,7 @@ export interface FormProps {
     children?: JSXElement,
     style?: any,
     labelWidth?: number,
-    form?: any,
+    form?: useFormProps,
     inline?: boolean,
     errorTransfer?: boolean,
     errorAlign?: 'top'|'bottom'|'left'|'right'|'topLeft'|'topRight'|'bottomLeft'|'bottomRight'|'leftTop'|'leftBottom'|'rightTop'|'rightBottom',
@@ -50,7 +51,7 @@ export function Form (props: FormProps) {
             local.form.checkField(name);
         }
         if (local.onChange) {
-            local.onChange(name, local.form[name]);
+            local.onChange(name, local.form?.getValueByPath(name));
         }
     };
 

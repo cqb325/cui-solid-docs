@@ -1,16 +1,7 @@
 import { Button, CheckboxGroup, Form, FormItem, Input, message, Option, RadioGroup, Select, useForm } from "cui-solid"
 
 export default () => {
-    interface FormData {
-        name: string
-        mail: string
-        city: string
-        gender: string
-        interest: string[]
-        desc: string
-    }
-
-    const form = useForm<FormData>({
+    const form = useForm({
         data: {
             name: '',
             mail: '',

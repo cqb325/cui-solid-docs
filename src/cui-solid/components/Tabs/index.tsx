@@ -7,11 +7,13 @@ import { FeatherChevronDown, FeatherChevronLeft, FeatherChevronRight, FeatherChe
 import type { DropdownProps } from "../Dropdown";
 import { Dropdown, DropdownItem, DropdownMenu } from "../Dropdown";
 import { useDebounce } from "../utils/useDebounce";
+import { Tooltip, type TooltipProps } from "../Tooltip";
 
 export * from './TabPane';
 
 export interface TabsProps {
     type?: 'line'|'card'|'button',
+    buttonTheme?: 'solid'|'outline'| 'light' | 'borderless',
     style?: any,
     classList?: any,
     class?: any,
@@ -33,6 +35,13 @@ export interface TabsProps {
     align?: 'top'|'bottom'|'left'|'right'
     animation?: boolean
     keepHeight?: boolean
+    maxTabSize?: number
+    tooltip?: boolean
+    tooltipProps?: TooltipProps
+    contextMenu?: JSX.Element
+    onContextMenu?: (e: any) => void
+    onSelectContextMenu?: (name: string, data: any) => void
+    dropdownProps?: Omit<DropdownProps, 'children'|'menu'>
 }
 
 export interface TabStore {
@@ -63,6 +72,7 @@ export function Tabs (props: TabsProps) {
     const [activeName, setActiveName] = createSignal(props.activeName || '');
     const tabs = children(() => props.children)
     const evaluatedTabs = () => tabs.toArray() as unknown as TabPaneProps[]
+    const isContextMenu = () => !!props.contextMenu;
 
     const [store, setStore] = createStore({
         tabs: [],
@@ -78,6 +88,7 @@ export function Tabs (props: TabsProps) {
         untrack(() => {
             if (store.tabs.length === 1) {
                 setActiveName(store.tabs[0].name);
+                props.onTabClick && props.onTabClick({...store.tabs[0]});
             }
         })
     })
@@ -129,7 +140,7 @@ export function Tabs (props: TabsProps) {
 
     const onTabClick = (item: TabPaneProps) => {
         setActiveName(item.name);
-        props.onTabClick && props.onTabClick(item);
+        props.onTabClick && props.onTabClick({...item});
     }
 
     // more dropdown onSelect
@@ -154,7 +165,7 @@ export function Tabs (props: TabsProps) {
         if (activeName() === name) {
             const willActiveIndex = Math.max(lastIndex - 1, 0);
             if (newArr.length) {
-                setActiveName(newArr[willActiveIndex].name);
+                onTabClick(newArr[willActiveIndex]);
             }
         }
         props.onRemove && props.onRemove(name);
@@ -430,29 +441,42 @@ export function Tabs (props: TabsProps) {
                     </div>
                 </Dropdown>
             </Show>
-            <div class="cm-tabs-scroll" ref={scroll} onScroll={onScroll} onWheel={onMouseWheel}>
-                <div class="cm-tabs-active-line" ref={line} style={lineStyle()} />
-                <ul class="cm-tabs-header" ref={header}>
-                    <For each={store.tabs}>
-                        {(item: TabPaneProps) => {
-                            const className = () => ({
-                                'cm-tabs-header-item': true,
-                                'cm-tabs-header-item-active': item.name === activeName(),
-                                'cm-tabs-header-item-disabled': item.disabled
-                            });
-                            return <li classList={className()}
-                                data-name={item.name}
-                                onClick={onTabClick.bind(null, item)}>
-                                {item.icon}
-                                {item.title}
-                                <Show when={item.closeable}>
-                                    <FeatherX onClick={onRemove.bind(null, item.name)} class="cm-tabs-close" size={12} />
-                                </Show>
-                            </li>
-                        }}
-                    </For>
-                </ul>
-            </div>
+            <Dropdown trigger="contextMenu" transfer menu={props.contextMenu} handler=".cm-tabs-header-item"
+                    align="bottom" onSelect={props.onSelectContextMenu} {...props.dropdownProps}>
+                <div class="cm-tabs-scroll" ref={scroll} onScroll={onScroll} onWheel={onMouseWheel}>
+                    <div class="cm-tabs-active-line" ref={line} style={lineStyle()} />
+                    <ul class="cm-tabs-header" ref={header}>
+                        <For each={store.tabs}>
+                            {(item: TabPaneProps) => {
+                                const className = () => ({
+                                    'cm-tabs-header-item': true,
+                                    [`cm-tabs-header-item-${props.buttonTheme}`]: !!props.buttonTheme,
+                                    'cm-tabs-header-item-active': item.name === activeName(),
+                                    'cm-tabs-header-item-disabled': item.disabled
+                                });
+                                const el = () => <li classList={className()}
+                                    data-name={item.name}
+                                    onClick={onTabClick.bind(null, item)}
+                                    onContextMenu={props.onContextMenu?.bind(null, {...item})}
+                                    >
+                                    <div>
+                                        {item.icon}
+                                        <span class="cm-tabs-header-item-text" style={{"max-width": `${props.maxTabSize}px`}}>{item.title}</span>
+                                        <Show when={item.closeable}>
+                                            <FeatherX onClick={onRemove.bind(null, item.name)} class="cm-tabs-close" size={12} />
+                                        </Show>
+                                    </div>
+                                </li>;
+                                return props.tooltip
+                                    ? <Tooltip content={item.title} align="bottom" theme="light" {...props.tooltipProps}>
+                                        {el()}
+                                    </Tooltip>
+                                    : el();
+                            }}
+                        </For>
+                    </ul>
+                </div>
+            </Dropdown>
             <Show when={store.scroll && props.more && store.moreList.length && !props.arrowPosition}>
                 <Dropdown align={moreDropdownAlign()} {...props.moreDropdownProps}
                     onSelect={onSelectByName} class={"cm-tabs-more-dropdown"}

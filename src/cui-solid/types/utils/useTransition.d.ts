@@ -2,6 +2,7 @@ export interface UseTransitionProps {
     el(): Element;
     target?(): Element;
     startClass: string;
+    enterEndClass?: string;
     activeClass: string;
     onEnter?(): void;
     onLeave?(): void;

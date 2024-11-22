@@ -79,6 +79,7 @@ export function Dropdown (props: DropdownProps) {
         [`cm-dropdown-${theme}`]: theme,
         'cm-dropdown-with-arrow': props.arrow,
     });
+    let lastEventTriggerTarget: any;
 
     let cleanup: any = null;
     const transition = useTransition({
@@ -119,6 +120,9 @@ export function Dropdown (props: DropdownProps) {
 
     // 点击显示
     const onMouseClick = (e: any) => {
+        if (!nextElementSibling.contains(e.target)) {
+            return false;
+        }
         if (props.handler) {
             const te = document.querySelector(props.handler);
             if (!te) {
@@ -126,10 +130,6 @@ export function Dropdown (props: DropdownProps) {
             }
             if (!e.target.closest(props.handler) && !te.contains(e.target)) {
                 return;
-            }
-        } else {
-            if (!nextElementSibling.contains(e.target)) {
-                return false;
             }
         }
 
@@ -144,7 +144,14 @@ export function Dropdown (props: DropdownProps) {
 
         const ret = props.onBeforeDrop && props.onBeforeDrop(visible());
         if (ret === undefined || ret) {
-            setVisible(!visible());
+            // 触发的对象不一致，则重新定位，可能是使用handle进行触发,有多个触发元素的情况
+            if (lastEventTriggerTarget !== e.target.closest(props.handler)) {
+                setUpdate(createUniqueId());
+            }
+            setVisible(true);
+            if (props.handler) {
+                lastEventTriggerTarget = e.target.closest(props.handler);
+            }
         }
     }
 

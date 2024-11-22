@@ -8,10 +8,12 @@ export interface ListProps {
     head?: any;
     foot?: any;
     children?: any;
+    selectable?: boolean;
     onSelect?: (item: any) => void;
 }
 export interface ListContextProps {
     signal: Signal<any>;
+    selectable?: boolean;
     onSelect?: (item: any) => void;
 }
 export declare function List(props: ListProps): import("solid-js").JSX.Element;
