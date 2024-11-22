@@ -23,8 +23,10 @@ export function Item (props: ListItemProps) {
     });
 
     const onClick = () => {
-        setActiveKey && setActiveKey(props.id);
-        ctx?.onSelect && ctx.onSelect(props.data);
+        if (ctx?.selectable) {
+            setActiveKey && setActiveKey(props.id);
+            ctx?.onSelect && ctx.onSelect(props.data);
+        }
     }
 
     return <div classList={classList()} style={props.style} onClick={onClick}>

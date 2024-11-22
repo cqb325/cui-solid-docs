@@ -65,7 +65,7 @@ export type TableStore = {
 export interface ColumnProps {
     name?: string,
     title?: string | JSXElement,
-    render?: (value: any, column: any, row: any) => any,
+    render?: (value: any, column: any, row: any, index: number) => any,
     type?: 'index'|'date'|'datetime'|'enum'|'checkbox'|'expand',
     width?: string,
     minWidth?: number,

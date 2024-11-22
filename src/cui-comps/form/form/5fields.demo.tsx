@@ -2,48 +2,26 @@ import { Button, Checkbox, CheckboxGroup, Col, Form, FormItem, Input, Option, Ra
 import dayjs from 'dayjs';
 
 export default () => {
-    interface FormModel {
-        count: number,
-        check: boolean,
-        fruit: string[],
-        sex: number,
-        switch: boolean,
-        age: number,
-        city: string,
-        cascader: string[],
-        time: string,
-        timeRange: string | string[],
-        date: string,
-        dateRange: string | string[],
-        month: string,
-        monthRange: string | Date[],
-        dateTime: string | Date,
-        dateTimeRange: string | string[] | Date[],
-        slider: number,
-        tree: string[],
-        color: string
-    }
-
-    const form = useForm<FormModel>({
+    const form = useForm({
         data: {
             count: 10,
             check: true,
-            fruit: [],
+            fruit: [] as string[],
             sex: 1,
             switch: true,
             age: 20,
             city: '1',
-            cascader: [],
+            cascader: [] as string[],
             time: '',
-            timeRange: '',
+            timeRange: [] as string[],
             date: '',
-            dateRange: '',
+            dateRange: '' as string | string[],
             month: '',
-            monthRange: '',
-            dateTime: '',
-            dateTimeRange: '',
+            monthRange: '' as string | Date[],
+            dateTime: '' as string | Date,
+            dateTimeRange: '' as string | Date[],
             slider: 0,
-            tree: [],
+            tree: [] as string[],
             color: ''
         },
         validation: {

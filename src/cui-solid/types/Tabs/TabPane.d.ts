@@ -1,6 +1,6 @@
 import type { Component, JSX } from "solid-js";
 export interface TabPaneProps {
-    children: JSX.Element;
+    children?: JSX.Element;
     title?: JSX.Element;
     name: string;
     disabled?: boolean;

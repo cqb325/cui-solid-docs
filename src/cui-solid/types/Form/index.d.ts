@@ -1,9 +1,10 @@
 import type { JSXElement } from "solid-js";
+import type { useFormProps } from "../utils/useForm";
 export declare const FormContext: import("solid-js").Context<FormContextOptions | undefined>;
 export interface FormContextOptions {
     labelWidth?: number;
     inline?: boolean;
-    form: any;
+    form?: useFormProps;
     errorTransfer?: boolean;
     errorAlign?: 'top' | 'bottom' | 'left' | 'right' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
     onChange: (name: string, value: any, silence?: boolean) => void;
@@ -15,7 +16,7 @@ export interface FormProps {
     children?: JSXElement;
     style?: any;
     labelWidth?: number;
-    form?: any;
+    form?: useFormProps;
     inline?: boolean;
     errorTransfer?: boolean;
     errorAlign?: 'top' | 'bottom' | 'left' | 'right' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';

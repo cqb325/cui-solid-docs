@@ -35,6 +35,7 @@ export interface ModalProps {
     resetPostion?: boolean;
     hasCloseIcon?: boolean;
     fullScreen?: boolean;
+    destroyOnClose?: boolean;
 }
 export declare function Modal(props: ModalProps): import("solid-js").JSX.Element;
 export interface ModalConfig extends ModalProps {

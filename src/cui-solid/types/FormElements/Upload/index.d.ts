@@ -30,5 +30,6 @@ export interface UploadProps {
     getFileUrl?: (res: any, file: any) => void;
     ref?: any;
     listType?: 'picture';
+    customRequest?: (option: any) => void;
 }
 export declare function Upload(props: UploadProps): import("solid-js").JSX.Element;

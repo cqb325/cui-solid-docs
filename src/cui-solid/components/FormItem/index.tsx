@@ -116,9 +116,9 @@ export function FormItem (props: FormItemProps) {
             }
         }
 
-        if ((name && ctx && ctx.form?.getValidation && ctx.form?.getValidation(name)) || (ctx && props.rules)) {
-            const rules = ctx.form.getValidation(name) || props.rules;
-            const msgs = ctx.form.getMessage(name) || props.messages;
+        if ((name && ctx?.form?.getValidation(name)) || (ctx && props.rules)) {
+            const rules = ctx?.form?.getValidation(name!) || props.rules;
+            const msgs = ctx?.form?.getMessage(name!) || props.messages;
             if (Array.isArray(rules)) {
                 return validateByAsyncValidator(v, rules);
             } else {

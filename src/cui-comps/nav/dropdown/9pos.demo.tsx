@@ -27,7 +27,6 @@ export default () => {
         <DropdownItem icon={<F7GearAlt />}>Settings</DropdownItem>
     </DropdownMenu>
     return <div>
-        <div class="context-area" style={{width: '300px', height: '400px', background: '#f0f0f0'}}></div>
         <Dropdown gradient={['45deg', '#9B59B6', '#3498DB']}
             color="#ffffff"
             align="bottomLeft" trigger="contextMenu" handler=".context-area"
@@ -40,7 +39,7 @@ export default () => {
             menu={menu()} onSelect={(name: string) => {
             console.log(name);
         }}>
-            <div></div>
+            <div class="context-area" style={{width: '300px', height: '400px', background: '#f0f0f0'}}></div>
         </Dropdown>
     </div>
 }

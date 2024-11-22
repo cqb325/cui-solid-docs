@@ -1,12 +1,7 @@
 import { Form, FormItem, Input, useForm } from "cui-solid"
 
 export default () => {
-    interface FormData {
-        u: string
-        p: string
-    }
-
-    const form = useForm<FormData>({
+    const form = useForm({
         data: {
             u: '',
             p: ''

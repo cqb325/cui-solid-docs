@@ -13,11 +13,13 @@ export interface ListProps {
     head?: any,
     foot?: any,
     children?: any,
+    selectable?: boolean,
     onSelect?: (item: any) => void
 }
 
 export interface ListContextProps {
     signal: Signal<any>,
+    selectable?: boolean,
     onSelect?: (item: any) => void
 }
 
@@ -26,6 +28,7 @@ const ListContext = createContext<ListContextProps>();
 export function List (props: ListProps) {
     const classList = () => useClassList(props, 'cm-list', {
         'cm-list-border': props.border,
+        'cm-list-selectable': props.selectable,
         [`cm-list-${props.size}`]: props.size
     });
 
@@ -33,6 +36,7 @@ export function List (props: ListProps) {
 
     return <ListContext.Provider value={{
         signal: [activeKey, setActiveKey],
+        selectable: props.selectable,
         onSelect: props.onSelect
     }}>
         <div classList={classList()} style={props.style}>

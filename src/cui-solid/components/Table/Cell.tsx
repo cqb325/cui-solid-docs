@@ -142,7 +142,7 @@ export function Cell (props: any) {
                 return <FeatherChevronRight class={`cm-table-expand ${props.data._expand ? 'cm-table-expand-open' : ''}`} onClick={onExpand}/>;
             }
             if (column.render && typeof column.render === 'function') {
-                return column.render(props.data[column.name], column, props.data);
+                return column.render(props.data[column.name], column, props.data, props.index);
             }
             return props.data[column.name];
         } else {

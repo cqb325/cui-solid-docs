@@ -2,17 +2,7 @@ import { Form, FormItem, Option, useForm, Select, Input, Space, createField } fr
 import { createEffect, createSignal } from "solid-js";
 
 export default () => {
-    interface FormModel {
-        alarmConfig: string;
-    }
-
-    interface FormModel2 {
-        alarmConfig: string;
-        alarmPeriod: string;
-        alarmTime: string;
-    }
-
-    const form = useForm<FormModel>({
+    const form = useForm({
         data: {
             alarmConfig: '',
         },
@@ -25,7 +15,7 @@ export default () => {
         }
     });
 
-    const form2 = useForm<FormModel2>({
+    const form2 = useForm({
         data: {
             alarmConfig: '',
             alarmPeriod: '',
