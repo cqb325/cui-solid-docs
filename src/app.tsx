@@ -15,6 +15,7 @@ import './app.css';
 import "./index.less";
 import { SearchBox } from "./components/SearchBox";
 import { FeatherChevronDown } from "cui-solid-icons/feather";
+import { Spin } from "./cui-solid/components";
 
 
 export default function App() {
@@ -87,7 +88,7 @@ export default function App() {
                         </header>
                         <HView class="sys-ctx">
                             <HView class="sys-ctx-main">
-                                <Suspense>{props.children}</Suspense>
+                                <Suspense fallback={<Spin />}>{props.children}</Suspense>
                             </HView>
                         </HView>
                     </HView>

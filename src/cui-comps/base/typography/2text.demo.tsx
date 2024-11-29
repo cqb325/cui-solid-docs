@@ -1,8 +1,9 @@
-import { Icon, RadioGroup, Space, Text, Link } from "cui-solid"
+import { RadioGroup, Space, Text, Link } from "cui-solid"
+import { FeatherLink } from "cui-solid-icons/feather";
 import { createSignal } from "solid-js";
 
 export default () => {
-    const [size, setSize] = createSignal('');
+    const [size, setSize] = createSignal('default');
 
     return <Space dir="v" inline>
         <Text>Text</Text>
@@ -19,9 +20,9 @@ export default () => {
         <Text deleted>Deleted</Text>
         <Text strong>Strong</Text>
         <Text link="http://www.baidu.com">链接</Text>
-        <Link icon={<Icon name="link"/>}>Link</Link>
-        <Link icon={<Icon name="link"/>} strong gradient={['45deg', '#9B59B6', '#3498DB']}>Link Gradient</Link>
-        <Text icon={<Icon name="link"/>} strong underline link="http://www.baidu.com">链接</Text>
+        <Link icon={<FeatherLink />}>Link</Link>
+        <Link icon={<FeatherLink />} strong gradient={['45deg', '#9B59B6', '#3498DB']}>Link Gradient</Link>
+        <Text icon={<FeatherLink />} strong underline link="http://www.baidu.com">链接</Text>
         <Text size="small">Small</Text>
         <Text size={size()}>Normal</Text>
         <Text size="large">Large</Text>
