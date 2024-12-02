@@ -88,7 +88,7 @@ export default function App() {
                         </header>
                         <HView class="sys-ctx">
                             <HView class="sys-ctx-main">
-                                <Suspense fallback={<Spin />}>{props.children}</Suspense>
+                                {props.children}
                             </HView>
                         </HView>
                     </HView>

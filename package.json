@@ -33,7 +33,7 @@
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "3.0.1",
     "remark-mdx-frontmatter": "^5.0.0",
-    "solid-js": "^1.8.18",
+    "solid-js": "^1.9.3",
     "solid-mdx": "^0.0.7",
     "vinxi": "^0.3.14"
   },
