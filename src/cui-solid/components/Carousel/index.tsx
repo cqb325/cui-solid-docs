@@ -206,8 +206,9 @@ export function Carousel (props: CarouselProps) {
                     const w = getWidth();
                     const allW = getItemsWidth();
                     const views = Math.ceil(allW / w);
-
-                    setViews(new Array(views).fill(1));
+                    if (w) {
+                        setViews(new Array(views).fill(1));
+                    }
                 } else {
                     setViews(new Array(Math.ceil(store.data.length / itemsPerView)).fill(1));
                 }
