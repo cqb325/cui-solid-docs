@@ -17,7 +17,6 @@ import { SearchBox } from "./components/SearchBox";
 import { FeatherChevronDown } from "cui-solid-icons/feather";
 import { Spin } from "./cui-solid/components";
 
-
 export default function App() {
     const [theme, setTheme] = createSignal<string>('light');
     const switchTheme = (theme: string) => {
@@ -90,7 +89,7 @@ export default function App() {
                         </header>
                         <HView class="sys-ctx">
                             <HView class="sys-ctx-main">
-                                {props.children}
+                                <Suspense fallback={<Spin/>}>{props.children}</Suspense>
                             </HView>
                         </HView>
                     </HView>
