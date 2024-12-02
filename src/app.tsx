@@ -9,8 +9,8 @@ import { Image } from "./cui-solid/components/Image";
 import { Text } from "./cui-solid/components/Typography/Text";
 import { Dropdown, DropdownItem, DropdownMenu } from "./cui-solid/components/Dropdown";
 import { Popover } from "./cui-solid/components/Popover";
-import { clientOnly } from "@solidjs/start";
-const Nav = clientOnly(() => import('./Nav'));
+import { ClientOnly } from "solid-doc-layout/ClientOnly";
+import Nav from "./Nav";
 import './app.css';
 import "./index.less";
 import { SearchBox } from "./components/SearchBox";
@@ -29,7 +29,9 @@ export default function App() {
             root={props => (
                 <HView class="sys-bottom">
                     <nav class="sys-nav">
-                        <Nav />
+                        <ClientOnly>
+                            <Nav />
+                        </ClientOnly>
                     </nav>
                     <HView class="sys-main">
                         <header class="sys-header">
