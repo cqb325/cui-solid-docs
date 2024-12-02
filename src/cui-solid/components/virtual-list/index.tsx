@@ -1,10 +1,9 @@
-import { createUniqueId } from "solid-js"
 import { VirtualListCore } from "./core";
 import { isServer } from "solid-js/web";
 
 export * from './core';
 
-const CONTAINER_CLASSNAME = `cm-virtual-${createUniqueId()}`
+const CONTAINER_CLASSNAME = `cm-virtual-list`
 let globalContainerStylesheet: HTMLStyleElement;
 
 const insertGlobalStylesheet = () => {

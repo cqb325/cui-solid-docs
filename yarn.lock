@@ -8456,7 +8456,7 @@ solid-js@1.8.16:
     seroval "^1.0.4"
     seroval-plugins "^1.0.3"
 
-solid-js@^1.7.6, solid-js@^1.8.18:
+solid-js@^1.7.6:
   version "1.8.18"
   resolved "https://registry.npmmirror.com/solid-js/-/solid-js-1.8.18.tgz#ef1b28c8d0eea4a3f5242aa142a36d7a7a456da9"
   integrity sha512-cpkxDPvO/AuKBugVv6xKFd1C9VC0XZMu4VtF56IlHoux8HgyW44uqNSWbozMnVcpIzHIhS3vVXPAVZYM26jpWw==
@@ -8465,7 +8465,7 @@ solid-js@^1.7.6, solid-js@^1.8.18:
     seroval "^1.0.4"
     seroval-plugins "^1.0.3"
 
-solid-js@^1.8.4:
+solid-js@^1.8.4, solid-js@^1.9.3:
   version "1.9.3"
   resolved "https://registry.npmmirror.com/solid-js/-/solid-js-1.9.3.tgz#078f026fe32f6b9b48e8e0557be150f0c2d610a9"
   integrity sha512-5ba3taPoZGt9GY3YlsCB24kCg0Lv/rie/HTD4kG6h4daZZz7+yK02xn8Vx8dLYBc9i6Ps5JwAbEiqjmKaLB3Ag==
