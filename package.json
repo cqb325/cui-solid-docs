@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "vinxi dev",
     "sync-orama": "node scripts/syncoramaindex.js",
+    "docs:start": "node ./.output/server/index.mjs",
     "build": "npm run sync && npm run build:sitemap && set NODE_OPTIONS=--max-old-space-size=8192 && vinxi build",
     "start": "vinxi start",
     "postinstall": "patch-package",
