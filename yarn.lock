@@ -9443,10 +9443,10 @@ vfile@^6.0.0:
     unist-util-stringify-position "^4.0.0"
     vfile-message "^4.0.0"
 
-vinxi@^0.3.14:
-  version "0.3.14"
-  resolved "https://registry.npmmirror.com/vinxi/-/vinxi-0.3.14.tgz#141d19f9851374295620ef3aa9acfb80bfd1a129"
-  integrity sha512-z92mH3xmnnsodTAURFnfEg4FnCo95JnjjY08nyjl3Z69xVRtQ5V6ckfV9bMp/5G6yT52wnmoLXAfPRPF6vfG+A==
+vinxi@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.npmmirror.com/vinxi/-/vinxi-0.4.3.tgz#77a39b410bc854ee065ca979cb62ad98483c89ae"
+  integrity sha512-RgJz7RWftML5h/qfPsp3QKVc2FSlvV4+HevpE0yEY2j+PS/I2ULjoSsZDXaR8Ks2WYuFFDzQr8yrox7v8aqkng==
   dependencies:
     "@babel/core" "^7.22.11"
     "@babel/plugin-syntax-jsx" "^7.22.5"

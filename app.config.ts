@@ -73,6 +73,58 @@ export default defineConfig({
                     entryFileNames: `assets/[name].js`,
                 }
             }
+        },
+        build: {
+            rollupOptions: {
+                output: {
+                    manualChunks(id) {
+                        try {
+                            if (id.includes("node_modules")) {
+                                let name = id.split("node_modules/")[1].split("/");
+                                if (name[0] == ".pnpm") {
+                                    return name[1];
+                                } else {
+                                    if (['solid-js', 'solid-js/web', 'solid-js/store'].includes(name[0])) {
+                                        return 'solid-vendor';
+                                    }
+                                    if (['async-validator', 'codesandbox', 'dayjs'].includes(name[0])) {
+                                        return 'utils-vendor';
+                                    }
+                                    if (['monaco-editor'].includes(name[0])) {
+                                        return 'monaco-editor-vendor';
+                                    }
+                                    if (['@babel/core'].includes(name[0])) {
+                                        return 'babel-vendor';
+                                    }
+                                    if (['@babel/'].includes(name[0])) {
+                                        return 'babel-vendor';
+                                    }
+                                    if (['babel-preset-solid'].includes(name[0])) {
+                                        return 'babel-preset-solid';
+                                    }
+                                }
+                            }
+                            if (id.includes('cui-solid/')) {
+                                return 'cui-solid';
+                            }
+                            if (id.includes('cui-solid-icons/')) {
+                                return 'cui-solid-icons';
+                            }
+                            if (id.includes('solid-live/')) {
+                                return 'solid-live';
+                            }
+                            if (id.includes('solid-repl/')) {
+                                return 'solid-repl';
+                            }
+                            if (id.includes('solid-code-transform/')) {
+                                return 'solid-code-transform';
+                            }
+                        } catch (error) {
+                            console.error(error);
+                        }
+                    }
+                }
+            }
         }
     }
 });
