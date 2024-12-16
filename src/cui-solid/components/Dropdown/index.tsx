@@ -13,6 +13,7 @@ import { isColor } from "../utils/utils";
 import type { DropdownItemProps } from "./DropdownItem";
 import { DropdownItem } from "./DropdownItem";
 import { DropdownMenu } from "./DropdownMenu";
+import { useDebounce } from "../utils/useDebounce";
 
 export * from './DropdownMenu';
 export * from './DropdownItem';
@@ -342,9 +343,9 @@ export function Dropdown (props: DropdownProps) {
     })
 
     // 响应尺寸变化更新位置
-    const onWrapEntry = async (entry: ResizeObserverEntry) => {
+    const onWrapEntry = useDebounce((entry: ResizeObserverEntry) => {
         setUpdate(createUniqueId());
-    }
+    }, 100);
 
     let removeClickOutside: () => void;
     onMount(() => {

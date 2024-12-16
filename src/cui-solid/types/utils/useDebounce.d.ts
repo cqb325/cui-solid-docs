@@ -1,1 +1,1 @@
-export declare function useDebounce(func: Function, delay: number): () => void;
+export declare function useDebounce(func: (...args: any[]) => void, delay: number): (...rest: any[]) => void;

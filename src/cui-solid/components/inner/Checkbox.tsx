@@ -55,6 +55,8 @@ export function InnerCheckbox (props: InnerCheckboxProps){
         <span style={{position: 'relative'}} class="cm-checkbox-outter">
             <span class="cm-checkbox-inner" />
         </span>
-        <label>{props.label}</label>
+        {
+            props.label ? <label>{props.label}</label> : null
+        }
     </div>
 }

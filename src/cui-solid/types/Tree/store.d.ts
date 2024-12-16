@@ -1,5 +1,4 @@
-import type { Accessor, Setter } from "solid-js";
-import { type JSXElement } from "solid-js";
+import type { Accessor, Setter, JSXElement } from "solid-js";
 import type { TreeProps } from ".";
 export declare type NodeKeyType = string | number;
 export interface TreeNode {
@@ -38,6 +37,7 @@ export declare class TreeStore {
     setSelectedKey: Setter<NodeKeyType>;
     setSelected: Setter<NodeKeyType>;
     setValue: Setter<NodeKeyType[]>;
+    value: Accessor<NodeKeyType[]>;
     checkable: boolean;
     draggable: boolean;
     checkRelation: string;

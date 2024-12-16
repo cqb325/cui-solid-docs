@@ -282,7 +282,7 @@ export function Tabs (props: TabsProps) {
     }
 
     const observeIntersectionFunc = useDebounce(observeIntersection, 200);
-    const updateScroll = () => {
+    const updateScroll = useDebounce(() => {
         const prop = (align === 'top' || align === 'bottom') ? 'width' : 'height';
         const scrollWidth = scroll.getBoundingClientRect()[prop];
         const headerWidth = header.getBoundingClientRect()[prop];
@@ -298,7 +298,7 @@ export function Tabs (props: TabsProps) {
 
         // 是否被遮盖
         observeIntersectionFunc();
-    }
+    }, 100);
 
     // 更新下线的移动位置
     const lineStyle = () => {

@@ -56,7 +56,7 @@ export interface IMeasuredDataMap {
     [key: number]: MeasuredData
 }
 
-export function VirtualList(props: VirtualListProps) {
+export function VirtualList (props: VirtualListProps) {
     insertGlobalStylesheet();
     let scrollElement: any;
     let contentElement: any;

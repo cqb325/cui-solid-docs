@@ -136,6 +136,7 @@ export function Select (props: SelectOptions) {
     createEffect(() => {
         const val = untrack(() => value());
         setStore("list", newData());
+        const labels: string[] = [];
         setStore(
             'list',
             item => item,
@@ -145,8 +146,12 @@ export function Select (props: SelectOptions) {
                 } else {
                     item._checked = val === item[valueField];
                 }
+                if (item._checked) {
+                    labels.push(item);
+                }
             }),
         );
+        setShowLabels(labels);
     })
 
     // 将选中的数据同步至store的数据项中

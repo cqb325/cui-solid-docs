@@ -77,6 +77,7 @@ export function TreeSelect (props: TreeSelectProps) {
 
     createMemo(() => {
         let vals = value();
+        props.data;
         if (props.multi) {
             if (typeof vals === 'string') {
                 vals = vals.split(',');

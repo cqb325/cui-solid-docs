@@ -1,14 +1,13 @@
-export function useDebounce(func: Function, delay: number) {
+export function useDebounce (func: (...args: any[]) => void, delay: number) {
     let timer: any = null;
 
-    return function () {
+    return function (...rest: any[]) {
         if (timer) {
             clearTimeout(timer);
         }
-        const args = arguments;
         timer = setTimeout(() => {
             timer = null;
-            func?.(...args);
+            func?.(...rest);
         }, delay);
     }
 }

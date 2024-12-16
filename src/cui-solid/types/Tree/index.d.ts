@@ -1,5 +1,4 @@
-import type { Signal } from 'solid-js';
-import { type JSXElement } from 'solid-js';
+import type { Signal, JSXElement } from 'solid-js';
 import type { TreeCheckMod, TreeNode } from './store';
 export * from './store';
 export declare type NodeKeyType = string | number;
