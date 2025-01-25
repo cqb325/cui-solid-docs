@@ -138,7 +138,9 @@ export function Slider (props: SliderProps) {
 
         const railRect = rail.getBoundingClientRect();
         const allW = railRect.width;
-        const v = toFixed(Math.round(x / allW * (max - min) / step + min) * step);
+        const stepNum = Math.round(x / allW * (max - min) / step);
+        const v = toFixed(stepNum * step + min);
+        // const v = toFixed(Math.round(x / allW * (max - min) / step + min) * step);
 
         let val = value();
 

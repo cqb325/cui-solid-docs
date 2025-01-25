@@ -19,5 +19,6 @@ export interface ValueProps {
     query?: Signal<any>;
     showMore?: boolean;
     onDeleteLastValue?: () => void;
+    tagRender?: (item: any) => string | number | JSXElement;
 }
 export declare function Value(props: ValueProps): import("solid-js").JSX.Element;

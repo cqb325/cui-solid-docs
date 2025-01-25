@@ -77,7 +77,13 @@ export declare class CascaderStore {
     updateNodeCheckStatus: (nodeId: CascaderNode | NodeKeyType | undefined) => void;
     checkNode: (nodeId: CascaderNode | NodeKeyType, checked: boolean) => void;
     setCheckedForwardDown: (node: CascaderNode, checked: boolean) => void;
-    getNodeChecked: (nodeId: CascaderNode | NodeKeyType) => boolean | "indeterminate" | undefined;
+    willCheckedForwardDownNum: (node: CascaderNode, checked: boolean, addNum: {
+        num: number;
+    }) => void;
+    getNodeChecked: (nodeId: CascaderNode | NodeKeyType, withoutSelf?: boolean | undefined) => boolean | "indeterminate" | undefined;
+    willCheckedForwardUpNum: (node: CascaderNode, addNum: {
+        num: number;
+    }) => void;
     setCheckedForwardUp: (node: CascaderNode) => void;
     checkAll: () => void;
     uncheckAll: () => void;

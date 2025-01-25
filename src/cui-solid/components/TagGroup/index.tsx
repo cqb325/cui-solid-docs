@@ -196,7 +196,7 @@ export function TagGroup (props: TagGroupProps) {
         </Show>
         <Show when={store.hide.length}>
             <Show when={props.showMore} fallback={<Tag class="cm-tag-more"><span>+</span>{store.hide.length}</Tag>}>
-                <Popover class="cm-tag-group-more-popover" align={tooltipAlign} arrow color={tooltipTheme}
+                <Popover class="cm-tag-group-more-popover" align={tooltipAlign} arrow theme={tooltipTheme}
                     trigger={tooltipTrigger} style={props.tooltipStyle} content={
                     <div class="cm-tag-group-more-wrap">
                         <For each={store.hide}>

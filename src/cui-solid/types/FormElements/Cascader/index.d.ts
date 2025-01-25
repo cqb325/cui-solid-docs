@@ -34,6 +34,8 @@ export interface CascaderProps {
     placeholder?: string;
     asFormField?: boolean;
     loadData?: (item: any) => Promise<any>;
+    tagRender?: (item: any) => string | number | JSXElement;
+    beforeChecked?: (item: any, checked: boolean) => boolean;
 }
 export declare function Cascader(props: CascaderProps): import("solid-js").JSX.Element;
 export declare const useCascaderContext: () => unknown;

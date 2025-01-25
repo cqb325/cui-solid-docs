@@ -44,6 +44,8 @@ export interface CascaderProps {
     placeholder?: string,
     asFormField?: boolean
     loadData?: (item: any) => Promise<any>
+    tagRender?: (item: any) => string | number | JSXElement
+    beforeChecked?: (item: any, checked: boolean) => boolean
 }
 
 const CascaderContext = createContext();
@@ -228,7 +230,7 @@ export function Cascader (props: CascaderProps) {
                 <Show when={props.triggerRender} fallback={
                     <Value prepend={props.prepend} text={text()} showMore={props.showMore} showMax={props.showMax} onClear={onClear} clearable={props.clearable}
                         placeholder={props.placeholder} disabled={props.disabled} size={props.size} multi={props.multi}
-                        query={[query, setQuery]} filter={props.filter} onDeleteLastValue={onDeleteLastValue}/>
+                        query={[query, setQuery]} filter={props.filter} onDeleteLastValue={onDeleteLastValue} tagRender={props.tagRender}/>
                         }>
                     <span class="cm-cascader-trigger">{props.triggerRender?.(text(), store.value())}</span>
                 </Show>

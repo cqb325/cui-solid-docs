@@ -24,6 +24,7 @@ export interface ValueProps {
     query?: Signal<any>
     showMore?: boolean,
     onDeleteLastValue?: () => void
+    tagRender?: (item: any) => string | number | JSXElement
 }
 
 export function Value (props: ValueProps) {
@@ -51,7 +52,7 @@ export function Value (props: ValueProps) {
         })
         if (props.multi && props.text && props.text instanceof Array) {
             return props.text.map((item: any, index: number) => {
-                return {id: item.id, title: item.title};
+                return {id: item.id, title: props.tagRender ? props.tagRender(item) : item.title};
             })
         }
         return [];

@@ -243,8 +243,17 @@ export class CascaderStore {
 
     checkNode = (nodeId: CascaderNode | NodeKeyType, checked: boolean) => {
         const node = this._getNode(nodeId);
+        if (this.props.beforeChecked) {
+            const result = this.props.beforeChecked(node, checked);
+            if (result === false) {
+                return;
+            }
+        }
         if (checked) {
-            if (this.props.max && this.value().length >= this.props.max) {
+            const addNum = {num: 0};
+            this.willCheckedForwardDownNum(node, checked, addNum);
+            this.willCheckedForwardUpNum(node, addNum);
+            if (this.props.max && (this.value().length + addNum.num + 1) > this.props.max) {
                 this.props.onExceed?.();
                 return;
             }
@@ -272,7 +281,19 @@ export class CascaderStore {
         }
     }
 
-    getNodeChecked = (nodeId: CascaderNode | NodeKeyType) => {
+    willCheckedForwardDownNum = (node: CascaderNode, checked: boolean, addNum: {num: number}) => {
+        if (node.children) {
+            node.children.forEach(item => {
+                if (item.disabled) return;
+                if (!item.checked) {
+                    addNum.num ++;
+                    this.willCheckedForwardDownNum(item, checked, addNum);
+                }
+            });
+        }
+    };
+
+    getNodeChecked = (nodeId: CascaderNode | NodeKeyType, withoutSelf?: boolean) => {
         const node = this._getNode(nodeId);
         if (!node.children || node.children.length === 0) {
             return node.checked;
@@ -293,10 +314,27 @@ export class CascaderStore {
             } else if (checkedNum > 0) {
                 checked = 'indeterminate';
             }
+            // 假设已选中自身，计算勾选数量使用
+            if (withoutSelf) {
+                if (checkedNum + 1 === node.children.length) {
+                    checked = true;
+                }
+            }
             if (!checked && indeterminateNum > 0) {
                 checked = 'indeterminate';
             }
             return checked;
+        }
+    }
+
+    willCheckedForwardUpNum = (node: CascaderNode, addNum: {num: number}) => {
+        const parentNode = node._parent;
+        if (parentNode) {
+            const checked: boolean | 'indeterminate' | undefined = this.getNodeChecked(parentNode, true);
+            if (parentNode.checked !== checked) {
+                addNum.num ++;
+                this.willCheckedForwardUpNum(parentNode, addNum);
+            }
         }
     }
 

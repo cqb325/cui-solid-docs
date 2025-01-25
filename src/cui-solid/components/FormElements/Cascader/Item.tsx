@@ -63,7 +63,7 @@ export function Item (props: any) {
     return <div classList={classList()} onClick={onClick}
         onMouseEnter={props.trigger === 'hover' ? onMouseEnter : undefined}>
         {props.data.icon}
-        {ctx.multi ? <InnerCheckbox disabled={props.data.disabled} checked={props.data.checked} onChange={onCheckChange}/> : null}
+        {ctx.multi && props.data.checkable !== false ? <InnerCheckbox disabled={props.data.disabled} checked={props.data.checked} onChange={onCheckChange}/> : null}
         <span class="cm-cascader-text">{props.data[titleField]}</span>
         <Show when={(props.data.children && props.data.children.length) || props.data.loading}>
             <Show when={loading()} fallback={<FeatherChevronRight class="cm-menu-submenu-cert"/>}>

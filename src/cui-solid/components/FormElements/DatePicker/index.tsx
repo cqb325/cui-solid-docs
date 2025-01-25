@@ -1,5 +1,5 @@
 import type { JSXElement, Signal} from "solid-js";
-import { Match, Show, Switch, createContext, createEffect, useContext, createSignal, createMemo, untrack } from "solid-js";
+import { Match, Show, Switch, createContext, createEffect, useContext, createSignal, createMemo } from "solid-js";
 import { Dropdown } from "../../Dropdown";
 import { useClassList } from "../../utils/useProps"
 import { Value } from "../../inner/Value";
@@ -102,6 +102,12 @@ export function Datepicker (props: DatepickerProps) {
                     next.setMonth(next.getMonth() + 1);
                     currentMonth = [prev, next];
                 }
+            } else if (val instanceof Date) {
+                val = dayjs(val).toDate();
+                const prev = new Date(val);
+                const next = new Date(val);
+                next.setMonth(next.getMonth() + 1);
+                currentMonth = [prev, next];
             } else {
                 let prev: Date = new Date(); let next: Date = new Date();
                 if (val instanceof Array) {
