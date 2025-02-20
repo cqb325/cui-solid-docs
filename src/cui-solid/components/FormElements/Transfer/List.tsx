@@ -14,6 +14,7 @@ export interface TransferListProps {
     store?: any,
     setStore: SetStoreFunction<TransferStore>,
     name?: string,
+    title?: string,
     value?: any[],
     onSelect: (item: any, checked: boolean) => void,
     render?: (item: any) => any,
@@ -24,6 +25,7 @@ export function List (props: TransferListProps) {
         width: props.width ? `${props.width}px` : '',
         height: props.height ? `${props.height}px` : '',
     })
+    const title = props.title ?? (props.name === 'source' ? '源列表' : '目标列表');
     const data = () => {
         const v = props.value || [];
         const map: any = {};
@@ -122,7 +124,7 @@ export function List (props: TransferListProps) {
             <BothSide>
                 <div>
                     <InnerCheckbox checked={isCheckedAll()} onChange={onCheckedAll}/>
-                    <span>{props.name === 'source' ? '源列表' : '目标列表'}</span>
+                    <span>{title}</span>
                 </div>
                 <div class="">{countInfo()}</div>
             </BothSide>

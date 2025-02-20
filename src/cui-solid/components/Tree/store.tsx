@@ -1,5 +1,5 @@
 import type { Accessor, Setter, JSXElement} from "solid-js";
-import { createEffect, createSignal } from "solid-js";
+import { createEffect, createSignal, untrack } from "solid-js";
 import { createStore, produce } from "solid-js/store";
 import type { TreeProps } from ".";
 import createModel from "../utils/createModel";
@@ -101,10 +101,10 @@ export class TreeStore {
         this.buildRelation(this.data, null, 0);
         this.setRootFlatNodes();
         if (this.checkable) {
-            const val = this.value();
+            const val = untrack(() => this.value());
             this.setCheckedByMod(val);
         } else {
-            const nodeId = this.selectedKey();
+            const nodeId = untrack(() => this.selectedKey());
             this.selectNode(nodeId, true);
         }
     }

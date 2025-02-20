@@ -3,7 +3,6 @@ import { createEffect, createMemo, For, onCleanup, onMount } from "solid-js"
 import { Cell } from "./Cell"
 import { Colgroup } from "./Colgroup"
 import type { ColumnProps, TableStore } from "."
-import { useDebounce } from "../utils/useDebounce";
 
 export interface SummaryProps {
     data: TableStore
@@ -50,7 +49,7 @@ export function Summary (props: SummaryProps) {
         }
     });
 
-    const onEntryResize = useDebounce((entry: ResizeObserverEntry) => {
+    const onEntryResize = (entry: ResizeObserverEntry) => {
         const el = entry.target;
         if (el.classList.contains("cm-table-summary")) {
             const rect = el.getBoundingClientRect();
@@ -71,7 +70,7 @@ export function Summary (props: SummaryProps) {
                 }
             })
         }
-    }, 100);
+    };
 
     onMount(() => {
         const ro = new ResizeObserver((entries) => {

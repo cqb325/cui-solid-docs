@@ -44,8 +44,8 @@ export function Pagination (props: PaginationProps) {
     const current = () => props.current;
     const total = () => props.total ?? 0;
     const pageSize = () => props.pageSize ?? 10;
-    const innerNear = props.innerNear ?? 2;
-    const startEndShowNum = props.startEndShowNum ?? 2;
+    const PAGE_SHOW_MAX = 7;
+    const REST_PAGE_MAX_SIZE = 5;
     const showNums = props.showNums ?? true;
     const showTotal = props.showTotal ?? true;
     const ps = props.pages ?? pages;
@@ -121,52 +121,85 @@ export function Pagination (props: PaginationProps) {
         }
     }
 
-    /**
-     * 获取中间显示的页号
-     * @method _getInner
-     * @returns {{start: number, end: number}}
-     * @private
-     */
-    function _getInner () {
-        const pages = _calcPage();
-        const start = current() > startEndShowNum + innerNear + 1 ? current() - innerNear : startEndShowNum + 1;
-        const end = current() + innerNear + startEndShowNum >= pages ? pages - startEndShowNum : current() + innerNear;
-        return {start, end};
+    function getPageNumbers () {
+        let pageList = [];
+        let restLeftPageList: number[] = []; // pages before ...
+        let restRightPageList: number[] = []; // pages after ...
+        /** Pager truncation logic (t is the total number of pages, c is the current page):
+            - No need to truncate when t<=7 pages
+            - When t>7
+                - When c<4, the fourth is a truncation symbol (...)
+                - When c=4, the sixth is the truncation symbol (...)
+                - When 4<c<t-3, the second and sixth are truncation symbols (...)
+                - When t-3<=c<=t, the second is the truncation symbol (...), followed by the 5th from the bottom-the 1st from the bottom
+            Truncation character + number, the total number is 7
+
+            分页器截断逻辑（t为总页数，c为当前页）：
+            - t<=7 页的时候不需要截断
+            - 当 t>7 时
+                - 当 c<4 时，第4个为截断符号（...）
+                - 当 c=4 时，第6个为截断符号（...）
+                - 当 4<c<t-3 时，第2个与第6个为截断符号（...）
+                - 当 t-3<=c<=t 时，第 2 个为截断符号（...），后面为倒数第5个-倒数第1个
+            截断符+数字 总共个数为7个
+        */
+        const totalPageNum = _calcPage();
+        if (totalPageNum <= PAGE_SHOW_MAX) {
+            pageList = Array.from({ length: totalPageNum }, (v, i) => i + 1);
+            restLeftPageList = [];
+            restRightPageList = [];
+        } else {
+            switch (true) {
+                case current() < 4:
+                    pageList = [1, 2, 3, 4, '•••', totalPageNum - 1, totalPageNum];
+                    restRightPageList = Array.from({ length: Math.min(totalPageNum - 6, REST_PAGE_MAX_SIZE) }, (v, i) => i + 5);
+                    restLeftPageList = [];
+                    break;
+                case current() === 4:
+                    pageList = [1, 2, 3, 4, 5, '•••', totalPageNum];
+                    restRightPageList = Array.from({ length: Math.min(totalPageNum - 6, REST_PAGE_MAX_SIZE) }, (v, i) => i + 6);
+                    restLeftPageList = [];
+                    break;
+                case 4 < current() && current() < totalPageNum - 3: {
+                    const middleNumbers = Array.from(
+                        { length: 3 },
+                        (v, i) => current() + (i - 1)
+                    );
+                    pageList = ([1] as any[]).concat('•••', middleNumbers, '•••', totalPageNum);
+                    // length: total-(currentPage+1)-1
+                    restRightPageList = Array.from(
+                        { length: Math.min(totalPageNum - current() - 2, REST_PAGE_MAX_SIZE) },
+                        (v, i) => current() + i + 2
+                    );
+                    restLeftPageList = Array.from({ length: Math.min(current() - 3, REST_PAGE_MAX_SIZE) }, (v, i) => i + 2);
+                    break;
+                }
+                case current() - 3 <= current() && current() <= totalPageNum: {
+                    const right = Array.from({ length: 5 }, (v, i) => totalPageNum - (4 - i));
+                    pageList = [1, '•••' as const].concat(right);
+                    restRightPageList = [];
+                    restLeftPageList = Array.from({ length: Math.min(right[0] - 2, REST_PAGE_MAX_SIZE) }, (v, i) => i + 2);
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+        return { pageList, restLeftPageList, restRightPageList };
     }
 
     function rednderItems () {
         if (!showNums) {
             return null;
         }
-        const pages = _calcPage();
-        const pagerList = [];
-        const interval = _getInner();
+        const pagerList: any[] = [];
+        const pageNumbers = getPageNumbers();
 
         const cur = current();
-        for (let i = 1; i <= startEndShowNum; i++) {
-            const active = cur === i;
-            pagerList.push(<PageItem active={active} onClick={_handleChange.bind(null, i)} currentIndex={i} />);
-        }
-
-        if (cur > startEndShowNum + innerNear + 1){
-            pagerList.push(<li class="cm-pagination-num cm-pagination-ellipse"><span class="ellipse">•••</span></li>);
-        }
-        let start = interval.start;
-        const end = interval.end;
-
-        for (;start <= end; start++) {
-            const active = cur === start;
-            pagerList.push(<PageItem onClick={_handleChange.bind(null, start)} currentIndex={start} active={active} />);
-        }
-
-        if (cur + innerNear + startEndShowNum < pages){
-            pagerList.push(<li class="cm-pagination-num cm-pagination-ellipse"><span class="ellipse">•••</span></li>);
-        }
-
-        for (let i = pages - startEndShowNum + 1; i <= pages; i++) {
-            const active = cur === i;
-            pagerList.push(<PageItem active={active} onClick={_handleChange.bind(null, i)} currentIndex={i} />);
-        }
+        pageNumbers.pageList.forEach(number => {
+            const active = cur === number;
+            pagerList.push(<PageItem active={active} onClick={_handleChange.bind(null, number)} currentIndex={number} />);
+        })
         return pagerList;
     }
 
@@ -174,11 +207,11 @@ export function Pagination (props: PaginationProps) {
         <Switch>
             <Match when={props.mini}>
                 <ul class="cm-pagination-num-list">
-                    <PagePrev current={current} onClick={prev} />
+                    <PagePrev current={current()} onClick={prev} />
                         <Input style={{ width: props.size === 'small' ? '35px' : '50px' }} class="mr-5"
                             value={[pageNum, setPageNum]} size={props.size} onChange={gotoPage} />
                         <span class="cm-pagination-mini-pages">/ {_calcPage()}</span>
-                    <PageNext current={current} onClick={next} disabled={current() === _calcPage()} />
+                    <PageNext current={current()} onClick={next} disabled={current() === _calcPage()} />
                 </ul>
             </Match>
             <Match when={!props.mini}>
@@ -186,9 +219,9 @@ export function Pagination (props: PaginationProps) {
                     <span class="cm-pagination-text mr-5">共{total()}条</span>
                 </Show>
                 <ul class="cm-pagination-num-list">
-                    <PagePrev current={current} onClick={prev} />
+                    <PagePrev current={current()} onClick={prev} />
                     {rednderItems()}
-                    <PageNext current={current} onClick={next} disabled={current() === _calcPage()} />
+                    <PageNext current={current()} onClick={next} disabled={current() === _calcPage()} />
                 </ul>
                 <Show when={showPage}>
                     <span class="cm-pagination-sizer">

@@ -36,14 +36,6 @@ export function Item (props: any) {
         }
         ctx && ctx.onSelect(props.data);
     }
-    // const activeItem = () => {
-    //     const vals = [];
-    //     for (let i = 0; i < props.level; i++) {
-    //         vals.push(store.selectedValue[i]);
-    //     }
-    //     vals[props.level] = props.data.value;
-    //     setStore('selectedValue', vals);
-    // }
 
     let timer: any = null;
     const onMouseEnter = () => {
@@ -60,15 +52,17 @@ export function Item (props: any) {
         store.checkNode(props.data[valueField], checked);
     }
 
-    return <div classList={classList()} onClick={onClick}
-        onMouseEnter={props.trigger === 'hover' ? onMouseEnter : undefined}>
-        {props.data.icon}
-        {ctx.multi && props.data.checkable !== false ? <InnerCheckbox disabled={props.data.disabled} checked={props.data.checked} onChange={onCheckChange}/> : null}
-        <span class="cm-cascader-text">{props.data[titleField]}</span>
-        <Show when={(props.data.children && props.data.children.length) || props.data.loading}>
-            <Show when={loading()} fallback={<FeatherChevronRight class="cm-menu-submenu-cert"/>}>
-                <Loading color="#1890ff"/>
+    return <Show when={props.data}>
+        <div classList={classList()} onClick={onClick}
+            onMouseEnter={props.trigger === 'hover' ? onMouseEnter : undefined}>
+            {props.data.icon}
+            {ctx.multi && props.data.checkable !== false ? <InnerCheckbox disabled={props.data.disabled} checked={props.data.checked} onChange={onCheckChange}/> : null}
+            <span class="cm-cascader-text">{props.data[titleField]}</span>
+            <Show when={(props.data?.children?.length) || props.data?.loading}>
+                <Show when={loading()} fallback={<FeatherChevronRight class="cm-menu-submenu-cert"/>}>
+                    <Loading color="#1890ff"/>
+                </Show>
             </Show>
-        </Show>
-    </div>
+        </div>
+    </Show>
 }

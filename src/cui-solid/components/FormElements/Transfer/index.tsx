@@ -16,6 +16,8 @@ export interface TransferProps {
     data?: any[],
     rightText?: string,
     leftText?: string,
+    sourceTitle?: string,
+    targetTitle?: string,
     value?: any[] | Signal<any>,
     filter?: boolean,
     asFormField?: boolean
@@ -80,12 +82,12 @@ export function Transfer (props: TransferProps) {
 
     return <div classList={classList()} style={props.style}>
         <List width={props.width} height={props.height} store={store} setStore={setStore} name="source"
-            value={value()} onSelect={onSelect} filter={props.filter} render={props.render}/>
+            value={value()} onSelect={onSelect} filter={props.filter} render={props.render} title={props.sourceTitle}/>
         <div class="cm-transfer-operation">
             <Button disabled={store.sourceDisabled} icon={<FeatherChevronRight size={14}/>} size="small" onClick={transferToTarget}>{rightText}</Button>
             <Button disabled={store.targetDisabled} icon={<FeatherChevronLeft size={14}/>} size="small" onClick={transferToSource}>{leftText}</Button>
         </div>
         <List width={props.width} height={props.height} store={store} setStore={setStore} name="target"
-            value={value()} onSelect={onSelect} filter={props.filter} render={props.render}/>
+            value={value()} onSelect={onSelect} filter={props.filter} render={props.render} title={props.targetTitle}/>
     </div>
 }

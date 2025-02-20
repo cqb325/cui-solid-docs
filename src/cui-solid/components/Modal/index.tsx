@@ -263,8 +263,7 @@ function ModalFun () {
     return {
         open (config: ModalConfig) {
             const [visible, setVisible] = createSignal(false);
-            let icon = null;
-            icon = ()=> createComponent(icons[config.status!], {class: `cm-modal-icon-${config.status}`, size: 24})
+            const icon = () => icons[config.status as any] ? createComponent(icons[config.status!], {class: `cm-modal-icon-${config.status}`, size: 24}) : null;
             const close = () => {
                 setTimeout(() => {
                     disposeFn?.()
@@ -279,11 +278,13 @@ function ModalFun () {
             })
 
             disposeFn = ele ? render(() => <Modal {...config} visible={[visible, setVisible]} onClosed={() => close()} class="cm-modal-instance">
-                <div class="cm-modal-left">
-                    <div class="cm-modal-icon">
-                        {icon()}
+                <Show when={icons[config.status as any]}>
+                    <div class="cm-modal-left">
+                        <div class="cm-modal-icon">
+                            {icon()}
+                        </div>
                     </div>
-                </div>
+                </Show>
                 <div class="cm-modal-right">
                     {typeof config.content === 'function' ? config.content() : config.content}
                 </div>

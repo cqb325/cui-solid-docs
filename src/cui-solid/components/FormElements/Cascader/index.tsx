@@ -70,7 +70,8 @@ export function Cascader (props: CascaderProps) {
 
     const text = () => {
         const vals = store.value();
-        const arr = vals ? vals.map((val: any) => {
+        const newVals = vals?.filter(val => store.store.nodeMap[val]);
+        const arr = newVals ? newVals.map((val: any) => {
             const item = store.store.nodeMap[val];
             return props.multi ? item: item[titleField];
         }) : [];

@@ -8,6 +8,8 @@ export interface TransferProps {
     data?: any[];
     rightText?: string;
     leftText?: string;
+    sourceTitle?: string;
+    targetTitle?: string;
     value?: any[] | Signal<any>;
     filter?: boolean;
     asFormField?: boolean;

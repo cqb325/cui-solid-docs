@@ -80,8 +80,8 @@ export function Cell (props: any) {
     // 树型图标
     const treeIcon = () => {
         return props.data._showChildren
-            ? <FeatherMinusSquare class="cm-table-tree-icon" onClick={onShowChildren}/>
-            : <FeatherPlusSquare class="cm-table-tree-icon" onClick={onShowChildren}/>;
+            ? <FeatherMinusSquare class="cm-table-tree-icon" strokeWidth={1} onClick={onShowChildren}/>
+            : <FeatherPlusSquare class="cm-table-tree-icon" strokeWidth={1} onClick={onShowChildren}/>;
     }
 
     // 选择框选择事件
@@ -183,7 +183,7 @@ export function Cell (props: any) {
                     </Show>
                     <Show when={col.ellipsis || col.tooltip} fallback={text()}>
                         <Show when={col.tooltip} fallback={<span class="cm-table-cell-ellipsis">{text()}</span>}>
-                            <Popover arrow align={col.tooltipAlign || 'top'} color={col.tooltipTheme}
+                            <Popover arrow align={col.tooltipAlign || 'top'} theme={col.tooltipTheme}
                                 class="cm-table-cell-tooltip"
                                 style={{...col.tooltipStyle, "max-width": `${col.tooltipMaxWidth || 200}px`}}
                                 content={<div>{text()}</div>}>

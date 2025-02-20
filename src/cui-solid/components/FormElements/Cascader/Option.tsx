@@ -1,5 +1,5 @@
 import { useCascaderContext } from ".";
-import { CascaderNode, CascaderStore, NodeKeyType } from "./store";
+import type { CascaderNode, CascaderStore, NodeKeyType } from "./store";
 
 export interface OptionProps {
     data: CascaderNode[]
@@ -31,6 +31,7 @@ export function Option (props: OptionProps) {
 
     const classList = () => ({
         'cm-cascader-item': true,
+        'cm-cascader-item-checked': props.data[props.data.length - 1].checked,
         'cm-cascader-item-disabled': props.data[props.data.length - 1].disabled
     })
     return <div classList={classList()} onClick={onClick}>

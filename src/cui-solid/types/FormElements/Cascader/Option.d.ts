@@ -1,4 +1,4 @@
-import { CascaderNode, CascaderStore } from "./store";
+import type { CascaderNode, CascaderStore } from "./store";
 export interface OptionProps {
     data: CascaderNode[];
     seperator: string;

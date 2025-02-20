@@ -13,7 +13,7 @@ export function Menu (props: any) {
         }>
             <For each={data()}>
                 {(item: any) => {
-                    return <Item trigger={props.trigger} data={props.store.store.nodeMap[item]}
+                    return props.store.store.nodeMap[item] && <Item trigger={props.trigger} data={props.store.store.nodeMap[item]}
                         store={props.store} level={props.level} />;
                 }}
             </For>

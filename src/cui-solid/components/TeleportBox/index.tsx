@@ -185,6 +185,7 @@ export function TeleportBox (props: TeleportBoxProps) {
             vals.push(item.value);
         }
         setValue(vals);
+        props.onChange?.(vals);
     }
 
     const renderSourceList = () => {

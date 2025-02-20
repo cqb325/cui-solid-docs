@@ -1,5 +1,5 @@
 import type { Accessor, Setter} from "solid-js";
-import { createEffect, createSignal, type JSXElement } from "solid-js";
+import { createEffect, createSignal, untrack, type JSXElement } from "solid-js";
 import { createStore, produce } from "solid-js/store";
 import type { CascaderProps } from ".";
 import createField from "../../utils/createField";
@@ -79,6 +79,18 @@ export class CascaderStore {
                 this.init(props.data);
                 this.valMap['__'] = this.data.map(item => item[this.valueField]);
             }
+            const selectedKeys = untrack(() => selectedKey());
+            const newVals = selectedKeys?.filter(key => store.nodeMap[key]);
+            if (newVals?.length !== selectedKeys?.length) {
+                setSelectedKey(newVals);
+            }
+            if (props.multi) {
+                untrack(() => {
+                    const vals = value();
+                    const newVals = vals?.filter(key => store.nodeMap[key]) || [];
+                    setValue(newVals);
+                })
+            }
         })
 
         // 外部修改selected值进行同步
@@ -106,18 +118,22 @@ export class CascaderStore {
         // 外部修改selected值进行同步
         createEffect(() => {
             const val = value();
-            if (props.multi) {
-                this.setCheckedByMod(val);
-            } else {
-                setSelectedKey(val || []);
-            }
+            untrack(() => {
+                if (props.multi) {
+                    this.setCheckedByMod(val);
+                } else {
+                    setSelectedKey(val || []);
+                }
+            })
         })
     }
 
     init (data: any[]) {
         this.data = data;
         this.flatData = this.getAllFlatNodes(this.data);
-        this.setStore('nodeMap', {});
+        this.setStore('nodeMap', produce((map: Record<NodeKeyType, CascaderNode>) => {
+            Object.keys(map).forEach(key => delete map[key]);
+        }));
         this.setStore('filteredList', []);
         this.buildRelation(this.data, null, 0);
     }
@@ -495,6 +511,7 @@ export class CascaderStore {
     setCheckedByHalf = (val: NodeKeyType[]) => {
         val.forEach((key: NodeKeyType) => {
             const node = this._getNode(key);
+            if (!node) return;
             if (!node.children || node.children.length === 0) {
                 this.setStore('nodeMap', key, produce((n: CascaderNode) =>{
                     n.checked = true;
@@ -507,6 +524,7 @@ export class CascaderStore {
     setCheckedByChild = (val: NodeKeyType[]) => {
         val.forEach((key: NodeKeyType) => {
             const node = this._getNode(key);
+            if (!node) return;
             if (!node.children || node.children.length === 0) {
                 this.setStore('nodeMap', key, produce((n: CascaderNode) =>{
                     n.checked = true;

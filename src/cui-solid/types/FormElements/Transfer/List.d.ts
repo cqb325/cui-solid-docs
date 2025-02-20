@@ -6,6 +6,7 @@ export interface TransferListProps {
     store?: any;
     setStore: SetStoreFunction<TransferStore>;
     name?: string;
+    title?: string;
     value?: any[];
     onSelect: (item: any, checked: boolean) => void;
     render?: (item: any) => any;
