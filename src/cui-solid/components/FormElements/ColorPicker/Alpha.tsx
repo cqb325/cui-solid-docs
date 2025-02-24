@@ -2,7 +2,7 @@ import { createEffect, createSignal, onCleanup } from "solid-js";
 import { toRGBAString } from "./utils";
 import { isServer } from "solid-js/web";
 
-export function Alpha(props: any) {
+export function Alpha (props: any) {
     const [left, setLeft] = createSignal(props.value.hsl.a * 100);
 
     const gradientStyle = () => {

@@ -6,9 +6,11 @@ export interface DrawerProps {
     align?: 'right' | 'left' | 'top' | 'bottom';
     size?: number;
     title?: string | JSXElement;
+    footer?: string | JSXElement;
     maskCloseable?: boolean;
     children?: JSXElement;
     hasClose?: boolean;
+    closeIcon?: JSXElement;
     escClose?: boolean;
     onClose?(): void;
     onShow?(): void;

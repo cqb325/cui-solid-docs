@@ -24,7 +24,7 @@ function NoticePanel (props: any) {
     const [closed, setClosed] = createSignal(false);
     let wrap: any;
     const data: NoticeConfig = props.data;
-    const { style, icon, btn, theme, title, content } = data;
+    const { style, icon, btn, theme, title, content, closeIcon } = data;
     const ic = () => icon === undefined ? (icons[theme!] ? createComponent(icons[theme!], {class: `cm-notice-icon-${theme}`}) : null) : icon;
     const hasIcon = () => icon || (icon === undefined ? icons[theme!] : null);
     const classList = () => useClassList(props, 'cm-notification-item', {
@@ -73,7 +73,9 @@ function NoticePanel (props: any) {
                 <Show when={title}>
                     <div class="cm-notification-head">
                         {title}
-                        <a class="cm-notification-close" onClick={hide}><FeatherX/></a>
+                        <a class="cm-notification-close" onClick={hide}>
+                            {closeIcon ?? <FeatherX/>}
+                        </a>
                     </div>
                 </Show>
                 <div class="cm-notification-body">{content}</div>

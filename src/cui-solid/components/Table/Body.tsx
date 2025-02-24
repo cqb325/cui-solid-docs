@@ -99,6 +99,7 @@ export function Body (props: BodyProps) {
     createEffect(() => {
         // 数据改变也需要重刷
         props.data.data;
+        props.height;
         const hh = props.data.headerSize.height;
         const summaryH = props.data.summarySize.height;
 
@@ -113,6 +114,9 @@ export function Body (props: BodyProps) {
                     const bodyH = props.height - hh - summaryH;
                     setHeight(bodyH);
                 }
+                if (!props.height) {
+                    setHeight(undefined);
+                }
             });
         }
     })
@@ -123,7 +127,7 @@ export function Body (props: BodyProps) {
     let contentElement: any;
     let bodyElement: any;
     return <div class="cm-table-body" ref={body} onScroll={handleScroll}
-        style={{display: 'block', 'width': '100%', overflow: 'auto', height: height() + 'px', position: 'relative'}}>
+        style={{display: 'block', 'width': '100%', overflow: 'auto', height: height() ? height() + 'px' : 'auto', position: 'relative'}}>
         <Switch>
             <Match when={props.virtual}>
                 <div ref={contentElement} style={{'min-width': '100%', width: width() + 'px', 'will-change': 'transform', 'box-sizing': 'border-box', 'contain': 'strict',

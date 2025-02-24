@@ -2,7 +2,7 @@ import { onCleanup } from "solid-js";
 import { clamp } from "./utils";
 import { isServer } from "solid-js/web";
 
-export function Saturation(props: any) {
+export function Saturation (props: any) {
     let container: any;
     const handleMouseDown = (e: any) => {
         if (isServer) return;
@@ -31,10 +31,10 @@ export function Saturation(props: any) {
         e.stopPropagation();
 
         const { clientWidth, clientHeight } = container;
-        const xOffset = container.getBoundingClientRect().left + window.screenX;
-        const yOffset = container.getBoundingClientRect().top + window.screenY;
-        const left = clamp(e.clientX - xOffset, 0, clientWidth);
-        const top = clamp(e.clientY - yOffset, 0, clientHeight);
+        const xOffset = container.getBoundingClientRect().left + window.pageXOffset;
+        const yOffset = container.getBoundingClientRect().top + window.pageYOffset;
+        const left = clamp(e.pageX - xOffset, 0, clientWidth);
+        const top = clamp(e.pageY - yOffset, 0, clientHeight);
         const saturation = left / clientWidth;
         const bright = clamp(1 - top / clientHeight, 0, 1);
 

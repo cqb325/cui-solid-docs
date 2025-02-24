@@ -12,9 +12,11 @@ export interface DrawerProps {
     align?: 'right'|'left'|'top'|'bottom'
     size?: number
     title?: string | JSXElement
+    footer?: string | JSXElement
     maskCloseable?: boolean
     children?: JSXElement
     hasClose?: boolean
+    closeIcon?: JSXElement
     escClose?: boolean
     onClose?(): void
     onShow?(): void
@@ -88,11 +90,20 @@ export function Drawer (props: DrawerProps) {
                 </div>
             </Show>
             <Show when={props.hasClose ?? true}>
-                <FeatherX class="cm-drawer-close" onClick={onClose}/>
+                <span class="cm-drawer-close">
+                    {
+                        props.closeIcon ?? <FeatherX onClick={onClose}/>
+                    }
+                </span>
             </Show>
             <div class="cm-drawer-body">
                 {destroyed() ? null : props.children}
             </div>
+            <Show when={props.footer}>
+                <div class="cm-drawer-footer">
+                    {props.footer}
+                </div>
+            </Show>
         </div>
     </div>
 }

@@ -49,6 +49,11 @@ export function ColorPicker (props: ColorPickerProps) {
         colorChange(data);
     }
 
+    const onColorChange2 = (data: any) => {
+        oldHue = val().hsl.h;
+        setValue(changeColor(data, oldHue));
+    }
+
     const colorChange = (data: any, _oldHue?: any) => {
         oldHue = val().hsl.h;
         setVal(changeColor(data, _oldHue || oldHue));
@@ -74,10 +79,10 @@ export function ColorPicker (props: ColorPickerProps) {
         }
     })
 
-    createEffect(() => {
-        const v = changeColor(confirmVal());
-        setVal(v);
-    })
+    const onConfirmChange = (v: string) => {
+        const color = changeColor(v);
+        setVal(color);
+    }
 
     const renderMain = () => {
         return <Space dir="v">
@@ -91,7 +96,7 @@ export function ColorPicker (props: ColorPickerProps) {
             </Show>
             <div class="cm-color-picker-confirm">
                 <Space dir="h">
-                    <Input size="small" class="cm-color-picker-input" value={[confirmVal, setConfirmVal]}/>
+                    <Input size="small" class="cm-color-picker-input" value={[confirmVal, setConfirmVal]} onChange={onConfirmChange}/>
                     <Button size="small" type="default" onClick={onClear}>清除</Button>
                     <Button size="small" type="primary" onClick={onConfirm}>确定</Button>
                 </Space>

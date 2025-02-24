@@ -5,7 +5,7 @@ export interface TableProps {
     columns: any[];
     data: any[];
     rowKey?: string;
-    height?: number;
+    height?: number | 'fitContainer';
     classList?: any;
     class?: any;
     style?: any;

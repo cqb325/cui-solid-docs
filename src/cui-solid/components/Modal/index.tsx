@@ -55,6 +55,7 @@ export interface ModalProps {
     maskClosable?: boolean,
     resetPostion?: boolean,
     hasCloseIcon?: boolean
+    closeIcon?: JSXElement
     fullScreen?: boolean
     destroyOnClose?: boolean
 }
@@ -66,7 +67,7 @@ export function Modal (props: ModalProps) {
     const [visible, setVisible] = createModel(props, 'visible', false);
     const [loading, setLoading] = createSignal(false);
     const [opened, setOpened] = createSignal(visible());
-    const [destroyed, setDestroyed] = createSignal(props.destroyOnClose && !open());
+    const [destroyed, setDestroyed] = createSignal(props.destroyOnClose && !opened());
     let setOverflow = false;
     let originOverflow = '';
     const footerAlign = props.footerAlign ?? 'end';
@@ -230,7 +231,9 @@ export function Modal (props: ModalProps) {
                     <div class="cm-modal-header" style={props.headerStyle} data-id={`${modalId}`}>
                         { props.title ? <div class="cm-modal-title">{props.title}</div> : null }
                         <Show when={hasCloseIcon}>
-                            <span class="cm-modal-close" onClick={onClickClose}><FeatherX /></span>
+                            <span class="cm-modal-close" onClick={onClickClose}>
+                                {props.closeIcon ?? <FeatherX />}
+                            </span>
                         </Show>
                     </div>
                     <div class="cm-modal-body" style={props.bodyStyle}>

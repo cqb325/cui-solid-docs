@@ -2,6 +2,7 @@ import { createStore, produce } from "solid-js/store"
 import { render } from "solid-js/web";
 import usePortal from "../utils/usePortal";
 import { Messages } from "./Message";
+import type { JSXElement } from "solid-js";
 import { createUniqueId } from "solid-js";
 import usezIndex from "../utils/usezIndex";
 
@@ -13,6 +14,7 @@ export interface MessageProps {
     style?: any,
     content?: any,
     closeable?: boolean,
+    closeIcon?: JSXElement,
     background?: any,
     loading?: boolean,
     onClose?: (item?: any) => void

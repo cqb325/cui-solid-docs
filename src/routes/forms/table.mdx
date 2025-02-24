@@ -183,6 +183,13 @@ column 支持其他类型数据的格式化  `date`  `datetime` `enum`\
 :::
 
 
+:::demo[适配容器]{id='fitContainer' src='/form/table/24fitContainer.demo.tsx'}
+
+`height`设置为`fitContainer`，表格高度会自动适配容器高度,内容超过容器高度时，会固定表头
+
+:::
+
+
 
 ## 属性 \{#props\}
 
@@ -195,7 +202,7 @@ column 支持其他类型数据的格式化  `date`  `datetime` `enum`\
 |selectedRowKeys|勾选数据双向绑定|Signal||
 |columns|表头字段信息|Array||
 |data|数据体|Array||
-|height|表格最大高度，超出表头固定|number||
+|height|表格最大高度，超出表头固定|number &#124; fitContainer||
 |border|边框|boolean||
 |stripe|斑马条纹|boolean||
 |highlight|点击高亮选中的行|boolean||

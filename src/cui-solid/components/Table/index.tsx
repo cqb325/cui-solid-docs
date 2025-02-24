@@ -3,7 +3,7 @@ import { useClassList } from "../utils/useProps";
 import { Head } from "./Head";
 import { Body } from "./Body";
 import type { JSXElement, Signal} from "solid-js";
-import { Show, createContext, createEffect, onCleanup, onMount, untrack, useContext } from "solid-js";
+import { Show, createContext, createEffect, createSignal, onCleanup, onMount, untrack, useContext } from "solid-js";
 import { showHideChildren, sortHandler, addRemoveExpand,
     onResizeStart, onResizeMove, onResizeEnd, initColumns, updateScrollFixed, initData,
     observerSizeChange} from "./utils";
@@ -19,7 +19,7 @@ export interface TableProps {
     columns: any[],
     data: any[],
     rowKey?: string,
-    height?: number,
+    height?: number | 'fitContainer',
     classList?: any,
     class?: any,
     style?: any,
@@ -110,24 +110,10 @@ export function Table (props: TableProps) {
     const {maxFixedLeft, minFixedRight} = initColumns(props.columns);
     const rowKey = props.rowKey ?? 'id';
     const [selectedRowKeys, setSelectedRowKeys] = props.selectedRowKeys ? props.selectedRowKeys : [];
-
+    let titleEl: HTMLDivElement | undefined;
+    let footerEl: HTMLDivElement | undefined;
+    const [maxHeight, setMaxHeight] = createSignal<number|undefined>(props.height === 'fitContainer' ? undefined : props.height as number);
     let data: any[] = initData(props.data, rowKey);
-
-    // 传入的data变化
-    createEffect(() => {
-        data = initData(props.data, rowKey);
-        setStore('data', data);
-        setStore('checkedAll', false);
-    });
-
-    // 传入的columns变化
-    createEffect(() => {
-        const {maxFixedLeft, minFixedRight, columnsRows, calcColumns} = initColumns(props.columns);
-        setStore('columns', calcColumns);
-        setStore('columnsRows', columnsRows);
-        setStore('showFixedLeft', false);
-        setStore('showFixedRight', true);
-    });
 
     const [store, setStore] = createStore<TableStore>({
         columns: [],
@@ -150,6 +136,47 @@ export function Table (props: TableProps) {
             height: 0
         },
         headerLeft: 0,
+    });
+
+    const calculateMaxHeight = () => {
+        if (props.height === 'fitContainer') {
+            if (wrap) {
+                const container = wrap.parentElement;
+                const wrapHeight = container.getBoundingClientRect().height;
+                const titleHeight = titleEl?.getBoundingClientRect().height ?? 0;
+                const footerHeight = footerEl?.getBoundingClientRect().height ?? 0;
+                const body = wrap.querySelector('.cm-table-body-wrap');
+                const tolerenceHeight = wrapHeight - titleHeight - footerHeight;
+                const realHeight = body?.getBoundingClientRect().height + store.headerSize.height + store.summarySize.height;
+
+                if (realHeight > tolerenceHeight) {
+                    return tolerenceHeight;
+                } else {
+                    return undefined;
+                }
+            }
+            return undefined;
+        }
+        return props.height as number | undefined;
+    };
+
+    // 传入的data变化
+    createEffect(() => {
+        data = initData(props.data, rowKey);
+        queueMicrotask(() => {
+            setMaxHeight(calculateMaxHeight());
+        })
+        setStore('data', data);
+        setStore('checkedAll', false);
+    });
+
+    // 传入的columns变化
+    createEffect(() => {
+        const {maxFixedLeft, minFixedRight, columnsRows, calcColumns} = initColumns(props.columns);
+        setStore('columns', calcColumns);
+        setStore('columnsRows', columnsRows);
+        setStore('showFixedLeft', false);
+        setStore('showFixedRight', true);
     });
 
     // 滚动条滚动更新固定列
@@ -339,14 +366,25 @@ export function Table (props: TableProps) {
             })
         });
         ro.observe(body);
+        let ro2: any;
+        const parent = wrap.parentElement;
+        if (props.height === 'fitContainer') {
+            ro2 = new ResizeObserver((entries) => {
+                entries.forEach((entry) => {
+                    setMaxHeight(calculateMaxHeight())
+                });
+            });
+            ro2.observe(parent);
+        }
         onCleanup(() => {
             ro.unobserve(body);
+            ro2?.unobserve(parent);
         })
     })
 
     const style = () => ({
         ...props.style,
-        'max-height': props.height ? `${props.height}px` : '',
+        'max-height': maxHeight() ? `${maxHeight()}px` : '',
         // 'display': 'flex',
         // 'flex-direction': 'column'
     });
@@ -362,19 +400,19 @@ export function Table (props: TableProps) {
                 <Spin type="dot" title={props.loadingText || ''}/>
             </Show>
             <Show when={props.title}>
-                <div class="cm-table-title">{props.title}</div>
+                <div class="cm-table-title" ref={titleEl}>{props.title}</div>
             </Show>
             <div class="cm-table" style={style()} >
                 <Show when={props.showHeader ?? true}>
                     <Head data={store} sticky={isSticky()} onInitColumnWidth={onInitColumnWidth} onResizeHeader={onResizeHeader} virtual={props.virtual}/>
                 </Show>
-                <Body data={store} onScroll={onScrollBody} height={props.height} virtual={props.virtual}/>
+                <Body data={store} onScroll={onScrollBody} height={maxHeight()} virtual={props.virtual}/>
                 <Show when={props.showSummary}>
                     <Summary data={store} onResizeSummary={onResizeSummary} summaryMethod={props.summaryMethod}/>
                 </Show>
             </div>
             <Show when={props.footer}>
-                <div class="cm-table-footer">{props.footer}</div>
+                <div class="cm-table-footer" ref={footerEl}>{props.footer}</div>
             </Show>
         </div>
     </TableContext.Provider>;

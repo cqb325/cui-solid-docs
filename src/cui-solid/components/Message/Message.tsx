@@ -77,8 +77,8 @@ function Message (props: any) {
                 {data.content}
             </div>
             {
-                data.closeable ? <div class="cm-message-close">
-                    <FeatherX class="cm-message-close-icon" size={14} onClick={hide}/>
+                data.closeable ? <div class="cm-message-close" onClick={hide}>
+                    {data.closeIcon ? data.closeIcon : <FeatherX class="cm-message-close-icon" size={14}/>}
                 </div> : null
             }
         </div>

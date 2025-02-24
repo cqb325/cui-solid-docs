@@ -9,6 +9,7 @@ export interface NoticeConfig {
     theme?: 'success' | 'warning' | 'error' | 'info' | 'help';
     btn?: any;
     style?: any;
+    closeIcon?: JSXElement;
     onClose?: () => void;
 }
 export declare const notice: {

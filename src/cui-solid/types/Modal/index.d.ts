@@ -34,6 +34,7 @@ export interface ModalProps {
     maskClosable?: boolean;
     resetPostion?: boolean;
     hasCloseIcon?: boolean;
+    closeIcon?: JSXElement;
     fullScreen?: boolean;
     destroyOnClose?: boolean;
 }

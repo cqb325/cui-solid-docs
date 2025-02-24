@@ -1,3 +1,4 @@
+import type { JSXElement } from "solid-js";
 export interface MessageProps {
     key?: string;
     duration?: number;
@@ -6,6 +7,7 @@ export interface MessageProps {
     style?: any;
     content?: any;
     closeable?: boolean;
+    closeIcon?: JSXElement;
     background?: any;
     loading?: boolean;
     onClose?: (item?: any) => void;

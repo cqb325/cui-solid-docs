@@ -2,7 +2,7 @@ import { createEffect, createSignal, onCleanup } from "solid-js";
 import { clamp } from "./utils";
 import { isServer } from "solid-js/web";
 
-export function Hue(props: any) {
+export function Hue (props: any) {
     const [left, setLeft] = createSignal(clamp(props.value.hsl.h * 100 / 360, 0, 100));
     // const left = () => clamp(props.value.hsl.h * 100 / 360, 0, 100);
     let container: any;
